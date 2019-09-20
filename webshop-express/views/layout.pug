@@ -19,8 +19,17 @@ html
             li.nav-item
             a.nav-link(href="/products") Contact us
         ul.navbar-nav
-          li.nav-item
-            a.btn.btn-primary(href="/login") Log in
+          if loggedcustomer
+            li.nav-item
+              a.nav-link(href="/") #{loggedcustomer.firstName} #{loggedcustomer.lastName}
+            li.nav-item
+              a.nav-link(href="/")
+                img(src="/images/icons/shopping-cart.png", width="auto", height="20px")
+            li.nav-item
+              a.btn.btn-primary(href="/login/logout") Log out
+          else
+            li.nav-item
+              a.btn.btn-primary(href="/login") Log in
     br
 
     .container

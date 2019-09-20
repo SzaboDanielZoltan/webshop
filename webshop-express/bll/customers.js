@@ -30,12 +30,10 @@ module.exports = class customersBusinessLogicLayer {
         break;
       }
     }
-    console.log(validCustomer);
     return validCustomer;
   }
 
   async giveTokenForCustomer(customerID) {
-    console.log(customerID);
     let token = '';
     for (let i = 0; i < 50; i++) {
       const index = Math.round(Math.random() * 25 + 65);
@@ -50,5 +48,18 @@ module.exports = class customersBusinessLogicLayer {
     customer.token = token;
     await this.updateCustomer(customer);
     return token;
+  }
+
+  async tokenValidator(token) {
+    const customers = await this.getCustomers();
+    const validToken = { valid: false, customer: 'Not logged in' };
+    for (let i = 0; i < customers.length; i++) {
+      if (customers[i].token === token) {
+        validToken.valid = true;
+        validToken.customer = customers[i];
+        break;
+      }
+    }
+    return validToken;
   }
 };

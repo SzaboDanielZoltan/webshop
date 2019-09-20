@@ -9,6 +9,11 @@ router.get('/', (req, res, next) => {
   res.render('login');
 });
 
+router.get('/logout', (req, res, next) => {
+  res.clearCookie('custvalidator');
+  res.redirect('/');
+});
+
 router.post('/', async (req, res, next) => {
   const customer = await customersBLL.loginCustomerVerification(req.body);
   if (customer.valid) {
