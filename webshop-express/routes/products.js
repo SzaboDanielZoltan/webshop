@@ -12,8 +12,8 @@ router.get('/', async (req, res, next) => {
 
 /* Product detail page */
 router.get('/:address', async (req, res, next) => {
-    const result = await db.getOneProduct(1);
-    res.render('productDetail', { product: result });
+    const result = await db.getOneProductByPostfix(req.params.address);
+    res.render('productDetail', { product: result[0] });
 });
 
 

@@ -39,4 +39,9 @@ module.exports = class productsBusinessLogicLayer {
     const result= await db.makePostFix('products',prefixName,productId);
     return result;
   }
+
+  async getOneProductByPostfix(postfixName){
+    const result = await db.findPostfix('products',postfixName);
+    return result;
+  }
 };

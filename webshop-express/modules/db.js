@@ -86,4 +86,14 @@ module.exports = class DB {
     const result = await this.conn.query(query);
     return result;
   }
+
+  async findPostfix(table,record){
+    const query=`
+      SELECT *
+      FROM ${table}
+      WHERE urlPostfix='${record}';
+    `;
+    const result = await this.conn.query(query);
+    return result;
+  }  
 };
