@@ -3,6 +3,10 @@ const DB = require('../modules/db');
 const db = new DB();
 
 module.exports = class productsBusinessLogicLayer {
+  constructor() {
+
+  }
+
   async getProducts() {
     const result = await db.read('products');
     return result;
@@ -25,6 +29,14 @@ module.exports = class productsBusinessLogicLayer {
 
   async deleteProduct(productId) {
     const result = await db.delete('products', productId);
+    return result;
+  }
+
+  async createPostFix(productId) {
+    const getAllProducts = await db.read('products', productId);
+    const productName=getAllProducts.productName;
+    const prefixName= productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g,'-').replace(/---|--/g,'-');
+    const result= await db.makePostFix('products',prefixName,productId);
     return result;
   }
 };
