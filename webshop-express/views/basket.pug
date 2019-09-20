@@ -1,4 +1,28 @@
 extends layout
 
 block content
+  .container
+    .row
+      .col
+        table.table
+          thead
+            tr
+              th Ordered amount
+              th Product name
+              th Price
+              th Total price
+          each product in order
+            tbody
+              tr
+                td #{product.orderedAmount}
+                td #{product.productName}
+                td #{product.price}
+                td #{product.price*product.orderedAmount}
+          tfoot
+            tr
+              th
+              th
+              th
+              th #{total}
+
   a.btn.btn-warning(href='/basket/empty') Empty basket

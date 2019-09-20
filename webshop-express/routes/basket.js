@@ -13,7 +13,11 @@ router.get('/', async (req, res, next) => {
     const product = await productsBLL.getOneProduct(parseInt(productID, 10));
     product.orderedAmount = basket[productID];
     return product;
-  })).then(productsArray => res.render('basket', { order: productsArray }));
+  })).then((productsArray) => {
+    let totalPrice = 0;
+    productsArray.forEach(product => totalPrice += product.price * product.orderedAmount);
+    res.render('basket', { order: productsArray, total: totalPrice });
+  });
 });
 
 router.get('/add/:productID/:url', async (req, res, next) => {
