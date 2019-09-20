@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .container
+    .d-flex.justify-content-center.h-100
+      .card
+        .card-header
+          h3 Log In
+        .card-body
+          form(action='/login' method='post')
+            .input-group.form-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-envelope
+              input.form-control(name='email' type='text' placeholder='username')
+            .input-group.form-group
+              .input-group-prepend
+                span.input-group-text
+                  i.fa.fa-unlock-alt
+              input.form-control(name='password' type='password' placeholder='password')
+            .form-group
+              input.btn.btn-primary.float-right(type='submit' value='Log in')
+        .card-footer
+          .d-flex.justify-content-center
+            | Don&apos;t have an account?
+            a(href='#') Sign Up

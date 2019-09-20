@@ -3,6 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     nav.navbar.navbar-expand-lg.navbar-primary.bg-dark.sticky-top
@@ -17,6 +18,9 @@ html
             a.nav-link(href="/products") Products
             li.nav-item
             a.nav-link(href="/products") Contact us
+        ul.navbar-nav
+          li.nav-item
+            a.btn.btn-primary(href="/login") Log in
     br
 
     .container
