@@ -7,4 +7,8 @@ router.get('/', (req, res, next) => {
     res.render('products');
 });
 
+router.get('/*', (req, res, next) => {
+    res.render('productName404');
+});
+
 module.exports = router;

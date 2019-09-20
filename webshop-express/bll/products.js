@@ -27,4 +27,5 @@ module.exports = class productsBusinessLogicLayer {
     const result = await db.delete('products', productId);
     return result;
   }
+
 };
