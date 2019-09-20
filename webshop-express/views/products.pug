@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .container
+    .row
+      each product in products
+        .col-4
+          .card.card-deck
+            .card-header
+              a.btn.btn-primary Add to basket
+              img.card-img-top(src='/images/food1.jpg')
+            .card-body
+              h3 #{product.productName}
+              h5 #{product.type}
+              p #{product.price}
+              a.btn.btn-warning(href=`/products/${product.urlPostfix}`) Show me more
+
+
+
+
+

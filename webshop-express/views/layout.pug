@@ -2,6 +2,27 @@ doctype html
 html
   head
     title= title
+    link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    nav.navbar.navbar-expand-lg.navbar-primary.bg-dark.sticky-top
+      a.navbar-brand(href="/") Planet Pizza
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href="/") Home
+          li.nav-item
+            a.nav-link(href="/products") Products
+            li.nav-item
+            a.nav-link(href="/products") Contact us
+    br
+
+    .container
+      block content
+
+
+
+    script(src="/javascripts/jquery.min.js")
+    script(src="/bootstrap/dist/js/bootstrap.min.js")
