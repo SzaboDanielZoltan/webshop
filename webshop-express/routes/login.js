@@ -10,7 +10,10 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  if (await customersBLL.loginCustomerVerification(req.body)) {
+  const customer = await customersBLL.loginCustomerVerification(req.body);
+  if (customer.valid) {
+    const token = await customersBLL.giveTokenForCustomer(customer.customerID);
+    res.cookie('custvalidator', token);
     res.redirect('/');
   } else {
     res.redirect('/login');

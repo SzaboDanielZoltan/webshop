@@ -9,16 +9,46 @@ module.exports = class customersBusinessLogicLayer {
     return customers;
   }
 
+  async getOneCustomer(customerID) {
+    const customer = await db.read('customers', customerID);
+    return customer;
+  }
+
+  async updateCustomer(customer) {
+    const update = await db.update('customers', customer);
+    return update;
+  }
+
   async loginCustomerVerification(emailAndPasswordObject) {
     const customers = await this.getCustomers();
-    let validCustomer = false;
+    const validCustomer = { valid: false, customerID: 'Not registered' };
     for (let i = 0; i < customers.length; i++) {
       if (customers[i].email === emailAndPasswordObject.email
         && customers[i].password === sha1(emailAndPasswordObject.password)) {
-        validCustomer = true;
+        validCustomer.valid = true;
+        validCustomer.customerID = customers[i].id;
         break;
       }
     }
+    console.log(validCustomer);
     return validCustomer;
+  }
+
+  async giveTokenForCustomer(customerID) {
+    console.log(customerID);
+    let token = '';
+    for (let i = 0; i < 50; i++) {
+      const index = Math.round(Math.random() * 25 + 65);
+      const random = Math.round(Math.random() * 100);
+      if (random % 2 === 0) {
+        token += String.fromCharCode(index);
+      } else {
+        token += String.fromCharCode(index).toLowerCase();
+      }
+    }
+    const customer = await this.getOneCustomer(customerID);
+    customer.token = token;
+    await this.updateCustomer(customer);
+    return token;
   }
 };
