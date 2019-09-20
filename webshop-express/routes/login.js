@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/logout', (req, res, next) => {
   res.clearCookie('custvalidator');
-  res.redirect('/');
+  res.redirect('/products');
 });
 
 router.post('/', async (req, res, next) => {
@@ -19,7 +19,7 @@ router.post('/', async (req, res, next) => {
   if (customer.valid) {
     const token = await customersBLL.giveTokenForCustomer(customer.customerID);
     res.cookie('custvalidator', token);
-    res.redirect('/');
+    res.redirect('/products');
   } else {
     res.redirect('/login');
   }
