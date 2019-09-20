@@ -7,7 +7,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('products');
+  res.render('index');
 });
 
 // /* pls let run once and it will fill the postfix in SQL  */
