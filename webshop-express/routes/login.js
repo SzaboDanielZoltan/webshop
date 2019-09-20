@@ -9,8 +9,12 @@ router.get('/', (req, res, next) => {
   res.render('login');
 });
 
-router.post('/', (req, res, next) => {
-  res.json(req.body);
+router.post('/', async (req, res, next) => {
+  if (await customersBLL.loginCustomerVerification(req.body)) {
+    res.redirect('/');
+  } else {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;
