@@ -1,0 +1,56 @@
+.navbar {
+  color: cyan;
+}
+
+.navbar-inner {
+  background: transparent;
+  color: cyan;
+}
+
+#backgroundCover {
+  background: url("./../images/background/beerOnTheMoon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#astrodiv {
+  margin-top: 5%;
+  color: #fff;
+}
+
+#indexFooter {
+    background-color: rgba(0,0,0,.5);
+    padding: 35px 0;
+    position: absolute;
+    width: 150%;
+    bottom: 0;
+}
+
+/* Products page styling */
+
+.card {
+  height: calc(100% - 15px);
+  margin-bottom: 15px;
+}
+
+.card-header {
+  padding: 0;
+}
+
+#addToBasketBtn {
+  position: absolute;
+  top: 0;
+  left: 0;;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#showProductDetailsBtn {
+  margin-bottom: 10px;
+}
+
+#productsPageBackground {
+  background: url("./../images/background/altalanos1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

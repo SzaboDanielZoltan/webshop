@@ -4,16 +4,17 @@ block content
   .container
     .row
       each product in products
-        .col-4
-          .card.card-deck
+        .col.col-xs-12.col-md-6.col-lg-4
+          .card
             .card-header
-              a.btn.btn-primary Add to basket
-              img.card-img-top(src='/images/food1.jpg')
+              a.btn.btn-primary#addToBasketBtn Add to basket
+              img.card-img-top(src='/images/food1.jpg')(style="background:cover;")
             .card-body
               h3 #{product.productName}
               h5 #{product.type}
               p #{product.price}
-              a.btn.btn-warning(href=`/products/${product.urlPostfix}`) Show me more
+              .div.text-center
+                a.btn.btn-warning#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
 
 
 
