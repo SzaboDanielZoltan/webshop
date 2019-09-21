@@ -1,42 +1,43 @@
 extends layout
 
 block content
-  .container
-    select
-      option(value='10' selected) 10
-      option(value='15') 15
-      option(value='20') 20
-      option(value='25') 25     
-    - let limitNumber = 10
-    if numberOfproducts > limitNumber
-        nav(aria-label='Page navigation example')
-          ul.pagination.justify-content-center
-            - let x = 1;
-            - let y = numberOfproducts/limitNumber
-              li.page-item
-                a.page-link(href=`/products?page=${prevPage}&limit=${limitNumber}` aria-label='Previous')
-                  span(aria-hidden='true') &laquo;
-                  span.sr-only Previous
-              while x <= y
+  body#productsPageBackground
+    .container
+      select
+        option(value='10' selected) 10
+        option(value='15') 15
+        option(value='20') 20
+        option(value='25') 25     
+      - let limitNumber = 10
+      if numberOfproducts > limitNumber
+          nav(aria-label='Page navigation example')
+            ul.pagination.justify-content-center
+              - let x = 1;
+              - let y = numberOfproducts/limitNumber
                 li.page-item
-                  a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
-              li.page-item
-                a.page-link(href=`/products?page=${nextPage}&limit=${limitNumber}` aria-label='Next')
-                  span(aria-hidden='true') &raquo;
-                  span.sr-only Next
-    .row
-      each product in products
-        .col.col-xs-12.col-md-6.col-lg-4
-          .card
-            .card-header
-              a.btn.btn-primary#addToBasketBtn Add to basket
-              img.card-img-top(src='/images/food1.jpg')(style="background:cover;")
-            .card-body
-              h3 #{product.productName}
-              h5 #{product.type}
-              p #{product.price}
-              .div.text-center
-                a.btn.btn-warning#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
+                  a.page-link(href=`/products?page=${prevPage}&limit=${limitNumber}` aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                    span.sr-only Previous
+                while x <= y
+                  li.page-item
+                    a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
+                li.page-item
+                  a.page-link(href=`/products?page=${nextPage}&limit=${limitNumber}` aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+                    span.sr-only Next
+      .row(style="margin:auto;")
+        each product in products
+          .col.col-xs-12.col-md-6.col-lg-4
+            .card
+              .card-header
+                a.btn.btn-sm.btn-primary#addToBasketBtn Add to basket
+                img.card-img-top(src='/images/food1.jpg')
+              .card-body.text-center
+                h5 #{product.productName}
+                p #{product.type}
+                p #{product.price}
+                .div.text-center
+                  a.btn.btn-warning#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
 
 
 

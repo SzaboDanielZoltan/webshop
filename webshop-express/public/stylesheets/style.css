@@ -1,36 +1,64 @@
-.navbar {
-  color: cyan;
+/* Index page and navbar styling */
+
+@font-face {
+  font-family: spacebar;
+  src: url(./../fonts/SPACEBAR.ttf);
+}
+
+@font-face {
+  font-family: spacetext;
+  src: url(./../fonts/A-Space\ Bold\ Demo.otf);
 }
 
 .navbar-inner {
   background: transparent;
+}
+
+.navbar {
+  font-family: spacetext;
+}
+
+#loginNavLink {
   color: cyan;
 }
 
 #backgroundCover {
+  position: relative;
   background: url("./../images/background/beerOnTheMoon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #astrodiv {
-  margin-top: 5%;
+  margin-top: 3%;
   color: #fff;
 }
 
-#indexFooter {
+#astrodiv h1 {
+font-family: spacebar;
+}
+
+#astrodiv h4 {
+  font-family: spacetext;
+  }
+  
+
+
+/* #indexFooter {
     background-color: rgba(0,0,0,.5);
     padding: 35px 0;
     position: absolute;
     width: 150%;
     bottom: 0;
-}
+} */
 
 /* Products page styling */
 
 .card {
   height: calc(100% - 15px);
   margin-bottom: 15px;
+  border: none;
+  box-sizing: content-box;
 }
 
 .card-header {
@@ -47,10 +75,20 @@
 
 #showProductDetailsBtn {
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 #productsPageBackground {
-  background: url("./../images/background/altalanos1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("./../images/background/altalanos2.jpg");
+  position: absolute;
+  margin: 0;
+ 
+}
+
+#productDetailsPageMenu {
+  position: absolute;
+  color: #fff;
+  background-color: rgba(248, 248, 248, 0.3);
+  border: #fff;
+  margin: 0;
 }

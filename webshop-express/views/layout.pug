@@ -4,7 +4,7 @@ html
     title= title
     link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body#backgroundCover
+  body
     nav.navbar.navbar-expand-lg.navbar-dark.sticky-top
       a.navbar-brand(href="/") Explore the Foodyverse!
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
@@ -15,6 +15,8 @@ html
             a.nav-link(href="/products") Space meals 
             li.nav-item
             a.nav-link(href="#") Contact us
+            li.nav-item
+            a.nav-link#loginNavLink(href="#") Login/Register          
   .container
     block content
     
