@@ -4,13 +4,13 @@ const db = new bll();
 
 const router = express.Router();
 
-/* GET products page. */
+/* GET products page in order by productName ASC */
 router.get('/', async (req, res, next) => {
-    const result = await db.getProducts();
+    const result = await db.getProductsInOrder()
     res.render('products', { products: result });
 });
 
-/* Product detail page */
+/* GET product detail page */
 router.get('/:address', async (req, res, next) => {
     const result = await db.getOneProductByPostfix(req.params.address);
     res.render('productDetail', { product: result[0] });
