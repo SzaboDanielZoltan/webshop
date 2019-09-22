@@ -1,38 +1,48 @@
 <div class="text-center">
-    <h1>Edit product</h1>
+       <h1>Edit product</h1>
 </div>
-<form class="form"
-      (submit)="onUpdate()">
-    <label for="id">ID</label>
-    <input class="form-control"
-           type="text"
-           name="id"
-           placeholder="id"
-           [(ngModel)]="editProduct.id">
-    <label for="name">Name</label>
-    <input class="form-control"
-           type="text"
-           name="name"
-           placeholder="Name"
-           [(ngModel)]="editProduct.name">
-    <label for="url">URL</label>
-    <input class="form-control"
-           type="text"
-           name="url"
-           placeholder="URL"
-           [(ngModel)]="editProduct.urlPostfix"
-           disabled>
-    <label for="type">Type</label>
-    <input class="form-control"
-           type="text"
-           name="type"
-           placeholder="Type"
-           [(ngModel)]="editProduct.type">
-    <label for="price">Price</label>
-    <input class="form-control"
-           type="text"
-           name="price"
-           placeholder="Price"
-           [(ngModel)]="editProduct.price">
-    <button class="btn btn-info">Update</button>
-</form>
+<div class="d-flex justify-content-center">
+       <div class="newInputs">
+              <form class="form"
+                    (submit)="onUpdate()">
+                     <div class="text-center"><label for="id">ID</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="id"
+                            id="id"
+                            placeholder="id"
+                            [(ngModel)]="editProduct.id">
+                     <div class="text-center"><label for="name">Name</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Name"
+                            [(ngModel)]="editProduct.name">
+                     <div class="text-center"><label for="urlPostfix">URL</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="urlPostfix"
+                            id="urlPostfix"
+                            placeholder="URL"
+                            [(ngModel)]="editProduct.urlPostfix"
+                            disabled>
+                     <div class="text-center"><label for="type">Type</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="type"
+                            id="type"
+                            placeholder="Type"
+                            [(ngModel)]="editProduct.type">
+                     <div class="text-center"><label for="price">Price</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="price"
+                            id="price"
+                            placeholder="Price"
+                            [(ngModel)]="editProduct.price">
+                     <br>
+                     <div class="text-center"><button class="btn btn-info">Update</button></div>
+              </form>
+       </div>
+</div>
