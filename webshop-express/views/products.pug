@@ -3,46 +3,48 @@ extends layout
 block content
   body#productsPageBackground
     .container
-      if displayItem
-        - let limitNumber = displayItem
-      - let limitNumber = 10
-      form(method="PUT" action="/products")
-        .form-group
-          select.form-control(name="page=1&limit")
-            option(value='10' selected) 10
-            option(value='15') 15
-            option(value='20') 20
-            option(value='25') 25
-        button.btn.btn-primary(type='submit') Sign in         
-      if numberOfproducts > limitNumber
-        nav(aria-label='Page navigation example')
-          ul.pagination.justify-content-center
-            - let x = 1;
-            - let y = numberOfproducts/limitNumber
-              li.page-item
-                a.page-link(href=`/products?page=${prevPage}&limit=${limitNumber}` aria-label='Previous')
-                  span(aria-hidden='true') &laquo;
-                  span.sr-only Previous
-              while x <= y
-                  li.page-item
-                    a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
-              li.page-item
-                a.page-link(href=`/products?page=${nextPage}&limit=${limitNumber}` aria-label='Next')
-                  span(aria-hidden='true') &raquo;
-                  span.sr-only Next
-        .row(style="margin:auto;")
-          each product in products
-            .col.col-xs-12.col-md-6.col-lg-4
-              .card
-                .card-header
-                  a.btn.btn-sm.btn-primary#addToBasketBtn Add to basket
-                  img.card-img-top(src='/images/food1.jpg')
-                .card-body.text-center
-                  h5 #{product.productName}
-                  p #{product.type}
-                  p #{product.price}
-                  .div.text-center
-                    a.btn.btn-warning#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
+        if displayItem
+          - let limitNumber = displayItem
+        - let limitNumber = 10
+        form.form-inline(method="GET" action="/products")
+          .form-group
+            select.form-control(name="limit")
+              option(value='10') 10
+              option(value='15') 15
+              option(value='20') 20
+              option(value='25') 25
+            span.input-group-btn  
+              button.btn.btn-light(type='submit') View         
+        if numberOfproducts > limitNumber
+          nav(aria-label='Page navigation example')
+            ul.pagination.justify-content-center
+              - let x = 1;
+              - let y = Math.round(numberOfproducts/limitNumber) 
+                li.page-item
+                  a.page-link(href=`/products?page=${prevPage}&limit=${limitNumber}` aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+                    span.sr-only Previous
+                while x <= y
+                    li.page-item
+                      a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
+                li.page-item
+                  a.page-link(href=`/products?page=${nextPage}&limit=${limitNumber}` aria-label='Next')
+                    span(aria-hidden='true') &raquo;
+                    span.sr-only Next
+          .row(style="margin:auto;")
+            each product , index in products
+              if index < limitNumber
+                .col.col-xs-12.col-md-6.col-lg-4
+                  .card
+                    .card-header
+                      a.btn.btn-sm.btn-primary#addToBasketBtn Add to basket
+                      img.card-img-top(src='/images/food1.jpg')
+                    .card-body.text-center
+                      h5 #{product.productName}
+                      p #{product.type}
+                      p #{product.price}
+                      .div.text-center
+                        a.btn.btn-warning#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
 
 
 
