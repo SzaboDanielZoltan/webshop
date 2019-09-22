@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
         }
     });
     let previosPage = req.query.page - 1;
-    let nextOnePage = req.query.page + 1;
+    let nextOnePage = parseInt(req.query.page)+1;
     let currentPageData = getData.slice(getData.length - req.query.limit,getData.length)
     return res.render('products', { products: currentPageData, numberOfproducts : resultSize,
     prevPage: previosPage , nextPage : nextOnePage})

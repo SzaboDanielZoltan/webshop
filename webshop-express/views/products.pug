@@ -2,12 +2,17 @@ extends layout
 
 block content
   .container
-    select
-      option(value='10' selected) 10
-      option(value='15') 15
-      option(value='20') 20
-      option(value='25') 25     
+    if displayItem
+      - let limitNumber = displayItem
     - let limitNumber = 10
+    form(method="PUT" action="/products")
+      .form-group
+        select.form-control(name="page=1&limit")
+          option(value='10' selected) 10
+          option(value='15') 15
+          option(value='20') 20
+          option(value='25') 25
+      button.btn.btn-primary(type='submit') Sign in         
     if numberOfproducts > limitNumber
         nav(aria-label='Page navigation example')
           ul.pagination.justify-content-center
