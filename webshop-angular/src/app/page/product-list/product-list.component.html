@@ -35,7 +35,8 @@
                 <div class="btn-group">
                     <a class="btn btn-info"
                        routerLink="/update/{{product.id}}">Edit</a>
-                    <a class="btn btn-danger">Delete</a>
+                    <a class="btn btn-danger"
+                       (click)="onDelete(product.id)">Delete</a>
                 </div>
             </td>
         </tr>

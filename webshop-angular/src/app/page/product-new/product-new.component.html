@@ -11,13 +11,14 @@
                             type="text"
                             name="name"
                             placeholder="Name"
-                            [(ngModel)]="newProduct.name">
-                     <label for="urlPostfix">Skills</label>
+                            [(ngModel)]="newProduct.name"
+                            (ngModelChange)="updateUrlPostfix($event)">
+                     <label for="urlPostfix">Url-Postfix</label>
                      <input class="form-control disable"
                             type="text"
                             name="urlPostfix"
-                            placeholder="Postfix"
-                            [(ngModel)]="newProduct.urlPostfix">
+                            [ngModel]="newProduct.name | searchFriendlyName"
+                            disabled>
                      <label for="type">Type</label>
                      <input class="form-control"
                             type="text"

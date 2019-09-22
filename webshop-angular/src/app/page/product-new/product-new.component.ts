@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
+import { SearchFriendlyNamePipe } from "../../pipe/search-friendly-name.pipe"
 
 @Component({
   selector: 'app-product-new',
@@ -11,10 +12,15 @@ import { Product } from 'src/app/model/product';
 export class ProductNewComponent implements OnInit {
 
   newProduct: Product = new Product();
+  urlPostfixPipe: PipeTransform = new SearchFriendlyNamePipe();
 
   constructor(private ps: ProductService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  updateUrlPostfix(value) {
+    this.newProduct.urlPostfix = this.urlPostfixPipe.transform(value);
   }
 
   onCreate() {
