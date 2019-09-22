@@ -1,3 +1,20 @@
+<div class="text-center">
+    <h2> Products admin page </h2>
+</div>
+<br>
+<div class="text-center">
+    <a routerLink="/new"
+       class="btn btn-info">New product</a>
+
+</div>
+<br>
+<div class="text-center searchInput ">
+    <input type="text"
+           class="form-control"
+           [(ngModel)]="searchText"
+           placeholder="Search">
+</div>
+<br>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -23,3 +40,28 @@
         </tr>
     </tbody>
 </table>
+<div class="position-sticky col-12">
+    <div class="row">
+        <div class="col-3">
+            <p>Selected product</p>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-2">
+            <p>ID</p>
+        </div>
+        <div class="col-2">
+            <p>Name</p>
+        </div>
+        <div class="col-3">
+            <p>Postfix</p>
+        </div>
+        <div class="col-2">
+            <p>Type</p>
+        </div>
+        <div class="col-3">
+            <p>price</p>
+        </div>
+    </div>
+</div>
