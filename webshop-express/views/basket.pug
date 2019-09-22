@@ -11,6 +11,7 @@ block content
               th Product name
               th Price
               th Total price
+              th #
           each product in order
             tbody
               tr
@@ -18,11 +19,14 @@ block content
                 td #{product.productName}
                 td #{product.price}
                 td #{product.price*product.orderedAmount}
+                td
+                  a.btn.btn-danger(href=`/basket/remove/${product.id}`) Remove
           tfoot
             tr
               th
               th
               th
               th #{total}
+              th
 
   a.btn.btn-warning(href='/basket/empty') Empty basket
