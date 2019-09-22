@@ -25,10 +25,7 @@ html
             li.nav-item
               a.nav-link(href="/basket")
                 img(src="/images/icons/shopping-cart.png", width="auto", height="20px")
-                sup
-                  span.fa-stack
-                    span.fa.fa-circle-o.fa-stack-2x
-                    strong.fa-stack-1x #{basketValue}
+                sup #{basketValue}
             li.nav-item
               a.btn.btn-primary(href="/login/logout") Log out
           else
@@ -41,5 +38,6 @@ html
 
 
 
+    script(src="/javascripts/basket.js")
     script(src="/javascripts/jquery.min.js")
     script(src="/bootstrap/dist/js/bootstrap.min.js")

@@ -52,4 +52,14 @@ router.get('/empty', async (req, res, next) => {
   res.redirect('/basket');
 });
 
+router.get('/customer/:customerID', async (req, res, next) => {
+  const result = await customersBLL.getOneCustomer(parseInt(req.params.customerID, 10));
+  res.json(result);
+});
+
+router.put('/customer/:customerID', async (req, res, next) => {
+  const result = await customersBLL.updateCustomer(req.body);
+  res.json(result);
+});
+
 module.exports = router;

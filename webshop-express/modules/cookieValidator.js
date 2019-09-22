@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
   if (validate.valid) {
     res.locals.loggedcustomer = validate.customer;
     if (validate.customer.basket !== '{}') {
-      res.locals.basketValue = Object.values(JSON.parse(validate.customer.basket)).reduce((a, b) => a + b);
+      res.locals.basketValue = Object.keys(JSON.parse(validate.customer.basket)).length;
     } else {
       res.locals.basketValue = 0;
     }
