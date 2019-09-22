@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
     const result = await db.getProductsInOrder()
     const resultSize = result.length
+    const viewSize = req.cookies.viewSize;
 
     /*If you have query string, then this will run, if not just normal render*/
     if (req.query.limit && req.query.page != undefined) {
@@ -23,7 +24,7 @@ router.get('/', async (req, res, next) => {
             let currentPageData = getData.slice(getData.length - req.query.limit, getData.length)
             return res.render('products', {
                 products: currentPageData, numberOfproducts: resultSize,
-                prevPage: previosPage, nextPage: nextOnePage
+                prevPage: previosPage, nextPage: nextOnePage, displaySize: viewSize
             })
         } else if (req.query.page >= resultSize / req.query.limit) {
             let previosPage = 1;
@@ -31,7 +32,7 @@ router.get('/', async (req, res, next) => {
             let currentPageData = getData.slice(getData.length - req.query.limit, getData.length)
             return res.render('products', {
                 products: currentPageData, numberOfproducts: resultSize,
-                prevPage: previosPage, nextPage: nextOnePage
+                prevPage: previosPage, nextPage: nextOnePage, displaySize: viewSize
             })
         }
         let previosPage = req.query.page - 1;
@@ -39,12 +40,17 @@ router.get('/', async (req, res, next) => {
         let currentPageData = getData.slice(getData.length - req.query.limit, getData.length)
         return res.render('products', {
             products: currentPageData, numberOfproducts: resultSize,
-            prevPage: previosPage, nextPage: nextOnePage
+            prevPage: previosPage, nextPage: nextOnePage, displaySize: viewSize
         })
     }
 
-    res.render('products', { products: result, numberOfproducts: resultSize });
+    res.render('products', { products: result, numberOfproducts: resultSize, displaySize: viewSize });
 });
+
+router.post('/', (req, res, next) => {
+    res.cookie('viewSize', req.body.limit, { expire: 31556952 + Date.now() });
+    res.redirect('/products');
+})
 
 /* GET product detail page */
 router.get('/:address', async (req, res, next) => {
