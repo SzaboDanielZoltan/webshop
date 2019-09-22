@@ -1,1 +1,38 @@
-<p>product-edit works!</p>
+<div class="text-center">
+    <h1>Edit product</h1>
+</div>
+<form class="form"
+      (submit)="onUpdate()">
+    <label for="id">ID</label>
+    <input class="form-control"
+           type="text"
+           name="id"
+           placeholder="id"
+           [(ngModel)]="editProduct.id">
+    <label for="name">Name</label>
+    <input class="form-control"
+           type="text"
+           name="name"
+           placeholder="Name"
+           [(ngModel)]="editProduct.name">
+    <label for="url">URL</label>
+    <input class="form-control"
+           type="text"
+           name="url"
+           placeholder="URL"
+           [(ngModel)]="editProduct.urlPostfix"
+           disabled>
+    <label for="type">Type</label>
+    <input class="form-control"
+           type="text"
+           name="type"
+           placeholder="Type"
+           [(ngModel)]="editProduct.type">
+    <label for="price">Price</label>
+    <input class="form-control"
+           type="text"
+           name="price"
+           placeholder="Price"
+           [(ngModel)]="editProduct.price">
+    <button class="btn btn-info">Update</button>
+</form>

@@ -33,14 +33,15 @@
             <td>{{ product.department }}</td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-info">Edit product</a>
+                    <a class="btn btn-info"
+                       routerLink="/update/{{product.id}}">Edit</a>
                     <a class="btn btn-danger">Delete</a>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
-<div class="position-sticky col-12">
+<!--<div class="position-sticky col-12">
     <div class="row">
         <div class="col-3">
             <p>Selected product</p>
@@ -64,4 +65,4 @@
             <p>price</p>
         </div>
     </div>
-</div>
+</div>-->

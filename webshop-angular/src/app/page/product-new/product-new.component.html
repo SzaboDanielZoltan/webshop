@@ -1,36 +1,37 @@
 <div class="text-center">
-    <h2>New product - admin</h2>
+       <h2>New product - admin</h2>
 </div>
 <br>
-<div class="justify-content-center">
-    <div class="newInputs">
-        <form class="form"
-              (submit)="onCreate()">
-            <label for="name">Name</label>
-            <input class="form-control"
-                   type="text"
-                   name="name"
-                   placeholder="Name"
-                   [(ngModel)]="newProduct.name">
-            <label for="urlPostfix">Skills</label>
-            <input class="form-control disable"
-                   type="text"
-                   name="urlPostfix"
-                   placeholder="Postfix"
-                   [(ngModel)]="newProduct.urlPostfix">
-            <label for="type">Type</label>
-            <input class="form-control"
-                   type="text"
-                   name="type"
-                   placeholder="Type"
-                   [(ngModel)]="newProduct.type">
-            <label for="price">Price</label>
-            <input class="form-control"
-                   type="text"
-                   name="price"
-                   placeholder="price"
-                   [(ngModel)]="newProduct.price">
-            <button class="btn btn-info">Új member hozzáadása</button>
-        </form>
-    </div>
+<div class="d-flex justify-content-center">
+       <div class="newInputs">
+              <form class="form"
+                    (submit)="onCreate()">
+                     <label for="name">Name</label>
+                     <input class="form-control"
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            [(ngModel)]="newProduct.name">
+                     <label for="urlPostfix">Skills</label>
+                     <input class="form-control disable"
+                            type="text"
+                            name="urlPostfix"
+                            placeholder="Postfix"
+                            [(ngModel)]="newProduct.urlPostfix">
+                     <label for="type">Type</label>
+                     <input class="form-control"
+                            type="text"
+                            name="type"
+                            placeholder="Type"
+                            [(ngModel)]="newProduct.type">
+                     <label for="price">Price</label>
+                     <input class="form-control"
+                            type="text"
+                            name="price"
+                            placeholder="price"
+                            [(ngModel)]="newProduct.price">
+                     <br>
+                     <div class="text-center"><button class="btn btn-info">Add</button></div>
+              </form>
+       </div>
 </div>

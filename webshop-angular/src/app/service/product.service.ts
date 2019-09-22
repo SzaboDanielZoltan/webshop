@@ -8,7 +8,7 @@ import { Product } from '../model/product';
 })
 export class ProductService {
 
-  url: string = 'http://localhost:3000/products';
+  url: string = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
   access(): void {
