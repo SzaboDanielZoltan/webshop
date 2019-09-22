@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const favicon = require('serve-favicon');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -19,6 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// Favicon middleware added
+app.use(favicon(path.join(__dirname, 'public', 'images', 'icons', 'favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
