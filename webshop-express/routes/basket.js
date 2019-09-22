@@ -22,17 +22,17 @@ router.get('/', async (req, res, next) => {
 });
 
 // adding products to customer basket
-router.get('/add/:productID/:url', async (req, res, next) => {
+router.post('/add/:productID', async (req, res, next) => {
   const basket = JSON.parse(res.locals.loggedcustomer.basket);
   const productID = req.params.productID;
   if (!basket[productID]) {
-    basket[productID] = 1;
+    basket[productID] = parseInt(req.body.orderQuantity);
   } else {
-    basket[productID] += 1;
+    basket[productID] += parseInt(req.body.orderQuantity);
   }
   res.locals.loggedcustomer.basket = JSON.stringify(basket);
   await customersBLL.updateCustomer(res.locals.loggedcustomer);
-  res.redirect(`/products/${req.params.url}`);
+  res.redirect('/products');
 });
 
 // remove product from basket
