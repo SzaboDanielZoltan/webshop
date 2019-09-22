@@ -4,34 +4,20 @@ block content
   body#productsPageBackground(min-width:100%)
     .container        
       .row
-        .col-12
+        .col.col-xs-6.col-md-3  
           - let limitNumber = displaySize || 10
           form.form-inline.mt-3.mb-3(method="POST" action="/products")
             .form-group
-              select.form-control(name="limit")
+              select.form-control.pageLimitSelector(name="limit")
                 option(value='10') 10
                 option(value='15') 15
                 option(value='20') 20
                 option(value='25') 25
               span.input-group-btn  
-                button.btn.btn-light(type='submit') View 
-      .row                 
-        each product , index in products
-          if index < limitNumber
-            .col.col-xs-12.col-md-6.col-lg-4
-              .card
-                .card-header
-                  a.btn.btn-sm.btn-primary#addToBasketBtn Add to basket
-                  img.card-img-top(src='/images/food1.jpg')
-                .card-body.text-center
-                  h5 #{product.productName}
-                  p #{product.type}
-                  p #{product.price}
-                  .div.text-center
-                    a.btn.btn-warning#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
-        .col-12                       
+                button.btn.btn-light.pageLimitSelector(type='submit') View 
+        .col.col-xs-6.col-md-8.mt-3.mb-3.ml-3                      
           if numberOfproducts > limitNumber
-            nav(aria-label='Page navigation example')
+            nav(aria-label='Page navigation')
               ul.pagination.justify-content-center
                 - let x = 1;
                 - let y = Math.round(numberOfproducts/limitNumber) 
@@ -40,14 +26,31 @@ block content
                       span(aria-hidden='true') &laquo;
                       span.sr-only Previous
                   while x <= y
-                      li.page-item
-                        a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
+                    li.page-item
+                      a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
                   li.page-item
                     a.page-link(href=`/products?page=${nextPage}&limit=${limitNumber}` aria-label='Next')
                       span(aria-hidden='true') &raquo;
-                      span.sr-only Next        
+                      span.sr-only Next   
 
-
+      .row.card-group                 
+        each product , index in products
+          if index < limitNumber
+            .col.col-xs-12.col-md-6.col-lg-4.d-flex.align-items-stretch
+              .card
+                .card-header
+                  a.btn.btn-sm.btn-primary#addToBasketBtn Add to basket
+                  img.card-img-top(src='/images/food1.jpg')
+                .card-body
+                  table
+                    tr 
+                      td.mr-1
+                        h6 #{product.productName}
+                        p #{product.type}
+                      td.ml-2  
+                        p #{product.price} Galaxy Dollars
+                  .col-12.text-center
+                    a.btn.btn-sm#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
 
 
 
