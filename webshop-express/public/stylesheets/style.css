@@ -27,6 +27,7 @@
   background: url("./../images/background/beerOnTheMoon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 #astrodiv {
