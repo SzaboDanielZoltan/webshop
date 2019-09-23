@@ -1,6 +1,6 @@
 export class Product {
     id: number;
-    name: string;
+    productName: string;
     urlPostfix: string;
     type: string;
     price: number;
