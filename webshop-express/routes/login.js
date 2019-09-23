@@ -1,7 +1,9 @@
 const express = require('express');
 const CustomersBLL = require('./../bll/customers');
+const AdminsBLL = require('./../bll/admins');
 
 const customersBLL = new CustomersBLL();
+const adminsBLL = new AdminsBLL();
 const router = express.Router();
 
 
@@ -12,6 +14,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/logout', (req, res, next) => {
   res.clearCookie('custvalidator');
+  res.clearCookie('adminvalidator');
   res.redirect('/products');
 });
 
@@ -22,6 +25,12 @@ router.post('/', async (req, res, next) => {
     res.cookie('custvalidator', token);
     res.redirect('/products');
   } else {
+    const admin = await adminsBLL.loginAdminVerification(req.body);
+    if (admin.valid) {
+      const token = await adminsBLL.giveTokenForAdmin(admin.adminID);
+      res.cookie('adminvalidator', token);
+      res.redirect('/admin');
+    }
     res.redirect('/login');
   }
 });
