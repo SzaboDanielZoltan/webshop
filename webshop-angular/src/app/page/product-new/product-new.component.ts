@@ -36,7 +36,7 @@ export class ProductNewComponent implements OnInit , OnDestroy {
 
 
   updateUrlPostfix(value) {
-    this.newProduct.urlPostfix = this.urlPostfixPipe.transform(value);
+    this.newProduct.urlPostfix = this.urlPostfixPipe.transform(value, this.productList);
   }
 
   onCreate() {

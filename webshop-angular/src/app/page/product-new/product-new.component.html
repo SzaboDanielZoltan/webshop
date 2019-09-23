@@ -15,7 +15,8 @@
                             [(ngModel)]="newProduct.productName"
                             (ngModelChange)="updateUrlPostfix($event)"
                             required
-                            #newName='ngModel'>
+                            #newName='ngModel'
+                            pattern="^[A-Za-z0-9]( ?[A-Za-z0-9] ?)*$">
                             <p  *ngIf="newName.invalid && newName.touched" class="text-danger">Invalid!</p>       
                      <div class="text-center"><label for="urlPostfix">Url-Postfix</label></div>
                      <input class="form-control disable"
@@ -23,7 +24,11 @@
                             name="urlPostfix"
                             id="urlPostfix"
                             [ngModel]="newProduct.productName | searchFriendlyName : productList "
-                            disabled>
+                            required
+                            readonly
+                            #newUrl='ngModel'
+                            pattern="^(?!This postfix is already exist).*$">
+                            <p  *ngIf="newUrl.invalid" class="text-danger">Invalid!</p>
                      <div class="text-center"><label for="type">Type</label></div>
                      <input class="form-control"
                             type="text"
@@ -36,13 +41,14 @@
                             <p  *ngIf="newType.invalid && newType.touched" class="text-danger">Invalid!</p>    
                      <div class="text-center"><label for="price">Price</label></div>
                      <input class="form-control"
-                            type="text"
+                            type="number"
                             name="price"
                             id="price"
                             placeholder="price"
                             [(ngModel)]="newProduct.price"
                             required
-                            #newPrice='ngModel'>
+                            #newPrice='ngModel'
+                            min="1">
                             <p  *ngIf="newPrice.invalid && newPrice.touched" class="text-danger">Invalid!</p>    
                      <br>
                      <div class="text-center">
