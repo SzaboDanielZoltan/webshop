@@ -55,7 +55,7 @@ router.post('/', (req, res, next) => {
 /* GET product detail page */
 router.get('/:address', async (req, res, next) => {
     const result = await db.getOneProductByPostfix(req.params.address);
-    res.render('productDetail', { product: result[0] });
+    res.render('productDetail', { product: result });
 });
 
 

@@ -33,15 +33,23 @@ module.exports = class productsBusinessLogicLayer {
   }
 
   async createPostFix(productId) {
-    const getAllProducts = await db.read('products', productId);
-    const productName=getAllProducts.productName;
+    const getProduct = await db.read('products', parseInt(productId));
+    const productName=getProduct.productName;
     const prefixName= productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g,'-').replace(/---|--/g,'-');
-    const result= await db.makePostFix('products',prefixName,productId);
+    const updatedProduct = {id:productId, urlPostfix:prefixName};
+    const result= await db.update('products', updatedProduct);
     return result;
   }
 
   async getOneProductByPostfix(postfixName){
-    const result = await db.findPostfix('products',postfixName);
+    let result={};
+    const getAllProducts=await db.read('products');
+    for(let i=0;i<getAllProducts.length; i++){
+      if(getAllProducts[i].urlPostfix===postfixName){
+        result = getAllProducts[i];
+        break;
+      }
+    }
     return result;
   }
 
