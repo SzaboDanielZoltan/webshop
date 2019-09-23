@@ -4,18 +4,18 @@ block content
     link(href='/stylesheets/login.css', rel='stylesheet')
     .container.login-container
       .row
-        .col-md-6.login-form
+        form.col-md-6.login-form(action='/login' method='post')
           h3 Login
           .form-group
-            input.form-control(type='text', placeholder='Your Email *', value='')
+            input.form-control(name='email' type='text' placeholder='email')
           .form-group
-            input.form-control(type='password', placeholder='Your Password *', value='')
+            input.form-control(name='password' type='password' placeholder='password')
           br
           .form-group
             input.btnSubmit(type='submit', value='Login')
           .form-group
             a.btnForgetPwd(href='#') Forget Password?
-        .col-md-6.registration-form
+        form.col-md-6.registration-form
           .login-logo
             img(src='https://image.ibb.co/n7oTvU/logo_white.png', alt='')
           h3 Register
@@ -26,4 +26,3 @@ block content
           br  
           .form-group
             input.btnSubmit(type='submit', value='Register')
-

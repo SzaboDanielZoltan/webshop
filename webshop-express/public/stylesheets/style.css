@@ -1,3 +1,13 @@
+input[name="orderedAmount"] {
+  width: 55px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border: 1px solid #dfdfdf !important;
+  background-color: #dfdfdf !important;
+  border-radius: 10px;
+}
+
 /* Index page and navbar styling */
 
 @font-face {
