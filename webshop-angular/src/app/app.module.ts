@@ -12,6 +12,8 @@ import { ProductEditComponent } from './page/product-edit/product-edit.component
 import { SearchFriendlyNamePipe } from './pipe/search-friendly-name.pipe';
 import { CustomerListComponent } from './page/customer-list/customer-list.component';
 import { CustomerEditComponent } from './page/customer-edit/customer-edit.component';
+import { ProductFilterPipe } from './pipe/product-filter.pipe';
+import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CustomerEditComponent } from './page/customer-edit/customer-edit.compon
     ProductEditComponent,
     SearchFriendlyNamePipe,
     CustomerListComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    ProductFilterPipe,
+    UrlPostfixValidatePipe
   ],
   imports: [
     BrowserModule,

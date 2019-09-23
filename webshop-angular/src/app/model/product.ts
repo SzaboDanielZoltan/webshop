@@ -1,7 +1,7 @@
 export class Product {
-    id: number;
-    name: string;
-    urlPostfix: string;
-    type: string;
-    price: number;
+  id: number;
+  productName: string;
+  urlPostfix: string;
+  type: string;
+  price: number;
 }
