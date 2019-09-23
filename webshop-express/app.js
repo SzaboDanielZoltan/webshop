@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const loginRouter = require('./routes/login');
 const basketRouter = require('./routes/basket');
+const apiRouter = require('./routes/api');
 
 const app = express();
 
@@ -25,6 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Favicon middleware added
 app.use(favicon(path.join(__dirname, 'public', 'images', 'icons', 'favicon.ico')));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+  next();
+})
+
 app.use(require('./modules/cookieValidator'));
 
 app.use('/', indexRouter);
@@ -32,6 +40,7 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/login', loginRouter);
 app.use('/basket', basketRouter);
+app.use('/api', apiRouter);
 
 
 // catch 404 and forward to error handler

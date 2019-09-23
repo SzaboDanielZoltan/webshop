@@ -10,6 +10,8 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { ProductNewComponent } from './page/product-new/product-new.component';
 import { ProductEditComponent } from './page/product-edit/product-edit.component';
 import { SearchFriendlyNamePipe } from './pipe/search-friendly-name.pipe';
+import { ProductFilterPipe } from './pipe/product-filter.pipe';
+import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { SearchFriendlyNamePipe } from './pipe/search-friendly-name.pipe';
     ProductListComponent,
     ProductNewComponent,
     ProductEditComponent,
-    SearchFriendlyNamePipe
+    SearchFriendlyNamePipe,
+    ProductFilterPipe,
+    UrlPostfixValidatePipe
   ],
   imports: [
     BrowserModule,
