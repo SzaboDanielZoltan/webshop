@@ -18,14 +18,14 @@
                             name="name"
                             id="name"
                             placeholder="Name"
-                            [(ngModel)]="editProduct.productName">
+                            [(ngModel)]="editProduct.productName"
+                            (ngModelChange)="updateUrlPostfix($event)">
                      <div class="text-center"><label for="urlPostfix">URL</label></div>
                      <input class="form-control"
                             type="text"
                             name="urlPostfix"
                             id="urlPostfix"
-                            placeholder="URL"
-                            [(ngModel)]="editProduct.urlPostfix"
+                            [ngModel]="editProduct.productName | searchFriendlyName : productList :editProduct.id"
                             disabled>
                      <div class="text-center"><label for="type">Type</label></div>
                      <input class="form-control"
