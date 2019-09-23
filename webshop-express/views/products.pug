@@ -1,37 +1,57 @@
 extends layout
 
 block content
-  h1 EZ ITTEN A PRODUCTS OLDAL HELYE
-  p Majd rendesen behúzzuk az adatokat, ha lesz honnan, addig is, ez egy placeholder
+  body#productsPageBackground(min-width:100%)
+    .container        
+      .row
+        .col.col-xs-6.col-md-3  
+          - let limitNumber = displaySize || 10
+          form.form-inline.mt-3.mb-3(method="POST" action="/products")
+            .form-group
+              select.form-control.pageLimitSelector(name="limit")
+                -let viewArray = [10,15,20,25,50];
+                each view in viewArray
+                  if view == displaySize
+                    option(value=`${view}` selected) #{view}
+                  else 
+                    option(value=`${view}`) #{view}                  
+              span.input-group-btn  
+                button.btn.btn-light.pageLimitSelector(type='submit') View 
+      .row.card-group                 
+        each product , index in products
+          if index < limitNumber
+            .col.col-xs-12.col-md-6.col-lg-4.d-flex.align-items-stretch
+              .card
+                .card-header
+                  a.btn.btn-sm.btn-primary#addToBasketBtn Add to basket
+                  img.card-img-top(src='/images/food1.jpg')
+                .card-body
+                  table
+                    tr 
+                      td.mr-1
+                        h6 #{product.productName}
+                        p #{product.type}
+                      td.ml-2  
+                        p #{product.price} Galaxy Dollars
+                  .col-12.text-center
+                    a.btn.btn-sm#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
+        .col.col-xs-6.col-md-8.mt-3.mb-3.ml-3                      
+          if numberOfproducts > limitNumber
+            nav(aria-label='Page navigation')
+              ul.pagination.justify-content-center
+                - let x = 1;
+                - let y = Math.round(numberOfproducts/limitNumber) 
+                  li.page-item
+                    a.page-link(href=`/products?page=${prevPage || 1 }&limit=${limitNumber}` aria-label='Previous')
+                      span(aria-hidden='true') &laquo;
+                      span.sr-only Previous
+                  while x <= y
+                    li.page-item
+                      a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
+                  li.page-item
+                    a.page-link(href=`/products?page=${nextPage || 1 }&limit=${limitNumber}` aria-label='Next')
+                      span(aria-hidden='true') &raquo;
+                      span.sr-only Next    
 
-  table.table
-    thead.thead-dark
-      tr
-        th(scope='col') #
-        th(scope='col') Yummies 
-        th(scope='col') Yummie types
-        th(scope='col') Price
-        th(scope='col') Button place
-    tbody
-      tr
-        th(scope='row') 1
-        td Mark
-        td Otto
-        td @mdo
-        td
-            btn.btn.btn-info Show me more
-      tr
-        th(scope='row') 2
-        td Jacob
-        td Thornton
-        td @fat
-        td
-            button.btn.btn-info Show me more
-      tr
-        th(scope='row') 3
-        td Larry
-        td the Bird
-        td @twitter
-        td
-            btn.btn.btn-infon Show me more
+
 

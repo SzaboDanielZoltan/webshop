@@ -1,29 +1,27 @@
 doctype html
 html
   head
-    title= title
+    title The Gastronaut
     link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png")
   body
-    html
-  body
-    nav.navbar.navbar-expand-lg.navbar-primary.bg-dark.sticky-top
-      a.navbar-brand(href="/") Planet Pizza
+    nav.navbar.navbar-expand-lg.navbar-dark.sticky-top
+      a.navbar-brand(href="/") Explore the Foodyverse!
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
-          li.nav-item.active
-            a.nav-link(href="/") Home
           li.nav-item
-            a.nav-link(href="/products") Products
+            a.nav-link(href="/products") Space meals 
             li.nav-item
-            a.nav-link(href="/products") Contact us
-    br
+            a.nav-link(href="#") Contact us
+            li.nav-item
+            a.nav-link#loginNavLink(href="/login") Login/Register          
+  .container
+    block content
 
-    .container
-      block content
+
 
     script(src="/javascripts/jquery.min.js")
     script(src="/bootstrap/dist/js/bootstrap.min.js")
-
