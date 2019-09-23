@@ -29,7 +29,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of list$ | async | productFilter:searchText:changeCounter">
+        <tr *ngFor="let product of productList | productFilter:searchText:changeCounter">
             <td>{{ product.id }}</td>
             <td>{{ product.productName }}</td>
             <td>{{ product.urlPostfix }}</td>

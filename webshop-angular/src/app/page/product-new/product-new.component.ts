@@ -25,7 +25,7 @@ export class ProductNewComponent implements OnInit {
 
   onCreate() {
     this.ps.create(this.newProduct).forEach(
-      data => this.router.navigateByUrl('/')
+      data => this.router.navigateByUrl('/products')
     )
   }
 
