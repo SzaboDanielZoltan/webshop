@@ -6,12 +6,19 @@
 }
 
 @font-face {
-  font-family: spacetext;
+  font-family: spacetext-bold;
   src: url(./../fonts/A-Space\ Bold\ Demo.otf);
 }
 
-.navbar-inner {
-  background: transparent;
+@font-face {
+  font-family: spacetext;
+  src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+}
+
+
+.navbar {
+  background-color: #0009;
+  opacity: 0.85;
 }
 
 .navbar {
@@ -27,6 +34,7 @@
   background: url("./../images/background/beerOnTheMoon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 #astrodiv {
@@ -39,7 +47,7 @@ font-family: spacebar;
 }
 
 #astrodiv h4 {
-  font-family: spacetext;
+  font-family: spacetext-bold;
   }
   
 
@@ -52,17 +60,36 @@ font-family: spacebar;
     bottom: 0;
 } */
 
+
 /* Products page styling */
 
 .card {
-  height: calc(100% - 15px);
-  margin-bottom: 15px;
+  display: block;
   border: none;
-  box-sizing: content-box;
+  margin: 0 auto; 
+  float: none;
+  margin-bottom: 15px;
+  font-family: spacetext;
 }
 
 .card-header {
   padding: 0;
+}
+
+.page-link, .pageLimitSelector {
+  color: cyan;
+  border-color: cyan;
+  font-weight: bold;
+  background-color: transparent;
+  margin:auto;
+}
+
+.page-link:hover, .pageLimitSelector:hover {
+  color: black;
+  border-color: cyan;
+  font-weight: bold;
+  background-color: cyan;
+  margin:auto;
 }
 
 #addToBasketBtn {
@@ -71,11 +98,14 @@ font-family: spacebar;
   left: 0;;
   overflow: hidden;
   z-index: 1;
+  font-family: spacetext-bold;
 }
 
 #showProductDetailsBtn {
   margin-bottom: 10px;
   cursor: pointer;
+  background-color: cyan;
+  font-family: spacetext-bold;
 }
 
 #productsPageBackground {
@@ -90,5 +120,12 @@ font-family: spacebar;
   color: #fff;
   background-color: rgba(248, 248, 248, 0.3);
   border: #fff;
+  margin: 0;
+}
+
+#addToBasketWithIcon {
+  background-color: rgb(75, 71, 71);
+  color: #fff;
+  padding: 0;
   margin: 0;
 }
