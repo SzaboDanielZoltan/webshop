@@ -18,25 +18,18 @@ router.get('/', async (req, res, next) => {
                 getData.push(data)
             }
         });
+        let previosPage;
+        let nextOnePage;
         if (req.query.page <= 1) {
-            let previosPage = 1;
-            let nextOnePage = parseInt(req.query.page) + 1;
-            let currentPageData = getData.slice(getData.length - req.query.limit, getData.length)
-            return res.render('products', {
-                products: currentPageData, numberOfproducts: resultSize,
-                prevPage: previosPage, nextPage: nextOnePage, displaySize: viewSize
-            })
+            previosPage = 1;
+            nextOnePage = parseInt(req.query.page) + 1;
         } else if (req.query.page >= resultSize / req.query.limit) {
-            let previosPage = 1;
-            let nextOnePage = Math.floor(resultSize / req.query.limit)
-            let currentPageData = getData.slice(getData.length - req.query.limit, getData.length)
-            return res.render('products', {
-                products: currentPageData, numberOfproducts: resultSize,
-                prevPage: previosPage, nextPage: nextOnePage, displaySize: viewSize
-            })
+            previosPage = 1;
+            nextOnePage = Math.floor(resultSize / req.query.limit)
+        } else {
+            previosPage = req.query.page - 1;
+            nextOnePage = parseInt(req.query.page) + 1;
         }
-        let previosPage = req.query.page - 1;
-        let nextOnePage = parseInt(req.query.page) + 1;
         let currentPageData = getData.slice(getData.length - req.query.limit, getData.length)
         return res.render('products', {
             products: currentPageData, numberOfproducts: resultSize,
