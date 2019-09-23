@@ -19,7 +19,7 @@
                             type="text"
                             name="urlPostfix"
                             id="urlPostfix"
-                            [ngModel]="newProduct.productName | searchFriendlyName"
+                            [ngModel]="newProduct.productName | searchFriendlyName : productList "
                             disabled>
                      <div class="text-center"><label for="type">Type</label></div>
                      <input class="form-control"
