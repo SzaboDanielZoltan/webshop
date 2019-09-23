@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
 import { SearchFriendlyNamePipe } from "../../pipe/search-friendly-name.pipe"
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-new',
@@ -11,6 +12,7 @@ import { SearchFriendlyNamePipe } from "../../pipe/search-friendly-name.pipe"
 })
 export class ProductNewComponent implements OnInit {
 
+  productsList$: Observable<any> = this.ps.read();
   newProduct: Product = new Product();
   urlPostfixPipe: PipeTransform = new SearchFriendlyNamePipe();
 
