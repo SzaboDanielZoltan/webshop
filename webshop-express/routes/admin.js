@@ -4,7 +4,7 @@ const AdminsBLL = require('./../bll/admins');
 const adminsBLL = new AdminsBLL();
 const router = express.Router();
 
-router.get('/admin', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   const validAdmin = await adminsBLL.adminTokenValidator(req.cookies.adminvalidator);
   if (validAdmin) {
     res.render('admin');
@@ -12,7 +12,7 @@ router.get('/admin', async (req, res, next) => {
   res.redirect('/');
 });
 
-router.get('/admin/*', async (req, res, next) => {
+router.get('/*', async (req, res, next) => {
   const validAdmin = await adminsBLL.adminTokenValidator(req.cookies.adminvalidator);
   if (validAdmin) {
     res.redirect('/admin');

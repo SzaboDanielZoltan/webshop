@@ -27,6 +27,11 @@ html
                 sup #{basketValue}
             li.nav-item
               a.nav-link#loginNavLink(href="/login/logout") Log out
+          else if loggedadmin
+            li.nav-item
+              a.nav-link#loginNavLink(href="/admin") Admin page
+            li.nav-item
+              a.nav-link#loginNavLink(href="/login/logout") Log out
           else
             li.nav-item
               a.nav-link#loginNavLink(href="/login") Login/Register

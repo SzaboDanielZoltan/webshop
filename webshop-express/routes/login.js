@@ -14,6 +14,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/logout', (req, res, next) => {
   res.clearCookie('custvalidator');
+  res.clearCookie('adminvalidator');
   res.redirect('/products');
 });
 
