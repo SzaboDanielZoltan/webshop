@@ -14,6 +14,7 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
 import { CustomerEditComponent } from './page/customer-edit/customer-edit.component';
 import { ProductFilterPipe } from './pipe/product-filter.pipe';
 import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
+import { CustomerFilterPipe } from './pipe/customer-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
     CustomerListComponent,
     CustomerEditComponent,
     ProductFilterPipe,
-    UrlPostfixValidatePipe
+    UrlPostfixValidatePipe,
+    CustomerFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -6,20 +6,20 @@
   <form class="form" (submit)="onCustomerUpdate()">
     <div class="row">
       <div class="col-1 text-center"><label for="id">ID</label>
-        <input class="form-control" type="text" name="id" id="id" placeholder="id" [(ngModel)]="editCustomer.id"
+        <input class="form-control" type="text" name="id" id="id" [(ngModel)]="editCustomer.id"
           disabled>
       </div>
       <div class="col-3 text-center"><label for="firstName">First Name</label>
-        <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name"
+        <input class="form-control" type="text" name="firstName" id="firstName"
           [(ngModel)]="editCustomer.firstName">
       </div>
       <div class="col-3 text-center"><label for="lastName">Last Name</label>
-        <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name"
+        <input class="form-control" type="text" name="lastName" id="lastName"
           [(ngModel)]="editCustomer.lastName">
       </div>
       <div class="col-3 text-center"><label for="userName">User Name</label>
-        <input class="form-control" type="text" name="userName" id="userName" placeholder="User Name"
-          [(ngModel)]="editCustomer.userName">
+        <input class="form-control" type="text" name="userName" id="userName"
+          [(ngModel)]="editCustomer.email">
       </div>
       <br>
     </div>

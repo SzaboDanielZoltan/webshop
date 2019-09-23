@@ -9,8 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class CustomerListComponent implements OnInit {
 
-  list$: Observable<any> = this.cs.read();
-  searchCustomer: string = '';
+  customerList$: Observable<any> = this.cs.read();
+  // searchCustomer: string = '';
+  // changeCounter: number = 0;
 
   constructor(private cs: CustomerService) {
     cs.access();
@@ -19,4 +20,7 @@ export class CustomerListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCustomerDelete(id: number): void {
+    this.cs.delete(id).forEach(data => location.reload());
+  }
 }
