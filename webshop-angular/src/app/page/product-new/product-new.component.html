@@ -1,0 +1,42 @@
+<div class="text-center">
+       <h2>New product - admin</h2>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+       <div class="newInputs">
+              <form class="form"
+                    (submit)="onCreate()">
+                     <div class="text-center"><label for="name">Name</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Name"
+                            [(ngModel)]="newProduct.name"
+                            (ngModelChange)="updateUrlPostfix($event)">
+                     <div class="text-center"><label for="urlPostfix">Url-Postfix</label></div>
+                     <input class="form-control disable"
+                            type="text"
+                            name="urlPostfix"
+                            id="urlPostfix"
+                            [ngModel]="newProduct.name | searchFriendlyName"
+                            disabled>
+                     <div class="text-center"><label for="type">Type</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="type"
+                            id="type"
+                            placeholder="Type"
+                            [(ngModel)]="newProduct.type">
+                     <div class="text-center"><label for="price">Price</label></div>
+                     <input class="form-control"
+                            type="text"
+                            name="price"
+                            id="price"
+                            placeholder="price"
+                            [(ngModel)]="newProduct.price">
+                     <br>
+                     <div class="text-center"><button class="btn btn-info">Add</button></div>
+              </form>
+       </div>
+</div>

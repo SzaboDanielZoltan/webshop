@@ -1,23 +1,22 @@
 doctype html
 html
   head
-    title= title
+    title The Gastronaut
     link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png")
   body
-    nav.navbar.navbar-expand-lg.navbar-primary.bg-dark.sticky-top
-      a.navbar-brand(href="/") Planet Pizza
+    nav.navbar.navbar-expand-lg.navbar-dark.sticky-top
+      a.navbar-brand(href="/") Explore the Foodyverse!
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
-          li.nav-item.active
-            a.nav-link(href="/") Home
           li.nav-item
-            a.nav-link(href="/products") Products
-            li.nav-item
-            a.nav-link(href="/products") Contact us
+            a.nav-link(href="/products") Space meals 
+          li.nav-item
+            a.nav-link(href="/") Contact us
         ul.navbar-nav
           if loggedcustomer
             li.nav-item
@@ -27,10 +26,10 @@ html
                 img(src="/images/icons/shopping-cart.png", width="auto", height="20px")
                 sup #{basketValue}
             li.nav-item
-              a.btn.btn-primary(href="/login/logout") Log out
+              a.nav-link#loginNavLink(href="/login/logout") Log out
           else
             li.nav-item
-              a.btn.btn-primary(href="/login") Log in
+              a.nav-link#loginNavLink(href="/login") Login/Register
     br
 
     .container

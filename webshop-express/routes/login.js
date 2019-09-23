@@ -5,6 +5,7 @@ const customersBLL = new CustomersBLL();
 const router = express.Router();
 
 
+/* GET LOGIN page. */
 router.get('/', (req, res, next) => {
   res.render('login');
 });

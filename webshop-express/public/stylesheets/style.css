@@ -7,3 +7,135 @@ input[name="orderedAmount"] {
   background-color: #dfdfdf !important;
   border-radius: 10px;
 }
+
+/* Index page and navbar styling */
+
+@font-face {
+  font-family: spacebar;
+  src: url(./../fonts/SPACEBAR.ttf);
+}
+
+@font-face {
+  font-family: spacetext-bold;
+  src: url(./../fonts/A-Space\ Bold\ Demo.otf);
+}
+
+@font-face {
+  font-family: spacetext;
+  src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+}
+
+
+.navbar {
+  background-color: #0009;
+  opacity: 0.85;
+}
+
+.navbar {
+  font-family: spacetext;
+}
+
+#loginNavLink {
+  color: cyan;
+}
+
+#backgroundCover {
+  position: relative;
+  background: url("./../images/background/beerOnTheMoon.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#astrodiv {
+  margin-top: 3%;
+  color: #fff;
+}
+
+#astrodiv h1 {
+font-family: spacebar;
+}
+
+#astrodiv h4 {
+  font-family: spacetext-bold;
+  }
+  
+
+
+/* #indexFooter {
+    background-color: rgba(0,0,0,.5);
+    padding: 35px 0;
+    position: absolute;
+    width: 150%;
+    bottom: 0;
+} */
+
+
+/* Products page styling */
+
+.card {
+  display: block;
+  border: none;
+  margin: 0 auto; 
+  float: none;
+  margin-bottom: 15px;
+  font-family: spacetext;
+}
+
+.card-header {
+  padding: 0;
+}
+
+.page-link, .pageLimitSelector {
+  color: cyan;
+  border-color: cyan;
+  font-weight: bold;
+  background-color: transparent;
+  margin:auto;
+}
+
+.page-link:hover, .pageLimitSelector:hover {
+  color: black;
+  border-color: cyan;
+  font-weight: bold;
+  background-color: cyan;
+  margin:auto;
+}
+
+#addToBasketBtn {
+  position: absolute;
+  top: 0;
+  left: 0;;
+  overflow: hidden;
+  z-index: 1;
+  font-family: spacetext-bold;
+}
+
+#showProductDetailsBtn {
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: cyan;
+  font-family: spacetext-bold;
+}
+
+#productsPageBackground {
+  background: url("./../images/background/altalanos2.jpg");
+  position: absolute;
+  margin: 0;
+ 
+}
+
+#productDetailsPageMenu {
+  position: absolute;
+  color: #fff;
+  background-color: rgba(248, 248, 248, 0.3);
+  border: #fff;
+  margin: 0;
+}
+
+#addToBasketWithIcon {
+  background-color: rgb(75, 71, 71);
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
