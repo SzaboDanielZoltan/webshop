@@ -11,12 +11,17 @@ export class ProductListComponent implements OnInit {
 
   list$: Observable<any> = this.ps.read();
   searchText: string = '';
+  changeCounter: number = 0;
 
   constructor(private ps: ProductService) {
     ps.access();
   }
 
   ngOnInit() {
+  }
+
+  onDelete(id: number): void {
+    this.ps.delete(id).forEach(data => location.reload());
   }
 
 }

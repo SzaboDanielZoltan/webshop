@@ -25,14 +25,16 @@
             <th>URL - postfix</th>
             <th>Type</th>
             <th>Price</th>
+            <th>Directions</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of list$ | async">
+        <tr *ngFor="let product of list$ | async | productFilter:searchText:changeCounter">
             <td>{{ product.id }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.email }}</td>
-            <td>{{ product.department }}</td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.urlPostfix }}</td>
+            <td>{{ product.type }}</td>
+            <td>{{ product.price }}</td>
             <td>
                 <div class="btn-group">
                     <a class="btn btn-info"
