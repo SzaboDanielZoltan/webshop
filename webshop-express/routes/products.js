@@ -48,7 +48,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    res.cookie('viewSize', req.body.limit, { expire: 31556952 + Date.now() });
+    res.cookie('viewSize', req.body.limit, { maxAge: 900000 });
     res.redirect('/products');
 })
 

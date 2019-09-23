@@ -9,10 +9,12 @@ block content
           form.form-inline.mt-3.mb-3(method="POST" action="/products")
             .form-group
               select.form-control(name="limit")
-                option(value='10') 10
-                option(value='15') 15
-                option(value='20') 20
-                option(value='25') 25
+                - const viewArray = [10,15,20,25,50];
+                each view in viewArray
+                  if displaySize == view
+                    option(value=`${view}` selected) #{view}
+                  else 
+                    option(value=`${view}`) #{view}              
               span.input-group-btn  
                 button.btn.btn-light(type='submit') View 
       .row                 
@@ -36,16 +38,25 @@ block content
                 - let x = 1;
                 - let y = Math.round(numberOfproducts/limitNumber) 
                   li.page-item
-                    a.page-link(href=`/products?page=${prevPage}&limit=${limitNumber}` aria-label='Previous')
+                    a.page-link(href=`/products?page=${prevPage || 1 }&limit=${limitNumber}` aria-label='Previous')
                       span(aria-hidden='true') &laquo;
                       span.sr-only Previous
                   while x <= y
                       li.page-item
                         a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
                   li.page-item
-                    a.page-link(href=`/products?page=${nextPage}&limit=${limitNumber}` aria-label='Next')
+                    a.page-link(href=`/products?page=${nextPage || 1 }&limit=${limitNumber}` aria-label='Next')
                       span(aria-hidden='true') &raquo;
-                      span.sr-only Next        
+                      span.sr-only Next    
+        //- script.
+        //-     const optionNode = document.querySelectorAll('option');
+        //-     optionNode.forEach(x => {
+        //-       if (x.value == limitNumber){
+        //-         console.log(x)
+        //-         return x.setAttribute('selected','selected')
+        //-       }
+        //-     })
+        //-    // optionNode.setAttribute('selected','selected')                  
 
 
 
