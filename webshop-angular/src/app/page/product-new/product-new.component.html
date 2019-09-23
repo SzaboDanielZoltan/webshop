@@ -4,7 +4,7 @@
 <br>
 <div class="d-flex justify-content-center">
        <div class="newInputs">
-              <form class="form"
+              <form class="form" #newProductForm="ngForm" novalidate
                     (submit)="onCreate()">
                      <div class="text-center"><label for="name">Name</label></div>
                      <input class="form-control"
@@ -13,7 +13,10 @@
                             id="name"
                             placeholder="Name"
                             [(ngModel)]="newProduct.productName"
-                            (ngModelChange)="updateUrlPostfix($event)">
+                            (ngModelChange)="updateUrlPostfix($event)"
+                            required
+                            #newName='ngModel'>
+                            <p  *ngIf="newName.invalid && newName.touched" class="text-danger">Invalid!</p>       
                      <div class="text-center"><label for="urlPostfix">Url-Postfix</label></div>
                      <input class="form-control disable"
                             type="text"
@@ -27,16 +30,24 @@
                             name="type"
                             id="type"
                             placeholder="Type"
-                            [(ngModel)]="newProduct.type">
+                            [(ngModel)]="newProduct.type"
+                            required
+                            #newType='ngModel'>
+                            <p  *ngIf="newType.invalid && newType.touched" class="text-danger">Invalid!</p>    
                      <div class="text-center"><label for="price">Price</label></div>
                      <input class="form-control"
                             type="text"
                             name="price"
                             id="price"
                             placeholder="price"
-                            [(ngModel)]="newProduct.price">
+                            [(ngModel)]="newProduct.price"
+                            required
+                            #newPrice='ngModel'>
+                            <p  *ngIf="newPrice.invalid && newPrice.touched" class="text-danger">Invalid!</p>    
                      <br>
-                     <div class="text-center"><button class="btn btn-info">Add</button></div>
+                     <div class="text-center">
+                            <button class="btn btn-info" [disabled]="!newProductForm.form.valid">Add</button>
+                     </div>
               </form>
        </div>
 </div>
