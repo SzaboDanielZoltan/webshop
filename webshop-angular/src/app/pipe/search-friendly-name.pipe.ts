@@ -6,21 +6,22 @@ import { Product } from '../model/product';
 })
 export class SearchFriendlyNamePipe implements PipeTransform {
 
-  transform(value: any, allProducts:Array<Product>,id:number): any {
+  transform(value: any, allProducts: Array<Product>, id: number): any {
 
     const valuePostfix = value.toString().toLowerCase().replace(/ /g, '-');
 
-    if (id){
+    if (id) {
       let index = allProducts.findIndex(product => product.id == id);
       allProducts.splice(index, 1);
-      for(let i=0;i<allProducts.length;i++){
-        if (allProducts[i].urlPostfix === valuePostfix){
-          return valuePostfix;
+      for (let i = 0; i < allProducts.length; i++) {
+        if (allProducts[i].urlPostfix === valuePostfix) {
+          return "This postfix is already exist"
         }
       }
+      return valuePostfix;
     }
-    for(let i=0;i<allProducts.length;i++){
-      if (allProducts[i].urlPostfix === valuePostfix){
+    for (let i = 0; i < allProducts.length; i++) {
+      if (allProducts[i].urlPostfix === valuePostfix) {
         return "This postfix is already exist"
       }
     }
