@@ -2,6 +2,8 @@ extends layout
 
 block content
     link(href='/stylesheets/login.css', rel='stylesheet')
+    if (success)
+      .alert.alert-success #{success}
     .container.login-container
       .row
         form.col-md-6.login-form(action='/login' method='post')
