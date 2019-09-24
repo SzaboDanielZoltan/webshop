@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { ProductService } from 'src/app/service/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/model/product';
+import { Subscription } from 'rxjs';
+import { SearchFriendlyNamePipe } from 'src/app/pipe/search-friendly-name.pipe';
 
 @Component({
   selector: 'app-product-edit',
@@ -11,6 +13,9 @@ import { Product } from 'src/app/model/product';
 export class ProductEditComponent implements OnInit {
 
   editProduct: Product = new Product();
+  productList: Array<Product>;
+  userSubscription: Subscription;
+  urlPostfixPipe: PipeTransform = new SearchFriendlyNamePipe();
 
   constructor(private ps: ProductService, private router: Router, private ar: ActivatedRoute) {
 
@@ -25,11 +30,25 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userSubscription = this.ps.read().subscribe(
+      products => {
+        this.productList = products;
+      },
+      err => console.error(err)
+    );
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+  }
+
+  updateUrlPostfix(value) {
+    this.editProduct.urlPostfix = this.urlPostfixPipe.transform(value);
   }
 
   onUpdate() {
     this.ps.update(this.editProduct, this.editProduct.id).forEach(
-      data => this.router.navigateByUrl('/')
+      data => this.router.navigateByUrl('/products')
     )
   }
 

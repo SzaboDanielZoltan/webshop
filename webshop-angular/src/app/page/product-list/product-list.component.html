@@ -3,8 +3,8 @@
 </div>
 <br>
 <div class="text-center">
-  <a routerLink="/new" class="btn btn-info">New product</a>
-
+    <a routerLink="/products/new"
+       class="btn btn-info">New product</a>
 </div>
 <br>
 <div class="d-flex justify-content-center">
@@ -14,31 +14,33 @@
 </div>
 <br>
 <table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>URL - postfix</th>
-      <th>Type</th>
-      <th>Price</th>
-      <th>Directions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of list$ | async | productFilter:searchText:changeCounter">
-      <td>{{ product.id }}</td>
-      <td>{{ product.productName }}</td>
-      <td>{{ product.urlPostfix }}</td>
-      <td>{{ product.type }}</td>
-      <td>{{ product.price }}</td>
-      <td>
-        <div class="btn-group">
-          <a class="btn btn-info" routerLink="/update/{{product.id}}">Edit</a>
-          <a class="btn btn-danger" (click)="onDelete(product.id)">Delete</a>
-        </div>
-      </td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>URL - postfix</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Directions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList | productFilter:searchText:changeCounter">
+            <td>{{ product.id }}</td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.urlPostfix }}</td>
+            <td>{{ product.type }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-info"
+                       routerLink="/products/update/{{product.id}}">Edit</a>
+                    <a class="btn btn-danger"
+                       (click)="onDelete(product.id)">Delete</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
 </table>
 <!--<div class="position-sticky col-12">
     <div class="row">

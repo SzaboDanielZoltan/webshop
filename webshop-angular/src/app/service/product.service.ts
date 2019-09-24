@@ -11,11 +11,7 @@ export class ProductService {
   url: string = 'http://localhost:3000/api/products';
 
   constructor(private http: HttpClient) { }
-  access(): void {
-    this.http.get(this.url).subscribe(
-      data => console.log(data)
-    )
-  }
+
   read(): Observable<any> {
     return this.http.get(this.url);
   }

@@ -1,3 +1,32 @@
 .newInputs {
     width: 30vw;
 }
+#urlPostfix{
+    border: none;
+    background-color: white;
+    color: #000000
+}
+
+.simple-form input {
+    margin: 0 .25rem;
+    min-width: 125px;
+    border: 1px solid #eee;
+    border-left: 3px solid;
+    border-radius: 5px;
+    transition: border-color .5s ease-out;
+  }
+  
+  .simple-form input:optional {
+    border-left-color: #999;
+  }
+  
+  .simple-form input:required {
+    border-left-color: palegreen;
+  }
+  
+  .simple-form input.ng-invalid {
+    border-left-color: salmon;
+  }
+  .simple-form p.text-invalid{
+      color:salmon
+  }
