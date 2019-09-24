@@ -10,6 +10,8 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { ProductNewComponent } from './page/product-new/product-new.component';
 import { ProductEditComponent } from './page/product-edit/product-edit.component';
 import { SearchFriendlyNamePipe } from './pipe/search-friendly-name.pipe';
+import { CustomerListComponent } from './page/customer-list/customer-list.component';
+import { CustomerEditComponent } from './page/customer-edit/customer-edit.component';
 import { ProductFilterPipe } from './pipe/product-filter.pipe';
 import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -21,6 +23,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     ProductNewComponent,
     ProductEditComponent,
     SearchFriendlyNamePipe,
+    CustomerListComponent,
+    CustomerEditComponent,
     ProductFilterPipe,
     UrlPostfixValidatePipe,
     SidenavComponent

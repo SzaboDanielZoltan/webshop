@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
 const productsRouter = require('./routes/products');
 const loginRouter = require('./routes/login');
 const basketRouter = require('./routes/basket');
@@ -31,12 +31,12 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
   next();
-})
+});
 
 app.use(require('./modules/cookieValidator'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/products', productsRouter);
 app.use('/login', loginRouter);
 app.use('/basket', basketRouter);
