@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  link(href='/stylesheets/register.css', rel='stylesheet')
+  if (notValidmessage)
+    .alert.alert-warning #{notValidmessage}
+  .container.login-container
+    .row
+      form.col-md-6.login-form
+        h3 Login
+        .form-group
+          input.form-control(name='krumpli' type='text' disabled)
+        .form-group
+          input.form-control(name='password' type='password' disabled)
+        br
+        .form-group
+          a.btn.btnSubmit(href="/login") Login
+        .form-group
+          a.btnForgetPwd(href='#') Forget Password?
+      form.col-md-6.registration-form(method='post')
+        .login-logo
+          img(src='https://image.ibb.co/n7oTvU/logo_white.png')
+        h3 Register
+        .form-group
+          input.form-control(type='text', name='firstName', placeholder='Your firstname *')
+        .form-group
+          input.form-control(type='text', name='lastName', placeholder='Your lastname *')
+        .form-group
+          input.form-control(type='text', name='email', placeholder='Your email *')
+        .form-group
+          input.form-control(type='password' , name='password', placeholder='Your Password *')
+        .form-group
+          input.form-control(type='text', name='address', placeholder='Your address *')  
+        br  
+        .form-group
+          input.btnSubmit(type='submit' value='Register')
