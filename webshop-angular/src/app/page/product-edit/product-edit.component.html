@@ -3,7 +3,7 @@
 </div>
 <div class="d-flex justify-content-center">
        <div class="newInputs">
-              <form class="form"
+              <form class="form simple-form" #editProductForm="ngForm" novalidate
                     (submit)="onUpdate()">
                      <div class="text-center"><label for="id">ID</label></div>
                      <input class="form-control"
@@ -11,7 +11,8 @@
                             name="id"
                             id="id"
                             placeholder="id"
-                            [(ngModel)]="editProduct.id">
+                            [(ngModel)]="editProduct.id"
+                            readonly>
                      <div class="text-center"><label for="name">Name</label></div>
                      <input class="form-control"
                             type="text"
@@ -19,30 +20,47 @@
                             id="name"
                             placeholder="Name"
                             [(ngModel)]="editProduct.productName"
-                            (ngModelChange)="updateUrlPostfix($event)">
+                            (ngModelChange)="updateUrlPostfix($event)"
+                            required
+                            #editName='ngModel'
+                            pattern="^[A-Za-z0-9]( ?[A-Za-z0-9] ?)*$">
+                            <p  *ngIf="editName.invalid" class="text-danger">Invalid, only one space and letters, numbers onyl!</p>    
                      <div class="text-center"><label for="urlPostfix">URL</label></div>
                      <input class="form-control"
                             type="text"
                             name="urlPostfix"
                             id="urlPostfix"
                             [ngModel]="editProduct.productName | searchFriendlyName : productList :editProduct.id"
-                            disabled>
+                            readonly
+                            #editUrl='ngModel'
+                            pattern="^(?!This postfix is already exist).*$">
+                            <p  *ngIf="editUrl.invalid" class="text-danger">Invalid!</p>
                      <div class="text-center"><label for="type">Type</label></div>
                      <input class="form-control"
                             type="text"
                             name="type"
                             id="type"
                             placeholder="Type"
-                            [(ngModel)]="editProduct.type">
+                            [(ngModel)]="editProduct.type"
+                            required
+                            #editType='ngModel'>
+                            <p  *ngIf="editType.invalid && editType.touched" class="text-danger">Required to fill up!</p>
                      <div class="text-center"><label for="price">Price</label></div>
                      <input class="form-control"
-                            type="text"
+                            type="number"
                             name="price"
                             id="price"
                             placeholder="Price"
-                            [(ngModel)]="editProduct.price">
+                            [(ngModel)]="editProduct.price"
+                            required
+                            #newPrice='ngModel'
+                            min="1"
+                            pattern="^[0-9]+$">
+                            <p  *ngIf="newPrice.invalid && newPrice.touched" class="text-danger">Required to fill up!</p> 
                      <br>
-                     <div class="text-center"><button class="btn btn-info">Update</button></div>
+                     <div class="text-center">
+                            <button class="btn btn-info" [disabled]="!editProductForm.form.valid">Update</button>
+                     </div>
               </form>
        </div>
 </div>
