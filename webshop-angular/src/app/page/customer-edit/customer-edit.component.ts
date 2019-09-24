@@ -33,4 +33,10 @@ export class CustomerEditComponent implements OnInit {
     );
   }
 
+  isPasswordDisabled: boolean = true;
+
+  onPasswordChangeAllowed() {
+    this.isPasswordDisabled = false;
+    this.editCustomer.password = "";
+  }
 }
