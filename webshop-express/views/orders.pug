@@ -1,4 +1,12 @@
 extends layout
 
 block content
-  h1 hello
+  table.table
+    tbody
+      each order in orders
+        tr
+          td #{order.id}
+          td #{order.orderDate}
+          td
+            each product in order.products
+              p #{product.productName}

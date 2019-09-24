@@ -9,8 +9,8 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   const customerOrders = await customersBLL.getOneCustomerOrders(res.locals.loggedcustomer.id);
-  console.log(customerOrders);
-  res.render('orders');
+  customerOrders.forEach(order => order.products = JSON.parse(order.products));
+  res.render('orders', { orders: customerOrders });
 });
 
 router.get('/actual', (req, res, next) => {
