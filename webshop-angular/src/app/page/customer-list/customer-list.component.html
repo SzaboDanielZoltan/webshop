@@ -21,14 +21,16 @@
           <th scope="col">First name</th>
           <th scope="col">Last name</th>
           <th scope="col">User name</th>
+          <th scope="col">Password</th>
         </tr>
       </thead>
       <tbody class="text-center">
-        <tr *ngFor="let customer of customerList$ | async"> <!-- | customerFilter:searchCustomer:changeCounter"> -->
+        <tr *ngFor="let customer of customerList$ | customerFilter:searchCustomer:changeCounter">
           <td>{{ customer.id }}</td>
           <td>{{ customer.firstName }}</td>
           <td>{{ customer.lastName }}</td>
           <td>{{ customer.email }}</td>
+          <td>{{ customer.password }}</td>
           <td>
             <div class="btn-group">
               <a class="btn btn-warning" routerLink="/customers/update/{{customer.id}}">Edit</a>
