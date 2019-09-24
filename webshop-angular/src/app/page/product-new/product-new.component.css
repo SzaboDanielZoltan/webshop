@@ -27,3 +27,6 @@
   .simple-form input.ng-invalid {
     border-left-color: salmon;
   }
+  .simple-form p.text-invalid{
+      color:salmon
+  }
