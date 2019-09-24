@@ -10,6 +10,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   const customerOrders = await customersBLL.getOneCustomerOrders(res.locals.loggedcustomer.id);
   customerOrders.forEach(order => order.products = JSON.parse(order.products));
+  customerOrders.sort((a, b) => b.orderDate.getTime() - a.orderDate.getTime());
   res.render('orders', { orders: customerOrders });
 });
 

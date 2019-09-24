@@ -5,8 +5,12 @@ block content
     tbody
       each order in orders
         tr
-          td #{order.id}
+          td #{order.shippingAddress}
           td #{order.orderDate}
           td
-            each product in order.products
-              p #{product.productName}
+            ul
+              each product in order.products
+                li 
+                  a(href=`${product.url}`) #{product.productName}
+          td #{order.totalPrice}
+          td #{order.status}
