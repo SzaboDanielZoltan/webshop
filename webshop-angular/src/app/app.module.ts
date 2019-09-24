@@ -14,6 +14,7 @@ import { CustomerListComponent } from './page/customer-list/customer-list.compon
 import { CustomerEditComponent } from './page/customer-edit/customer-edit.component';
 import { ProductFilterPipe } from './pipe/product-filter.pipe';
 import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
+import { CustomerFilterPipe } from './pipe/customer-filter.pipe';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
@@ -27,13 +28,14 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     CustomerEditComponent,
     ProductFilterPipe,
     UrlPostfixValidatePipe,
-    SidenavComponent
+    CustomerFilterPipe,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

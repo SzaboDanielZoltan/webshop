@@ -19,7 +19,7 @@ export class CustomerEditComponent implements OnInit {
     ar.params.forEach(data => id = data.id);
     console.log(id);
     cs.read().forEach(memberArray => {
-      this.editCustomer = memberArray.filter(member => member.id === id)[0];
+      this.editCustomer = memberArray.filter(member => member.id == id)[0];
       console.log(this.editCustomer);
     });
   }
@@ -33,4 +33,10 @@ export class CustomerEditComponent implements OnInit {
     );
   }
 
+  isPasswordDisabled: boolean = true;
+
+  onPasswordChangeAllowed() {
+    this.isPasswordDisabled = false;
+    this.editCustomer.password = "";
+  }
 }

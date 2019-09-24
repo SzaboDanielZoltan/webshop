@@ -3,6 +3,7 @@ export class Customer {
   firstName: string;
   lastName: string;
   userName: string; // ez az email lesz
+  password: string;
   // email: string;
-  // password: string;
+
 }

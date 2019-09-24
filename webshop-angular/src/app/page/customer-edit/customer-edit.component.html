@@ -1,28 +1,27 @@
-<div class="text-center mb-5">
+<div class="text-center mb-12 mt-5">
   <h1>Edit Customer data</h1>
 </div>
 <br>
-<div class="container">
+<div class="container col-4">
   <form class="form" (submit)="onCustomerUpdate()">
-    <div class="row">
-      <div class="col-1 text-center"><label for="id">ID</label>
-        <input class="form-control" type="text" name="id" id="id" placeholder="id" [(ngModel)]="editCustomer.id"
-          disabled>
+      <div class="text-center mb-3">
+        <label for="id">ID</label>
+        <input class="form-control text-center" type="text" name="id" id="id" [(ngModel)]="editCustomer.id" disabled>
       </div>
-      <div class="col-3 text-center"><label for="firstName">First Name</label>
-        <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name"
-          [(ngModel)]="editCustomer.firstName">
+      <div class="text-center mb-3"><label for="firstName">First Name</label>
+        <input class="form-control text-center" type="text" name="firstName" id="firstName" [(ngModel)]="editCustomer.firstName">
       </div>
-      <div class="col-3 text-center"><label for="lastName">Last Name</label>
-        <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name"
-          [(ngModel)]="editCustomer.lastName">
+      <div class="text-center mb-3"><label for="lastName">Last Name</label>
+        <input class="form-control text-center" type="text" name="lastName" id="lastName" [(ngModel)]="editCustomer.lastName">
       </div>
-      <div class="col-3 text-center"><label for="userName">User Name</label>
-        <input class="form-control" type="text" name="userName" id="userName" placeholder="User Name"
-          [(ngModel)]="editCustomer.userName">
+      <div class="text-center mb-3"><label for="userName">User Name</label>
+        <input class="form-control text-center" type="text" name="userName" id="userName" [(ngModel)]="editCustomer.email">
       </div>
-      <br>
-    </div>
-    <div class="text-center mt-5"><button class="btn btn-block btn-info">Update</button></div>
+      <div class="text-center mb-3"><label for="password">Password</label>
+        <button type="button" class="btn btn-warning btn-block" (click)="onPasswordChangeAllowed()">Change password</button>
+        <input class="form-control text-center" type="password" name="password" id="password" [(ngModel)]="editCustomer.password" [disabled]="isPasswordDisabled">
+      </div>
+      <div class="text-center mt-4"><button class="btn btn-block btn-info">Update</button></div>
   </form>
 </div>
+
