@@ -12,6 +12,7 @@ import { ProductEditComponent } from './page/product-edit/product-edit.component
 import { SearchFriendlyNamePipe } from './pipe/search-friendly-name.pipe';
 import { ProductFilterPipe } from './pipe/product-filter.pipe';
 import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
     ProductEditComponent,
     SearchFriendlyNamePipe,
     ProductFilterPipe,
-    UrlPostfixValidatePipe
+    UrlPostfixValidatePipe,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,

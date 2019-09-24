@@ -48,7 +48,7 @@ export class ProductEditComponent implements OnInit {
 
   onUpdate() {
     this.ps.update(this.editProduct, this.editProduct.id).forEach(
-      data => this.router.navigateByUrl('/')
+      data => this.router.navigateByUrl('/products')
     )
   }
 
