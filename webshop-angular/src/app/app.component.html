@@ -1,21 +1,20 @@
-<div class="wrapper">
+<div class="container-fluid ml-0 mr-0">
+  <div class="row ml-0">
+    <div class="wrapper ml-0">
+      <app-sidenav></app-sidenav>
+      <!-- Sidebar -->
 
-    <app-sidenav></app-sidenav>
-    <!-- Sidebar -->
-   
-
-    <!-- Page Content -->
-    <div id="content">
+      <!-- Page Content -->
+      <div id="content">
         <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSide()">
-            <span>Toggle Sidebar</span>
+          <span>Toggle Sidebar</span>
         </button>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-
-                <router-outlet></router-outlet>
-
-            </div>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> </nav>
+      </div>
+      <div class="mr-0 justify-content-center">
+        <router-outlet></router-outlet>
+      </div>
     </div>
 
+  </div>
 </div>
