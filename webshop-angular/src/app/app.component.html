@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<div class="wrapper">
+
+    <app-sidenav></app-sidenav>
+    <!-- Sidebar -->
+   
+
+    <!-- Page Content -->
+    <div id="content">
+        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSide()">
+            <span>Toggle Sidebar</span>
+        </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <router-outlet></router-outlet>
+
+            </div>
+        </nav>
+    </div>
+
+</div>

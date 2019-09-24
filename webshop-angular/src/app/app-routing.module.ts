@@ -9,10 +9,12 @@ import { CustomerEditComponent } from './page/customer-edit/customer-edit.compon
 
 const routes: Routes = [
   { path: 'products', component: ProductListComponent },
-  { path: 'new', component: ProductNewComponent },
-  { path: 'update/:id', component: ProductEditComponent },
+
+  { path: 'products/new', component: ProductNewComponent },
+  { path: 'products/update/:id', component: ProductEditComponent },
   { path: 'customers', component: CustomerListComponent },
   { path: 'customers/update/:id', component: CustomerEditComponent },
+
 ];
 
 @NgModule({
