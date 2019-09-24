@@ -4,26 +4,32 @@
 <br>
 <div class="container text-center">
   <div class="row">
-      <form class="form" (submit)="onCustomerUpdate()">
-          <div class="text-center mb-4">
-            <label for="id">ID</label>
-            <input class="form-control text-center" type="text" name="id" id="id" [(ngModel)]="editCustomer.id" disabled>
-          </div>
-          <div class="text-center mb-4"><label for="firstName">First Name</label>
-            <input class="form-control text-center" type="text" name="firstName" id="firstName" [(ngModel)]="editCustomer.firstName">
-          </div>
-          <div class="text-center mb-4"><label for="lastName">Last Name</label>
-            <input class="form-control text-center" type="text" name="lastName" id="lastName" [(ngModel)]="editCustomer.lastName">
-          </div>
-          <div class="text-center mb-4"><label for="userName">User Name</label>
-            <input class="form-control text-center" type="text" name="userName" id="userName" [(ngModel)]="editCustomer.email">
-          </div>
-          <div class="text-center mb-4"><label for="password">Password</label>
-            <button type="button" class="btn btn-warning btn-block" (click)="onPasswordChangeAllowed()">Change password</button>
-            <input class="form-control text-center" type="password" name="password" id="password" [(ngModel)]="editCustomer.password" [disabled]="isPasswordDisabled">
-          </div>
-          <div class="text-center mt-4"><button class="btn btn-block btn-info">Update</button></div>
-      </form>
-    </div>
+    <form class="form" #editCustomerTable="ngForm" (submit)="onCustomerUpdate()">
+      <div class="text-center mb-4">
+        <label for="id">ID</label>
+        <input class="form-control text-center" type="text" name="id" id="id" [(ngModel)]="editCustomer.id" disabled>
+      </div>
+      <div class="text-center mb-4"><label for="firstName">First Name</label>
+        <input class="form-control text-center" type="text" name="firstName" id="firstName" #editFirstName='ngModel'
+          [(ngModel)]="editCustomer.firstName" required>
+      </div>
+      <div class="text-center mb-4"><label for="lastName">Last Name</label>
+        <input class="form-control text-center" type="text" name="lastName" id="lastName" #editLastName='ngModel'
+          [(ngModel)]="editCustomer.lastName" required>
+      </div>
+      <div class="text-center mb-4"><label for="userName">User Name</label>
+        <input class="form-control text-center" type="text" name="userName" id="userName" #editEmail='ngModel'
+          [(ngModel)]="editCustomer.email" #editEmail="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <p *ngIf="editEmail.invalid">Email should contain....</p>
+      </div>
+      <div class="text-center mb-4"><label for="password">Password</label>
+        <button type="button" class="btn btn-warning btn-block" (click)="onPasswordChangeAllowed()">Change
+          password</button>
+        <input class="form-control text-center" type="password" name="password" id="password"
+          [(ngModel)]="editCustomer.password" [disabled]="isPasswordDisabled">
+      </div>
+      <div class="text-center mt-4"><button class="btn btn-block btn-info"
+          [disabled]="!editCustomerTable.form.valid">Update</button></div>
+    </form>
   </div>
-
+</div>
