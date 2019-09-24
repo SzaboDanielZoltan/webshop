@@ -10,6 +10,7 @@ const adminRouter = require('./routes/admin');
 const productsRouter = require('./routes/products');
 const loginRouter = require('./routes/login');
 const basketRouter = require('./routes/basket');
+const ordersRouter = require('./routes/orders');
 const apiRouter = require('./routes/api');
 
 const app = express();
@@ -40,6 +41,7 @@ app.use('/admin', adminRouter);
 app.use('/products', productsRouter);
 app.use('/login', loginRouter);
 app.use('/basket', basketRouter);
+app.use('/orders', ordersRouter);
 app.use('/api', apiRouter);
 
 

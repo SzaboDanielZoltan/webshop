@@ -76,5 +76,4 @@ module.exports = class DB {
     const result = await this.conn.query(query);
     return result;
   }
-
 };

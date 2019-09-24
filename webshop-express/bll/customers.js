@@ -62,4 +62,13 @@ module.exports = class customersBusinessLogicLayer {
     }
     return validToken;
   }
+
+  // ORDERS
+  async addNewCustomerOrder(custID, customerAddress, order) {
+    let total = 0;
+    order.forEach(prod => total += prod.price * prod.amount);
+    await db.create('orders', {
+      customerID: custID, address: customerAddress, products: JSON.stringify(order), totalPrice: total, status: 1,
+    });
+  }
 };

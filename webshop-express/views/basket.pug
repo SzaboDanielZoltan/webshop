@@ -29,8 +29,11 @@ block content
             tr
               th
               th
-              th
+              th Total price:
               th#totalPrice #{total}
               th
 
+  a.btn.btn-primary(href='/orders/actual') Order
   a.btn.btn-warning(href='/basket/empty') Empty basket
+
+  script(src="/javascripts/basket.js")
