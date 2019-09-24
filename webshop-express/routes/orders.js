@@ -7,7 +7,9 @@ const customersBLL = new CustomersBLL();
 const router = express.Router();
 
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
+  const customerOrders = await customersBLL.getOneCustomerOrders(res.locals.loggedcustomer.id);
+  console.log(customerOrders);
   res.render('orders');
 });
 
@@ -23,9 +25,9 @@ router.get('/actual', (req, res, next) => {
     productOrderObj.amount = basket[productID];
     return productOrderObj;
   })).then((productsArray) => {
-    const totalPrice = 0;
-    // productsArray.forEach(product => totalPrice += product.price * product.orderedAmount);
-    res.render('orderpage', { order: productsArray });
+    let totalPrice = 0;
+    productsArray.forEach(product => totalPrice += product.price * product.amount);
+    res.render('orderpage', { order: productsArray, total: totalPrice });
   });
 });
 
@@ -41,7 +43,6 @@ router.get('/neworder', (req, res, next) => {
     productOrderObj.amount = basket[productID];
     return productOrderObj;
   })).then(async (productsArray) => {
-    console.log(productsArray);
     await customersBLL.addNewCustomerOrder(res.locals.loggedcustomer.id, res.locals.loggedcustomer.address, productsArray);
     res.locals.loggedcustomer.basket = '{}';
     await customersBLL.updateCustomer(res.locals.loggedcustomer);

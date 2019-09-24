@@ -18,19 +18,19 @@ module.exports = class DB {
    */
   async read(table, id) {
     if (id) {
-      const sql = `
+      const query = `
       SELECT * 
       FROM ${table}
       WHERE id=${id}
       `;
-      const result = await this.conn.query(sql);
+      const result = await this.conn.query(query);
       return result[0];
     }
-    const sql = `
+    const query = `
          SELECT * 
          FROM ${table}
          `;
-    const result = await this.conn.query(sql);
+    const result = await this.conn.query(query);
     return result;
   }
 
@@ -73,6 +73,26 @@ module.exports = class DB {
     DELETE FROM ${table}
     WHERE id=${id};
     `;
+    const result = await this.conn.query(query);
+    return result;
+  }
+
+  async innerJoinRead(table1, table2, on1, on2, table1id) {
+    if (table1id) {
+      const query = `
+         SELECT * 
+         FROM ${table1}
+            INNER JOIN ${table2} ON ${table1}.${on1}=${table2}.${on2}
+         WHERE ${table1}.id=${table1id};
+         `;
+      const result = await this.conn.query(query);
+      return result;
+    }
+    const query = `
+         SELECT * 
+         FROM ${table1}
+            INNER JOIN ${table2} ON ${table1}.${on1}=${table2}.${on2};
+         `;
     const result = await this.conn.query(query);
     return result;
   }

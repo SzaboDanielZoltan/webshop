@@ -68,7 +68,12 @@ module.exports = class customersBusinessLogicLayer {
     let total = 0;
     order.forEach(prod => total += prod.price * prod.amount);
     await db.create('orders', {
-      customerID: custID, address: customerAddress, products: JSON.stringify(order), totalPrice: total, status: 1,
+      customerID: custID, shippingAddress: customerAddress, products: JSON.stringify(order), totalPrice: total, status: 1,
     });
+  }
+
+  async getOneCustomerOrders(customerID) {
+    const userOrders = await db.innerJoinRead('customers', 'orders', 'id', 'customerID', customerID);
+    return userOrders;
   }
 };
