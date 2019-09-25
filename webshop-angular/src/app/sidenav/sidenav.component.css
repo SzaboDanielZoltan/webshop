@@ -12,7 +12,6 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-
 .dropdown-toggle::after {
     display: block;
     position: absolute;
@@ -22,20 +21,20 @@ a[data-toggle="collapse"] {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 200px;
+    max-width: 200px;
     min-height: 100vh;
-    background: #7386D5;
-    color: #fff;
+    background: black;
+    color: cyan;
     transition: all 0.3s;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -200px;
 }
 #sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
+  padding: 20px;
+    background: #111;
 }
 
 #sidebar ul.components {
@@ -79,7 +78,7 @@ ul ul a {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -200px;
     }
     #sidebar.active {
         margin-left: 0;

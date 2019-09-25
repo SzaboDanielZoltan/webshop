@@ -13,12 +13,26 @@ module.exports = class customersBusinessLogicLayer {
     const customer = await db.read('customers', customerID);
     return customer;
   }
+  
+    async createCustomer(customer){
+    customer.password = sha1(customer.password)
+    const create = await db.create('customers', customer);
+    return create;
+  }
 
   async updateCustomer(customer) {
+    if(customer.password){
+      customer.password=sha1(customer.password);
+    }
     const update = await db.update('customers', customer);
     return update;
   }
 
+  async deleteCustomer(customerID) {
+    const result = await db.delete('customers', customerID);
+    return result;
+  }
+  
   async loginCustomerVerification(emailAndPasswordObject) {
     const customers = await this.getCustomers();
     const validCustomer = { valid: false, customerID: 'Not registered' };
@@ -62,10 +76,9 @@ module.exports = class customersBusinessLogicLayer {
     }
     return validToken;
   }
-
+  
   async validateEmail(email){
     const getAllCustomers = await this.getCustomers();
-    console.log(email)
     let validationEmail = true
     for(let i = 0; i < getAllCustomers.length; i+=1){
       if ( getAllCustomers[i].email == email){
@@ -78,10 +91,17 @@ module.exports = class customersBusinessLogicLayer {
     return validationEmail
   }
 
-  async createCustomer(customer){
-    console.log(customer);
-    customer.password = sha1(customer.password)
-    const create = await db.create('customers', customer);
-    return create;
+  // ORDERS
+  async addNewCustomerOrder(custID, customerAddress, order) {
+    let total = 0;
+    order.forEach(prod => total += prod.price * prod.amount);
+    await db.create('orders', {
+      customerID: custID, shippingAddress: customerAddress, products: JSON.stringify(order), totalPrice: total, status: 1,
+    });
+  }
+
+  async getOneCustomerOrders(customerID) {
+    const userOrders = await db.innerJoinRead('customers', 'orders', 'id', 'customerID', customerID);
+    return userOrders;
   }
 };
