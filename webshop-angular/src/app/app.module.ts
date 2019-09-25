@@ -17,6 +17,8 @@ import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
 import { CustomerFilterPipe } from './pipe/customer-filter.pipe';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { OrderListComponent } from './page/order-list/order-list.component';
+import { OrderEditComponent } from './page/order-edit/order-edit.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     CustomerFilterPipe,
     SidenavComponent,
     DashboardComponent,
+    OrderListComponent,
+    OrderEditComponent,
   ],
   imports: [
     BrowserModule,

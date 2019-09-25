@@ -1,9 +1,13 @@
 const express = require('express');
-const bll = require('./../bll/products');
-const db = new bll();
 const router = express.Router();
+
+const bll = require('./../bll/products');
 const bllCustomer = require('./../bll/customers');
+const bllOrder = require('./../bll/orders');
+
+const db = new bll();
 const dbCustomer = new bllCustomer();
+const dbOrder = new bllOrder();
 
 /* Product admin methods */
 router.get('/', async (req, res, next) => {
@@ -40,6 +44,25 @@ router.delete('/customers/:id', async (req, res, next) => {
 
 router.put('/customers/:id', async (req, res, next) => {
   const result = await dbCustomer.updateCustomer(req.body);  /* , req.params.id*/
+  res.json(result);
+})
+
+// Order admin methods
+
+router.get('/order', async (req, res, next) => {
+  const result = await dbOrder.getAllOrdersWithCustomers();
+  res.json(result);
+});
+router.delete('/order/:id', async (req, res, next) => {
+  const result = await dbOrder.deleteOrder(req.params.id);
+  res.json(result);
+})
+// router.post('/products', async (req, res, next) => {
+//   const result = await db.createProduct(req.body);
+//   res.json(result);
+// })
+router.put('/order/:id', async (req, res, next) => {
+  const result = await dbOrder.updateOrder(req.body);
   res.json(result);
 })
 

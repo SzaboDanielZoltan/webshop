@@ -13,16 +13,16 @@ module.exports = class customersBusinessLogicLayer {
     const customer = await db.read('customers', customerID);
     return customer;
   }
-  
-    async createCustomer(customer){
+
+  async createCustomer(customer) {
     customer.password = sha1(customer.password)
     const create = await db.create('customers', customer);
     return create;
   }
 
   async updateCustomer(customer) {
-    if(customer.password){
-      customer.password=sha1(customer.password);
+    if (customer.password) {
+      customer.password = sha1(customer.password);
     }
     const update = await db.update('customers', customer);
     return update;
@@ -32,7 +32,7 @@ module.exports = class customersBusinessLogicLayer {
     const result = await db.delete('customers', customerID);
     return result;
   }
-  
+
   async loginCustomerVerification(emailAndPasswordObject) {
     const customers = await this.getCustomers();
     const validCustomer = { valid: false, customerID: 'Not registered' };
@@ -76,16 +76,16 @@ module.exports = class customersBusinessLogicLayer {
     }
     return validToken;
   }
-  
-  async validateEmail(email){
+
+  async validateEmail(email) {
     const getAllCustomers = await this.getCustomers();
     let validationEmail = true
-    for(let i = 0; i < getAllCustomers.length; i+=1){
-      if ( getAllCustomers[i].email == email){
-        
+    for (let i = 0; i < getAllCustomers.length; i += 1) {
+      if (getAllCustomers[i].email == email) {
+
         validationEmail = false;
         break;
-        
+
       }
     }
     return validationEmail
@@ -103,5 +103,18 @@ module.exports = class customersBusinessLogicLayer {
   async getOneCustomerOrders(customerID) {
     const userOrders = await db.innerJoinRead('customers', 'orders', 'id', 'customerID', customerID);
     return userOrders;
+  }
+
+  async getOneCustomerOrder(orderID) {
+    const order = await db.read('orders', orderID);
+    return order;
+  }
+  async deleteCustomerOrder(orderID) {
+    const result = await db.delete('orders', orderID);
+    return result;
+  }
+  async updateCustomerOrder(order) {
+    const result = await db.update('orders', order);
+    return result;
   }
 };
