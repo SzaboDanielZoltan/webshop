@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-12
+        table.table
+          tbody
+            each product in order
+              tr
+                td #{product.productName}
+                td
+                  a(href=`${product.url}`) Details
+                td #{product.price}
+                td #{product.amount}
+                td #{product.amount*product.price}
+            tr
+              td
+              td
+              td
+              td
+              td Total price: #{total}
+      .col-12.text-center
+        p Name:&nbsp;
+          span #{loggedcustomer.firstName} #{loggedcustomer.lastName}
+        p Address:&nbsp;
+          span #{loggedcustomer.address}
+      .col-12
+        a.btn.btn-primary(href='/orders/neworder') Order
+        a.btn.btn-warning(href='/products') Add more
