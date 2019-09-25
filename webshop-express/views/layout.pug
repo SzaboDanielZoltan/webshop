@@ -19,19 +19,27 @@ html
             a.nav-link(href="/") Contact us
         ul.navbar-nav
           if loggedcustomer
-            li.nav-item
-              a.nav-link(href="/") #{loggedcustomer.firstName} #{loggedcustomer.lastName}
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                | #{loggedcustomer.firstName} #{loggedcustomer.lastName}
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                a.dropdown-item(href="/basket") Basket
+                a.dropdown-item(href='/orders') Orders
+                a.dropdown-item(href='#') Settings
+                .dropdown-divider
+                a.dropdown-item(href="/login/logout") Log out
             li.nav-item
               a.nav-link(href="/basket")
                 img(src="/images/icons/shopping-cart.png", width="auto", height="20px")
                 sup #{basketValue}
-            li.nav-item
-              a.nav-link#loginNavLink(href="/login/logout") Log out
           else if loggedadmin
-            li.nav-item
-              a.nav-link#loginNavLink(href="/admin") Admin page
-            li.nav-item
-              a.nav-link#loginNavLink(href="/login/logout") Log out
+            li.nav-item.dropdown
+              a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                | Admin options
+              .dropdown-menu(aria-labelledby='navbarDropdown')
+                a.dropdown-item(href="/admin") Admin page
+                .dropdown-divider
+                a.dropdown-item(href="/login/logout") Log out
           else
             li.nav-item
               a.nav-link#loginNavLink(href="/login") Login/Register
