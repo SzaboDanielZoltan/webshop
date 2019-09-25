@@ -13,17 +13,14 @@ module.exports = class customersBusinessLogicLayer {
     const customer = await db.read('customers', customerID);
     return customer;
   }
-  
-    async createCustomer(customer){
-    customer.password = sha1(customer.password)
+
+  async createCustomer(customer) {
+    customer.password = sha1(customer.password);
     const create = await db.create('customers', customer);
     return create;
   }
 
   async updateCustomer(customer) {
-    if(customer.password){
-      customer.password=sha1(customer.password);
-    }
     const update = await db.update('customers', customer);
     return update;
   }
@@ -32,7 +29,7 @@ module.exports = class customersBusinessLogicLayer {
     const result = await db.delete('customers', customerID);
     return result;
   }
-  
+
   async loginCustomerVerification(emailAndPasswordObject) {
     const customers = await this.getCustomers();
     const validCustomer = { valid: false, customerID: 'Not registered' };
@@ -60,6 +57,7 @@ module.exports = class customersBusinessLogicLayer {
     }
     const customer = await this.getOneCustomer(customerID);
     customer.token = token;
+    console.log(customer);
     await this.updateCustomer(customer);
     return token;
   }
@@ -76,19 +74,17 @@ module.exports = class customersBusinessLogicLayer {
     }
     return validToken;
   }
-  
-  async validateEmail(email){
+
+  async validateEmail(email) {
     const getAllCustomers = await this.getCustomers();
-    let validationEmail = true
-    for(let i = 0; i < getAllCustomers.length; i+=1){
-      if ( getAllCustomers[i].email == email){
-        
+    let validationEmail = true;
+    for (let i = 0; i < getAllCustomers.length; i += 1) {
+      if (getAllCustomers[i].email == email) {
         validationEmail = false;
         break;
-        
       }
     }
-    return validationEmail
+    return validationEmail;
   }
 
   // ORDERS
