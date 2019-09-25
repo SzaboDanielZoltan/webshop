@@ -18,6 +18,8 @@ block content
         .form-group
           a.btnForgetPwd(href='#') Forget Password?
       script
+        include ../public/javascripts/zxcvbn.js
+      script
         include ../public/javascripts/registerFromVal.js
       link(href='/stylesheets/validation.css', rel='stylesheet')  
       form.col-md-6.registration-form.simple-form(method='post', name="registerForm", onsubmit="return formCheckValidation()")
@@ -34,7 +36,9 @@ block content
           input.form-control.registerEmail(type='text', name='email', required , placeholder='Your email *',  oninput="validateEmail()")
           p.error.message-email Invalid Email!
         .form-group
-          input.form-control.registerPassword(type='password' , name='password', required , placeholder='Your Password *', maxlength="10")
+          input.form-control.registerPassword#password(type='current-password' , name='password', required , placeholder='Your Password *' oninput="validatePassword()")
+          p#password-strength-text
+          meter#password-strength-meter(max="4")
           p.error.message-password 
         .form-group
           input.form-control.registerAddress(type='text', name='address', required , placeholder='Your address *', oninput="validateAddress()")  
