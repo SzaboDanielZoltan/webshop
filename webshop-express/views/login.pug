@@ -9,7 +9,7 @@ block content
         form.col-md-6.login-form(action='/login' method='post')
           h3 Login
           .form-group
-            input.form-control(name='email' type='text' placeholder='email')
+            input.form-control(name='email' type='text' placeholder='email' required)
           .form-group
             input.form-control(name='password' type='password' placeholder='password')
           br
@@ -27,4 +27,4 @@ block content
             input.form-control(disabled)
           br  
           .form-group
-           a.btn.btnSubmit(href="/register") Register
+           a.btn.btnSubmit(href="/register") Go to Register

@@ -18,8 +18,8 @@ router.post('/', async (req, res, next) => {
 
     return res.render('login', { success: successMessage })
   }
-  const message = "This customer is already exist"
-  res.render('register', { notValidmessage: message })
+  const message = "This email address is already exist."
+  res.render('register', { notValidmessage: message, email: req.body.email })
 })
 
 module.exports = router;

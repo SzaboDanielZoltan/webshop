@@ -3,7 +3,7 @@ extends layout
 block content
   link(href='/stylesheets/register.css', rel='stylesheet')
   if (notValidmessage)
-    .alert.alert-warning #{notValidmessage}
+    .alert.alert-warning  #{email} #{notValidmessage} 
   .container.login-container
     .row
       form.col-md-6.login-form
@@ -14,23 +14,31 @@ block content
           input.form-control(name='password' type='password' disabled)
         br
         .form-group
-          a.btn.btnSubmit(href="/login") Login
+          a.btn.btnSubmit(href="/login") Back to Login
         .form-group
           a.btnForgetPwd(href='#') Forget Password?
-      form.col-md-6.registration-form(method='post')
+      script
+        include ../public/javascripts/registerFromVal.js
+      link(href='/stylesheets/validation.css', rel='stylesheet')  
+      form.col-md-6.registration-form.simple-form(method='post', name="registerForm", onsubmit="return formCheckValidation()")
         .login-logo
           img(src='https://image.ibb.co/n7oTvU/logo_white.png')
         h3 Register
         .form-group
-          input.form-control(type='text', name='firstName', placeholder='Your firstname *')
+          input.form-control.fname(type='text', name='firstName', required , placeholder='Your firstname *', oninput="validateFirstName()")
+          p.error.message-fname Invalid firstname!
         .form-group
-          input.form-control(type='text', name='lastName', placeholder='Your lastname *')
+          input.form-control.lname(type='text', name='lastName', required , placeholder='Your lastname *', oninput="validateLastName()")
+          p.error.message-lname Invalid lastname!
         .form-group
-          input.form-control(type='text', name='email', placeholder='Your email *')
+          input.form-control.registerEmail(type='text', name='email', required , placeholder='Your email *',  oninput="validateEmail()")
+          p.error.message-email Invalid Email!
         .form-group
-          input.form-control(type='password' , name='password', placeholder='Your Password *')
+          input.form-control.registerPassword(type='password' , name='password', required , placeholder='Your Password *', maxlength="10")
+          p.error.message-password 
         .form-group
-          input.form-control(type='text', name='address', placeholder='Your address *')  
+          input.form-control.registerAddress(type='text', name='address', required , placeholder='Your address *', oninput="validateAddress()")  
+          p.error.message-address Invalid Address!
         br  
         .form-group
-          input.btnSubmit(type='submit' value='Register')
+          button.registerButton.btnSubmit(type='submit' ) Register
