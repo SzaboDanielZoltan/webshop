@@ -11,17 +11,17 @@
       <div class="text-center mb-4"><label for="firstName">First Name</label>
         <input class="form-control text-center" type="text" name="firstName" id="firstName" #editFirstName='ngModel'
           [(ngModel)]="editCustomer.firstName" required pattern="[A-Za-z ]{1,32}">
-          <p class="text-danger" *ngIf="editFirstName.invalid">Please add a valid first name.</p>
+          <p class="text-danger" *ngIf="editFirstName.invalid && editFirstName.touched">Please add a valid first name.</p>
       </div>
       <div class="text-center mb-4"><label for="lastName">Last Name</label>
         <input class="form-control text-center" type="text" name="lastName" id="lastName" #editLastName='ngModel'
           [(ngModel)]="editCustomer.lastName" required pattern="[A-Za-z -]{1,32}">
-          <p class="text-danger" *ngIf="editLastName.invalid">Please add a valid last name.</p>
+          <p class="text-danger" *ngIf="editLastName.invalid && editLastName.touched">Please add a valid last name.</p>
       </div>
-      <div class="text-center mb-4"><label for="userName">User Name</label>
+      <div class="text-center mb-4"><label for="userName">Customer email</label>
         <input class="form-control text-center" type="text" name="userName" id="userName" #editEmail='ngModel'
           [(ngModel)]="editCustomer.email" #editEmail="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$">
-        <p class="text-danger" *ngIf="editEmail.invalid">Please add a valid email address.</p>
+        <p class="text-danger" *ngIf="editEmail.invalid && editEmail.touched">Please add a valid email address.</p>
       </div>
       <div class="text-center mb-4">
         <label for="password">Password</label>

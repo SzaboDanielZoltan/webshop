@@ -43,7 +43,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   updateUrlPostfix(value) {
-    this.editProduct.urlPostfix = this.urlPostfixPipe.transform(value);
+    this.editProduct.urlPostfix = this.urlPostfixPipe.transform(value, this.productList);
   }
 
   onUpdate() {

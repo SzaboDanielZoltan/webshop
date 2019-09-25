@@ -16,8 +16,8 @@
                             (ngModelChange)="updateUrlPostfix($event)"
                             required
                             #newName='ngModel'
-                            pattern="^[A-Za-z0-9]( ?[A-Za-z0-9] ?)*$">
-                            <p  *ngIf="newName.invalid && newName.touched" class="text-invalid">Invalid, only one space and letters, numbers onyl!</p>       
+                            pattern="^\S[A-Za-z0-9]*(\s{1}[A-Za-z0-9]+)*\S$">
+                            <p  *ngIf="newName.invalid && newName.touched" class="text-invalid">Invalid, only one space and letters, numbers only!</p>       
                      <div class="text-center"><label for="urlPostfix">Url-Postfix</label></div>
                      <input class="form-control disable"
                             type="text"

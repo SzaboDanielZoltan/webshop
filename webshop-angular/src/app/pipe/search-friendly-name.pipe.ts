@@ -12,11 +12,12 @@ export class SearchFriendlyNamePipe implements PipeTransform {
 
     if (id) {
       let index = allProducts.findIndex(product => product.id == id);
-      allProducts.splice(index, 1);
       for (let i = 0; i < allProducts.length; i++) {
+        if(i!==index){
         if (allProducts[i].urlPostfix === valuePostfix) {
           return "This postfix is already exist"
         }
+      }
       }
       return valuePostfix;
     }

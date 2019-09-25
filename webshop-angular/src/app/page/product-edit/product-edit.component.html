@@ -23,14 +23,15 @@
                             (ngModelChange)="updateUrlPostfix($event)"
                             required
                             #editName='ngModel'
-                            pattern="^[A-Za-z0-9]( ?[A-Za-z0-9] ?)*$">
-                            <p  *ngIf="editName.invalid" class="text-danger">Invalid, only one space and letters, numbers onyl!</p>    
+                            pattern="^\S[A-Za-z0-9]*(\s{1}[A-Za-z0-9]+)*\S$">
+                            <p  *ngIf="editName.invalid" class="text-danger">Invalid, only one space and letters, numbers only!</p>    
                      <div class="text-center"><label for="urlPostfix">URL</label></div>
                      <input class="form-control"
                             type="text"
                             name="urlPostfix"
                             id="urlPostfix"
                             [ngModel]="editProduct.productName | searchFriendlyName : productList :editProduct.id"
+                            required
                             readonly
                             #editUrl='ngModel'
                             pattern="^(?!This postfix is already exist).*$">
