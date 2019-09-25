@@ -15,6 +15,9 @@ module.exports = class customersBusinessLogicLayer {
   }
 
   async updateCustomer(customer) {
+    if(customer.password){
+      customer.password=sha1(customer.password);
+    }
     const update = await db.update('customers', customer);
     return update;
   }
