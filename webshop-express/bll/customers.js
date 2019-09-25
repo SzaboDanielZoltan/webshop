@@ -19,6 +19,11 @@ module.exports = class customersBusinessLogicLayer {
     return update;
   }
 
+  async deleteCustomer(customerID) {
+    const result = await db.delete('customers', customerID);
+    return result;
+  }
+  
   async loginCustomerVerification(emailAndPasswordObject) {
     const customers = await this.getCustomers();
     const validCustomer = { valid: false, customerID: 'Not registered' };
