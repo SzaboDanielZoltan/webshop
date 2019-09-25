@@ -49,19 +49,19 @@ router.put('/customers/:id', async (req, res, next) => {
 
 // Order admin methods
 
-router.get('/order', async (req, res, next) => {
+router.get('/orders', async (req, res, next) => {
   const result = await dbOrder.getAllOrdersWithCustomers();
   res.json(result);
 });
-router.delete('/order/:id', async (req, res, next) => {
+router.delete('/orders/:id', async (req, res, next) => {
   const result = await dbOrder.deleteOrder(req.params.id);
   res.json(result);
 })
-// router.post('/products', async (req, res, next) => {
-//   const result = await db.createProduct(req.body);
+// router.post('/orders', async (req, res, next) => {
+//   const result = await dbOrder.createOrder(req.body);
 //   res.json(result);
 // })
-router.put('/order/:id', async (req, res, next) => {
+router.put('/orders/:id', async (req, res, next) => {
   const result = await dbOrder.updateOrder(req.body);
   res.json(result);
 })
