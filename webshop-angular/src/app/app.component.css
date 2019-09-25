@@ -3,4 +3,11 @@
     width: 100%;
     align-items: stretch;
 }
-
+#content{
+    min-height: auto;
+    min-width: 100%;
+}
+.toggle-button-aside{
+    background-color: #dddddd;
+    padding:10px
+}

@@ -1,41 +1,21 @@
 <div class="container-fluid">
-<div class="wrapper">
-    <div class="col-3">
-        
-            <app-sidenav></app-sidenav>
-            <!-- Sidebar -->
-        
-        
-            <!-- Page Content -->
-            <div id="content">
-                <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSide()">
-                    <span>Toggle Sidebar</span>
-                </button>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                </nav>
-            </div>
-          </div>
-    <router-outlet></router-outlet>
-       
-</div>
+  <div class="wrapper">
+    <app-sidenav></app-sidenav>
+    <div id="content">
+    <div class="container-fluid toggle-button-aside">
+        <button type="button" id="sidebarCollapse" class="btn" (click)="toggleSide()">
+          <span><img src="https://img.icons8.com/material-rounded/24/000000/menu.png"></span>
+          <br>
+          <span>Menu</span>
+        </button>
+    </div>
+      <div class="container mt-5">
+     
+          <router-outlet></router-outlet>
+      
+      </div>
+    </div>
   </div>
 
-<!--
-<div class="container-fluid ml-0 mr-0">
-  <div class="row ml-0">
-    <div class="wrapper ml-0">
-      <app-sidenav></app-sidenav>
 
-      <div id="content">
-        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="toggleSide()">
-          <span>Toggle Sidebar</span>
-        </button>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"> </nav>
-      </div>
-      <div class="mr-0">
-       <router-outlet></router-outlet>
-      </div>
 </div>
-</div>
-</div>
--->
