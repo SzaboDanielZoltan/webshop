@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'products/update/:id', component: ProductEditComponent },
   { path: 'customers', component: CustomerListComponent },
   { path: 'customers/update/:id', component: CustomerEditComponent },
-  { path: 'order', component: OrderListComponent },
+  { path: 'orders', component: OrderListComponent },
 
 ];
 
