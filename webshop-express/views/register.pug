@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  link(href='/stylesheets/register.css', rel='stylesheet')
+  if (notValidmessage)
+    .alert.alert-warning  #{email} #{notValidmessage} 
+  .container.login-container
+    .row
+      form.col-md-6.login-form
+        h3 Login
+        .form-group
+          input.form-control(name='krumpli' type='text' disabled)
+        .form-group
+          input.form-control(name='password' type='password' disabled)
+        br
+        .form-group
+          a.btn.btnSubmit(href="/login") Back to Login
+        .form-group
+          a.btnForgetPwd(href='#') Forget Password?
+      script
+        include ../public/javascripts/zxcvbn.js
+      script
+        include ../public/javascripts/registerFromVal.js
+      link(href='/stylesheets/validation.css', rel='stylesheet')  
+      form.col-md-6.registration-form.simple-form(method='post', name="registerForm", onsubmit="return formCheckValidation()")
+        .login-logo
+          img(src='https://image.ibb.co/n7oTvU/logo_white.png')
+        h3 Register
+        .form-group
+          input.form-control.fname(type='text', name='firstName', required , placeholder='Your firstname *', oninput="validateFirstName()")
+          p.error.message-fname Invalid firstname!
+        .form-group
+          input.form-control.lname(type='text', name='lastName', required , placeholder='Your lastname *', oninput="validateLastName()")
+          p.error.message-lname Invalid lastname!
+        .form-group
+          input.form-control.registerEmail(type='text', name='email', required , placeholder='Your email *',  oninput="validateEmail()")
+          p.error.message-email Invalid Email!
+        .form-group
+          input.form-control.registerPassword#password(type='current-password' , name='password', required , placeholder='Your Password *' oninput="validatePassword()")
+          p#password-strength-text
+          meter#password-strength-meter(max="4")
+          p.error.message-password 
+        .form-group
+          input.form-control.registerAddress(type='text', name='address', required , placeholder='Your address *', oninput="validateAddress()")  
+          p.error.message-address Invalid Address!
+        br  
+        .form-group
+          button.registerButton.btnSubmit(type='submit' ) Register

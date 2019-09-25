@@ -2,12 +2,14 @@ extends layout
 
 block content
     link(href='/stylesheets/login.css', rel='stylesheet')
+    if (success)
+      .alert.alert-success #{success}
     .container.login-container
       .row
         form.col-md-6.login-form(action='/login' method='post')
           h3 Login
           .form-group
-            input.form-control(name='email' type='text' placeholder='email')
+            input.form-control(name='email' type='text' placeholder='email' required)
           .form-group
             input.form-control(name='password' type='password' placeholder='password')
           br
@@ -20,9 +22,9 @@ block content
             img(src='https://image.ibb.co/n7oTvU/logo_white.png', alt='')
           h3 Register
           .form-group
-            input.form-control(type='text', placeholder='Your Email *', value='')
+            input.form-control(disabled)
           .form-group
-            input.form-control(type='password', placeholder='Your Password *', value='')
+            input.form-control(disabled)
           br  
           .form-group
-            input.btnSubmit(type='submit', value='Register')
+           a.btn.btnSubmit(href="/register") Go to Register

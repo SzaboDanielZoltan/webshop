@@ -13,6 +13,12 @@ module.exports = class customersBusinessLogicLayer {
     const customer = await db.read('customers', customerID);
     return customer;
   }
+  
+    async createCustomer(customer){
+    customer.password = sha1(customer.password)
+    const create = await db.create('customers', customer);
+    return create;
+  }
 
   async updateCustomer(customer) {
     if(customer.password){
@@ -69,6 +75,20 @@ module.exports = class customersBusinessLogicLayer {
       }
     }
     return validToken;
+  }
+  
+  async validateEmail(email){
+    const getAllCustomers = await this.getCustomers();
+    let validationEmail = true
+    for(let i = 0; i < getAllCustomers.length; i+=1){
+      if ( getAllCustomers[i].email == email){
+        
+        validationEmail = false;
+        break;
+        
+      }
+    }
+    return validationEmail
   }
 
   // ORDERS
