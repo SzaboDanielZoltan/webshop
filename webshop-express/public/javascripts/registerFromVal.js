@@ -1,3 +1,10 @@
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 5);
+
+
 function validateFirstName() {
   let regName = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõőøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕŐØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
   const formNode = document.forms["registerForm"];
