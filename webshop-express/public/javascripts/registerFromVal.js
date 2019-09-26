@@ -61,22 +61,24 @@ function validateEmail() {
 }
 
 function validateAddress() {
+  const regAddress = /^$|\s+/ ;
   const formNode = document.forms["registerForm"];
   const address = formNode["address"].value;
 
-  if (address) {
-    if (address == '') {
-      document.querySelector('input.registerAddress').classList.add("invalid");
-      document.querySelector('.message-address').setAttribute("style", "display : block");
-      return false;
-    } else {
-      document.querySelector('input.registerAddress').classList.remove("class", "invalid");
-      document.querySelector('input.registerAddress').classList.add("class", "valid");
-      document.querySelector('.message-address').setAttribute("style", "display : none");
-      return true;
-    }
+  if (address){
+    if (regAddress.test(address) != false) {
+        document.querySelector('input.registerAddress').classList.add("invalid");
+        document.querySelector('.message-address').setAttribute("style", "display : block");
+        return false;
+      } else {
+        document.querySelector('input.registerAddress').classList.remove("class", "invalid");
+        document.querySelector('input.registerAddress').classList.add("class", "valid");
+        document.querySelector('.message-address').setAttribute("style", "display : none");
+        return true;
+      }
   }
-}
+  }
+
 
 function formCheckValidation() {
   const inputs = document.querySelectorAll('.registration-form input');

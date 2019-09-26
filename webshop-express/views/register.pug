@@ -36,12 +36,12 @@ block content
           input.form-control.registerEmail(type='text', name='email', required , placeholder='Your email *',  oninput="validateEmail()")
           p.error.message-email Invalid Email!
         .form-group
-          input.form-control.registerPassword#password(type='current-password' , name='password', required , placeholder='Your Password *' oninput="validatePassword()")
+          input.form-control.registerPassword#password(type='password',required , name='password', placeholder='Your Password *' oninput="validatePassword()")
           p#password-strength-text
           meter#password-strength-meter(max="4")
           p.error.message-password 
         .form-group
-          input.form-control.registerAddress(type='text', name='address', required , placeholder='Your address *', oninput="validateAddress()")  
+          input.form-control.registerAddress(type='text', name='address',required , placeholder='Your address *', oninput="validateAddress()")  
           p.error.message-address Invalid Address!
         br  
         .form-group
