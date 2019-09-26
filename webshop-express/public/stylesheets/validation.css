@@ -6,7 +6,7 @@ A form-ra csak tedd rá class-nek, hogy simple-form
 .simple-form input {
     margin: 0 .25rem;
     min-width: 125px border: 1px solid #eee;
-    border-left: 3px solid;
+    border-left: 10px solid;
     border-radius: 5px;
     transition: border-color .5s ease-out;
 }
@@ -16,7 +16,7 @@ A form-ra csak tedd rá class-nek, hogy simple-form
 }
 
 .simple-form input.valid {
-    border-left-color: palegreen;
+    border-left-color:rgb(26, 122, 31);
 
 }
 
