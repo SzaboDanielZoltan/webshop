@@ -19,6 +19,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { OrderEditComponent } from './page/order-edit/order-edit.component';
+import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { OrderEditComponent } from './page/order-edit/order-edit.component';
     DashboardComponent,
     OrderListComponent,
     OrderEditComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
