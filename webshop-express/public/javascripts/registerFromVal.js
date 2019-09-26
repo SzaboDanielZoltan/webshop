@@ -86,18 +86,27 @@ function validateAddress() {
   }
   }
 
+  function formCheckValidation(ev) {
 
-function formCheckValidation() {
-  const inputs = document.querySelectorAll('.registration-form input');
-
-  for (let i = 0; i < inputs.length; i += 1) {
-    if (inputs[i].getAttribute("class").includes("invalid")) {
-      return false;
-    };
+    let everythingVerified = true;
+    validateAddress();
+    validateEmail();
+    validateFirstName();
+    validateLastName();
+    validatePassword();
+  
+    const inputs = document.querySelectorAll('.registration-form input');
+  
+    for (let i = 0; i < inputs.length; i += 1) {
+      if (inputs[i].getAttribute("class").includes("invalid")) {
+        everythingVerified = false
+        break;
+      };
+    }
+    if (!everythingVerified) {
+      ev.preventDefault();
+    }
   }
-  return true;
-}
-
 function validatePassword() {
   const strength = {
     0: 'Worst',
