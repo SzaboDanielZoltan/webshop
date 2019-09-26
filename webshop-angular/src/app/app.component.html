@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid p-0">
   <div class="wrapper">
     <app-sidenav></app-sidenav>
     <div id="content">
-    <div class="container-fluid toggle-button-aside">
+    <div class="toggle-button-aside">
         <button type="button" id="sidebarCollapse" class="btn" (click)="toggleSide()">
           <span><img src="https://img.icons8.com/material-rounded/24/000000/menu.png"></span>
           <br>
@@ -10,9 +10,7 @@
         </button>
     </div>
       <div class="container mt-5">
-     
           <router-outlet></router-outlet>
-      
       </div>
     </div>
   </div>
