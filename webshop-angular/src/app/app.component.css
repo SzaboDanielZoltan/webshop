@@ -10,3 +10,9 @@
 .toggle-button-aside{
     padding:10px
 }
+
+#sidebarCollapse {
+    position: fixed;
+    
+}
+
