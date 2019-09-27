@@ -1,0 +1,22 @@
+#backgroundCover {
+    position: relative;
+    background-color: #0a898d;
+    /* background: url("./../images/background/beerOnTheMoon.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  } 
+  
+  #astrodiv {
+    color: #fff;
+    z-index: 1
+  }
+  
+  #astrodiv h1 {
+  font-family: spacebar;
+  }
+  
+  #astrodiv h4 {
+    font-family: spacetext-bold;
+    }
+    

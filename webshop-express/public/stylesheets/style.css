@@ -27,25 +27,32 @@ input[name="orderedAmount"] {
 
 
 .navbar {
-  background-color: #0009;
-  opacity: 0.85;
-}
-
-.navbar {
+  background-color: #000c14;
   font-family: spacetext;
+  /* opacity: 0.85; */
 }
 
 #loginNavLink {
-  color: cyan;
+  color:#0a898d;
+  /* padding: 8px; */
+  border : 1px solid#0a898d;
+}
+
+#loginNavLink:hover {
+  color:#000c14;
+  border : 1px solid#0a898d;
+  /* padding: 8px; */
+  background-color: #0a898d;
 }
 
 #backgroundCover {
   position: relative;
-  background: url("./../images/background/beerOnTheMoon.jpg");
+  background-color: #0a898d;
+  /* background: url("./../images/background/beerOnTheMoon.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-}
+  background-attachment: fixed; */
+} 
 
 #astrodiv {
   margin-top: 3%;
@@ -110,6 +117,27 @@ font-family: spacebar;
   z-index: 1;
   font-family: spacetext-bold;
 }
+footer{
+  background-color: #000c14;
+  /* font-family: spacetext-bold; */
+}
+footer a,
+footer p{
+  text-decoration: none;
+  color: rgba(255,255,255,.5);
+}
+footer a:hover{
+  text-decoration: none;
+  color: #0a898d;
+}
+footer h3,
+footer h6{
+  color: #fff
+}
+/* .social i {
+  height: 100px;
+  width:auto;
+} */
 
 #showProductDetailsBtn {
   margin-bottom: 10px;
