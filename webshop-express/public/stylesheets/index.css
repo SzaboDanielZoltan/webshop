@@ -1,3 +1,18 @@
+.btn-alien{
+  background-color: #000c14;
+  color:#0a898d;
+  border: 2px solid #0a898d;
+  text-decoration: none;
+  font-family: spacetext-bold;
+}
+
+.btn-alien:hover{
+  background-color: #0a898d;
+  color:#000c14;
+  border: 2px solid #0a898d;
+  text-decoration: none;
+  font-family: spacetext-bold;
+}
 #astrodiv {
   color: #fff;
   z-index: 1;
@@ -39,20 +54,29 @@
 #backgroundCover1 {
   background-image: linear-gradient(to right, #000c14, #0a898d);
   margin: 0px;
+  height:85vh;
+  width:auto;
 }
 
-#backgroundCover3 {
+#backgroundCover4 {
   background-image: linear-gradient(to left, #000c14, #515f8c, #000c14);
   margin: 0px;
 }
-
+#backgroundCover3{
+  margin: 0px;
+  padding: 150px;
+  background-image:url("./../images/background/dotsEarthMap.png");
+  background-color: #000c14;
+  background-attachment:fixed;
+}
 #backgroundCover2{
   background-color: #000c14;
   margin: 0px;
   padding: 150px;
 }
 
-#backgroundCover2 h3{
+#backgroundCover2 h3,
+#backgroundCover3 h3{
   color: #0a898d;
   font-family: spacetext-bold;
 }
@@ -72,7 +96,7 @@
     transform: scale(1, 1);
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.3;
   }
   100% {
     transform: scale(1);
@@ -82,13 +106,8 @@
 
 .deliveryShip-photo,
 .deliveryGuy-photo {
-  width: 100%;
-  height: auto;
-}
-
-.deliveryGuy-photo {
-  max-height: 20rem;
-
+  max-width: 100%;
+  max-height: 50vh;
 }
 
 .jupiter-popover{
@@ -103,7 +122,11 @@
 
 .green-galaxy-container {
   padding: 0;
+  background-image:url("./../images/background/indexBG.jpg");
+  background-size: 100% 100%;
+  background-attachment:fixed;
 }
+
 
 .green-galaxy {
   height: 100%;
@@ -119,8 +142,8 @@
     height: 12vh;
   }
 
-  .green-galaxy {
-    height: 80%;
+  .green-galaxy-container {
+    height: 50%;
     width: 100%;
   }
 }

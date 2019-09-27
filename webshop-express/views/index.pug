@@ -8,14 +8,13 @@ block content
     include ../public/javascripts/design.js
   .row#backgroundCover1
     .col-lg-7.col-sm-12.green-galaxy-container
-      img.green-galaxy(src="/images/background/indexBG.jpg", alt="")
     .col-lg-5.col-sm-12.mt-5.mb-5#astrodiv.text-right
       h1(style="font-size:5vw;") THE GASTRONAUT
       br
       h4(style="font-size:2vw;") Delicious dishes for the galaxy 
       h4(style="font-size:2vw;") and beyond
   .row#backgroundCover2
-    h3 TRADITIONALS MEALS FROM THE GALAXY
+    h3 TRADITIONAL MEALS FROM THE GALAXY
     .col-12
       .row
         img.planets-photos.img-fluid(src="/images/background/planetsShowFood.png")
@@ -26,11 +25,32 @@ block content
           .row
             .col-12.text-right.neptune-popover
               i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Neptune meal" data-html="true" data-content="<img src='/images/food1.jpg' width='200' />")
-
+        a.btn.btn-alien(href="/products") Alien meals     
   .row#backgroundCover3
-    .col-6.galaxy-text.text-left
+    h3 TRADITIONAL MEALS FROM THE EARTH
+    .col-12.m-5
+    .row  
+      .col-2
+        img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg")
+      .col-2
+        img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg")
+      .col-2
+        img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg")
+      .col-2
+        img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg")
+      .col-2
+        img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg")
+      .col-2
+        img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg")
+      a.btn.btn-alien.m-5(href="/products") Human meals    
+  .row#backgroundCover4
+    .col-lg-6.col-sm-12.galaxy-text.text-left
       h3 We have the most fastest galaxy ships and the best delivery service
-    .col-3.p-0
-      img.deliveryGuy-photo(src="/images/background/deliveryGuy.jpg")
-    .col-3.p-0
-      img.deliveryShip-photo(src="/images/background/deliveryShip.jpg")
+      p  You can contact with us:
+      p
+        | info@website.com
+        | +12 34567890, +12 34567890
+    .col-lg-3.col-sm-12
+      img.deliveryGuy-photo.m-3.img-fluid(src="/images/background/deliveryGuy.jpg")
+    .col-lg-3.col-sm-12
+      img.deliveryShip-photo.m-3.img-fluid(src="/images/background/deliveryShip.jpg")

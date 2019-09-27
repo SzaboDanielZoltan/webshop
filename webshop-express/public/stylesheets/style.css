@@ -34,14 +34,12 @@ input[name="orderedAmount"] {
 
 #loginNavLink {
   color:#0a898d;
-  /* padding: 8px; */
-  border : 1px solid#0a898d;
+  border : 2px solid#0a898d;
 }
 
 #loginNavLink:hover {
   color:#000c14;
-  border : 1px solid#0a898d;
-  /* padding: 8px; */
+  border : 2px solid #0a898d;
   background-color: #0a898d;
 }
 .card {
