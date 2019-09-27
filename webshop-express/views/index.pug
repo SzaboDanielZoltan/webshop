@@ -1,11 +1,13 @@
 extends layout
 
 block content
-  link(rel="/stylesheets/index.css", href="style.css")
-  body#backgroundCover
-    .row.text-right
-      .col-sm-12#astrodiv.mt-5.mb-5
-        h1(style="font-size:6vw;") THE GASTRONAUT
-        br
-        h4(style="font-size:2vw;") Delicious dishes for the galaxy 
-        h4(style="font-size:2vw;") and beyond
+  link(href='/stylesheets/index.css', rel='stylesheet')
+  .row#backgroundCover1
+    .col-lg-6.col-sm-12
+      img.green-galaxy(src="/images/background/indexBG.jpg", alt="")
+    .col-lg-6.col-sm-12.mt-5.mb-5#astrodiv.text-right
+      h1(style="font-size:5vw;") THE GASTRONAUT
+      br
+      h4(style="font-size:2vw;") Delicious dishes for the galaxy 
+      h4(style="font-size:2vw;") and beyond
+       

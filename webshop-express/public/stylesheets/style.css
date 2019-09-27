@@ -45,15 +45,15 @@ input[name="orderedAmount"] {
   background-color: #0a898d;
 }
 
-#backgroundCover {
+/* #backgroundCover {
   position: relative;
   background-color: #0a898d;
-  /* background: url("./../images/background/beerOnTheMoon.jpg");
+  background: url("./../images/background/beerOnTheMoon.jpg"); 
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed; */
-} 
-
+  background-attachment: fixed;
+}  */
+/* 
 #astrodiv {
   margin-top: 3%;
   color: #fff;
@@ -66,7 +66,7 @@ font-family: spacebar;
 #astrodiv h4 {
   font-family: spacetext-bold;
   }
-  
+   */
 
 
 /* #indexFooter {
@@ -134,11 +134,6 @@ footer h3,
 footer h6{
   color: #fff
 }
-/* .social i {
-  height: 100px;
-  width:auto;
-} */
-
 #showProductDetailsBtn {
   margin-bottom: 10px;
   cursor: pointer;

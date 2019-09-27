@@ -1,22 +1,38 @@
-#backgroundCover {
-    position: relative;
-    background-color: #0a898d;
-    /* background: url("./../images/background/beerOnTheMoon.jpg"); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-  } 
-  
-  #astrodiv {
-    color: #fff;
-    z-index: 1
-  }
-  
-  #astrodiv h1 {
+#astrodiv {
+  /* color:#000c14; */
+  color: #fff;
+  animation: astrodiv 2s linear;
+}
+
+#astrodiv h1 {
   font-family: spacebar;
-  }
   
-  #astrodiv h4 {
-    font-family: spacetext-bold;
-    }
-    
+}
+@keyframes astrodiv {
+  25%   { 
+  transform: translateX(150%); 		
+  }
+  50%   { 
+  transform: translateX(100%); 		
+  }
+  75%   { 
+  transform: translateX(50%); 		
+  }
+  100% { 
+  transform: translateX(0%); 
+  }
+ }
+
+#astrodiv h4 {
+  font-family: spacetext-bold;
+}
+
+.green-galaxy {
+  height: 100%;
+  width: 100%;
+}
+
+#backgroundCover1 {
+  background-image: linear-gradient(to right,#000c14, #0a898d);
+  margin: 0;
+}
