@@ -1,6 +1,6 @@
 #astrodiv {
   color: #fff;
-  z-index:1;
+  z-index: 1;
   transform: translateX(-30%);
   animation: astrodiv 2s linear;
 }
@@ -15,60 +15,111 @@
 }
 
 @keyframes astrodiv {
-  0%   { 
-  transform: translateX(150%); 		
+  0% {
+    transform: translateX(150%);
   }
-  25%   { 
-  transform: translateX(100%); 		
+
+  25% {
+    transform: translateX(100%);
   }
-  50%   { 
-  transform: translateX(50%); 		
+
+  50% {
+    transform: translateX(50%);
   }
-  75%   { 
-  transform: translateX(0%); 		
+
+  75% {
+    transform: translateX(0%);
   }
-  100% { 
-  transform: translateX(-30%);
+
+  100% {
+    transform: translateX(-30%);
   }
- }
- 
-#backgroundCover1 {
-  background-image: linear-gradient(to right,#000c14, #0a898d);
-  margin: 0;
 }
-#backgroundCover2 {
-  background-image: linear-gradient(to left,#000c14, #515f8c,#000c14);
-  margin: 0;
+
+#backgroundCover1 {
+  background-image: linear-gradient(to right, #000c14, #0a898d);
+  margin: 0px;
+}
+
+#backgroundCover3 {
+  background-image: linear-gradient(to left, #000c14, #515f8c, #000c14);
+  margin: 0px;
+}
+
+#backgroundCover2{
+  background-color: #000c14;
+  margin: 0px;
+  padding: 150px;
+}
+
+#backgroundCover2 h3{
+  color: #0a898d;
+  font-family: spacetext-bold;
+}
+
+#backgroundCover2 i{
+  color: #0a898d;
+  animation: pulse 3s ease infinite;
+}
+
+#backgroundCover2 i:hover{
+  color: #0a898d;
+  animation:none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .deliveryShip-photo,
-.deliveryGuy-photo{
+.deliveryGuy-photo {
   width: 100%;
   height: auto;
 }
-.deliveryGuy-photo{
- max-height: 20rem;
- 
+
+.deliveryGuy-photo {
+  max-height: 20rem;
+
 }
- .galaxy-text{
-  color:#fff;
+
+.jupiter-popover{
+  transform: translateX(-10%)
+}
+
+.galaxy-text {
+  color: #fff;
   font-family: spacetext-bold;
-  padding:80px;  
- }
- .green-galaxy-container{
-   padding: 0;
- }
+  padding: 80px;
+}
+
+.green-galaxy-container {
+  padding: 0;
+}
+
 .green-galaxy {
   height: 100%;
   width: 100%;
 }
 
+.neptune-popover{
+  transform: translateX(-25%)
+}
 @media screen and (max-width: 992px) {
   #astrodiv {
     transform: translateX(0%);
     height: 12vh;
   }
-  .green-galaxy{
+
+  .green-galaxy {
     height: 80%;
     width: 100%;
   }

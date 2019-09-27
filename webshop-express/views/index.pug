@@ -2,6 +2,10 @@ extends layout
 
 block content
   link(href='/stylesheets/index.css', rel='stylesheet')
+  script(src="/javascripts/jquery.min.js")
+  script(src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")      
+  script
+    include ../public/javascripts/design.js
   .row#backgroundCover1
     .col-lg-7.col-sm-12.green-galaxy-container
       img.green-galaxy(src="/images/background/indexBG.jpg", alt="")
@@ -11,10 +15,22 @@ block content
       h4(style="font-size:2vw;") Delicious dishes for the galaxy 
       h4(style="font-size:2vw;") and beyond
   .row#backgroundCover2
+    h3 TRADITIONALS MEALS FROM THE GALAXY
+    .col-12
+      .row
+        img.planets-photos.img-fluid(src="/images/background/planetsShowFood.png")
+        .col-6.text-right.jupiter-popover
+          i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Jupiter meal" data-html="true" data-content="<img src='/images/food1.jpg' width='200' />")  
+        .col-6
+          i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Saturnus meal" data-html="true" data-content="<img src='/images/food1.jpg' width='200' />")
+          .row
+            .col-12.text-right.neptune-popover
+              i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Neptune meal" data-html="true" data-content="<img src='/images/food1.jpg' width='200' />")
+
+  .row#backgroundCover3
     .col-6.galaxy-text.text-left
       h3 We have the most fastest galaxy ships and the best delivery service
     .col-3.p-0
       img.deliveryGuy-photo(src="/images/background/deliveryGuy.jpg")
     .col-3.p-0
       img.deliveryShip-photo(src="/images/background/deliveryShip.jpg")
-        
