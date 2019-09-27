@@ -3,11 +3,18 @@ extends layout
 block content
   link(href='/stylesheets/index.css', rel='stylesheet')
   .row#backgroundCover1
-    .col-lg-6.col-sm-12
+    .col-lg-7.col-sm-12.green-galaxy-container
       img.green-galaxy(src="/images/background/indexBG.jpg", alt="")
-    .col-lg-6.col-sm-12.mt-5.mb-5#astrodiv.text-right
+    .col-lg-5.col-sm-12.mt-5.mb-5#astrodiv.text-right
       h1(style="font-size:5vw;") THE GASTRONAUT
       br
       h4(style="font-size:2vw;") Delicious dishes for the galaxy 
       h4(style="font-size:2vw;") and beyond
-       
+  .row#backgroundCover2
+    .col-6.galaxy-text.text-left
+      h3 We have the most fastest galaxy ships and the best delivery service
+    .col-3.p-0
+      img.deliveryGuy-photo(src="/images/background/deliveryGuy.jpg")
+    .col-3.p-0
+      img.deliveryShip-photo(src="/images/background/deliveryShip.jpg")
+        

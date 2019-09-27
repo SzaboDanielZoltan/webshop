@@ -1,38 +1,75 @@
 #astrodiv {
-  /* color:#000c14; */
   color: #fff;
+  z-index:1;
+  transform: translateX(-30%);
   animation: astrodiv 2s linear;
 }
 
+
 #astrodiv h1 {
   font-family: spacebar;
-  
 }
-@keyframes astrodiv {
-  25%   { 
-  transform: translateX(150%); 		
-  }
-  50%   { 
-  transform: translateX(100%); 		
-  }
-  75%   { 
-  transform: translateX(50%); 		
-  }
-  100% { 
-  transform: translateX(0%); 
-  }
- }
 
 #astrodiv h4 {
   font-family: spacetext-bold;
 }
 
+@keyframes astrodiv {
+  0%   { 
+  transform: translateX(150%); 		
+  }
+  25%   { 
+  transform: translateX(100%); 		
+  }
+  50%   { 
+  transform: translateX(50%); 		
+  }
+  75%   { 
+  transform: translateX(0%); 		
+  }
+  100% { 
+  transform: translateX(-30%);
+  }
+ }
+ 
+#backgroundCover1 {
+  background-image: linear-gradient(to right,#000c14, #0a898d);
+  margin: 0;
+}
+#backgroundCover2 {
+  background-image: linear-gradient(to left,#000c14, #515f8c,#000c14);
+  margin: 0;
+}
+
+.deliveryShip-photo,
+.deliveryGuy-photo{
+  width: 100%;
+  height: auto;
+}
+.deliveryGuy-photo{
+ max-height: 20rem;
+ 
+}
+ .galaxy-text{
+  color:#fff;
+  font-family: spacetext-bold;
+  padding:80px;  
+ }
+ .green-galaxy-container{
+   padding: 0;
+ }
 .green-galaxy {
   height: 100%;
   width: 100%;
 }
 
-#backgroundCover1 {
-  background-image: linear-gradient(to right,#000c14, #0a898d);
-  margin: 0;
+@media screen and (max-width: 992px) {
+  #astrodiv {
+    transform: translateX(0%);
+    height: 12vh;
+  }
+  .green-galaxy{
+    height: 80%;
+    width: 100%;
+  }
 }

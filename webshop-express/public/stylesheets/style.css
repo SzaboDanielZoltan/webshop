@@ -44,42 +44,6 @@ input[name="orderedAmount"] {
   /* padding: 8px; */
   background-color: #0a898d;
 }
-
-/* #backgroundCover {
-  position: relative;
-  background-color: #0a898d;
-  background: url("./../images/background/beerOnTheMoon.jpg"); 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}  */
-/* 
-#astrodiv {
-  margin-top: 3%;
-  color: #fff;
-}
-
-#astrodiv h1 {
-font-family: spacebar;
-}
-
-#astrodiv h4 {
-  font-family: spacetext-bold;
-  }
-   */
-
-
-/* #indexFooter {
-    background-color: rgba(0,0,0,.5);
-    padding: 35px 0;
-    position: absolute;
-    width: 150%;
-    bottom: 0;
-} */
-
-
-/* Products page styling */
-
 .card {
   display: block;
   border: none;
