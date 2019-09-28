@@ -42,6 +42,11 @@ input[name="orderedAmount"] {
   border : 2px solid #0a898d;
   background-color: #0a898d;
 }
+.nav-item:hover{
+  border-bottom: 2px solid #0a898d;
+  margin-left:2px
+}
+
 .card {
   display: block;
   border: none;
@@ -110,6 +115,14 @@ footer h6{
  
 }
 
+
+nav.scrolled-nav {
+  opacity:0;
+  transition: opacity 0.8s linear 
+}
+nav.scrolled-nav:hover {
+  opacity:1
+}
 #productDetailsPageMenu {
   position: absolute;
   color: #fff;
