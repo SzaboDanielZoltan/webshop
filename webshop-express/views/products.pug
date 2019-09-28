@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  link(href='/stylesheets/register.css', rel='stylesheet')
-  .container        
+  link(href='/stylesheets/products.css', rel='stylesheet')
+  .container      
     .row
-      .col.col-xs-6.col-md-3  
+      .col-12.col-xs-6.col-md-3  
         - let limitNumber = displaySize || 10
         form.form-inline.mt-3.mb-3(method="POST" action="/products")
           .form-group
@@ -16,24 +16,18 @@ block content
                 else 
                   option(value=`${view}`) #{view}                  
             span.input-group-btn  
-              button.btn.btn-light.pageLimitSelector(type='submit') View 
-    .row.card-group                 
+              button.btn.btn-light.pageLimitSelector(type='submit') View
+    .row
       each product , index in products
         if index < limitNumber
-          .col.col-xs-12.col-md-6.col-lg-4.d-flex.align-items-stretch
-            .card
-              .card-header
-                img.card-img-top(src='/images/food1.jpg')
-              .card-body
-                table
-                  tr 
-                    td.mr-1
-                      h6 #{product.productName}
-                      p #{product.type}
-                    td.ml-2  
-                      p #{product.price} Galaxy Dollars
-                .col-12.text-center
-                  a.btn.btn-sm#showProductDetailsBtn(href=`/products/${product.urlPostfix}`) Show me more
+          .col-lg-4.col-sm-12.product_content
+            .single_product_text
+              img.img-fluid(src='/images/food1.jpg')
+              .product_images_overlay.text-center
+                h6.mt-1.mb-1 #{product.productName}
+                p.product_price #{product.type}
+                p.product_price #{product.price} Galaxy Dollars
+                a.btn.btn-primary(href=`/products/${product.urlPostfix}`) Click here         
       .col-12.mt-3.mb-3.ml-3                      
         if numberOfproducts > limitNumber
           nav(aria-label='Page navigation')

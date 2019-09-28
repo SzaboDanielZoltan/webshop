@@ -6,7 +6,7 @@ html
     link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     script
-      include ../public/javascripts/design.js  
+      include ../public/javascripts/layout.js  
   body
     nav.navbar.navbar-expand-lg.navbar-dark.sticky-top
       a.navbar-brand(href="/") THE GASTRONAUT
@@ -14,12 +14,12 @@ html
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav
-          li.nav-item
+        ul.navbar-nav.ml-auto
+          li.nav-item.menu-icon
             a.nav-link(href="/products") Space meals
-          li.nav-item
+          li.nav-item.menu-icon
             a.nav-link(href="/about") About us   
-          li.nav-item
+          li.nav-item.menu-icon
             a.nav-link(href="/contact") Contact us
         ul.navbar-nav
           if loggedcustomer
@@ -46,7 +46,7 @@ html
                 a.dropdown-item(href="/login/logout") Log out
           else
             li.nav-item
-              a.nav-link#loginNavLink(href="/login") Login/Register                   
+              a.btn.nav-link#loginNavLink(href="/login") Login/Register                   
     .container-fluid  
       block content
     footer.container-fluid.p-5.sticky-bottom
@@ -89,6 +89,6 @@ html
                   i.fa.fa-facebook.fa-2x(aria-hidden='true')
                 a.p-2(href='#')
                   i.fa.fa-instagram.fa-2x(aria-hidden='true')
-    script(src="/javascripts/jquery.min.js")
-    script(src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
-    script(src="/bootstrap/dist/js/bootstrap.min.js")
+  script(src="/javascripts/jquery.min.js")
+  script(src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
+  script(src="/bootstrap/dist/js/bootstrap.min.js")

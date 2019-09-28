@@ -4,6 +4,7 @@
   border: 2px solid #0a898d;
   text-decoration: none;
   font-family: spacetext-bold;
+  animation: pulse 3s ease infinite;
 }
 
 .btn-alien:hover {
@@ -54,18 +55,18 @@
 
 #backgroundCover1 {
   background-image: linear-gradient(to right, #000c14, #0a898d);
-  /* margin: 0px; */
+  margin: 0px;
   height: 85vh;
   width: auto;
 }
 
 #backgroundCover4 {
   background-image: linear-gradient(to left, #000c14, #515f8c, #000c14);
-  /* margin: 0px; */
+  margin: 0px;
 }
 
 #backgroundCover3 {
-  /* margin: 0px; */
+  margin: 0px;
   padding: 150px;
   background-image: url("./../images/background/dotsEarthMap.png");
   background-color: #000c14;
@@ -74,7 +75,7 @@
 
 #backgroundCover2 {
   background-color: #000c14;
-  /* margin: 0px; */
+  margin: 0px;
   padding: 150px;
 }
 
@@ -142,6 +143,10 @@
   transform: translateX(-25%)
 }
 
+.text-earth-food{
+  background-color: #000c14;
+}
+
 @media screen and (max-width: 996px) {
   #backgroundCover1 {
     height: 70%;
@@ -152,4 +157,8 @@
     height: 20vh;
     padding: 0
   }
+}
+body{
+  background-color: #000c14;
+  margin:0;
 }

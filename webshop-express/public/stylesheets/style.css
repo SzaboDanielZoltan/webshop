@@ -35,6 +35,22 @@ input[name="orderedAmount"] {
 #loginNavLink {
   color:#0a898d;
   border : 2px solid#0a898d;
+  animation: pulse 3s ease infinite
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 #loginNavLink:hover {
@@ -42,11 +58,11 @@ input[name="orderedAmount"] {
   border : 2px solid #0a898d;
   background-color: #0a898d;
 }
-.nav-item:hover{
+.menu-icon:hover{
   border-bottom: 2px solid #0a898d;
   margin-left:2px
 }
-
+/* 
 .card {
   display: block;
   border: none;
@@ -74,7 +90,7 @@ input[name="orderedAmount"] {
   font-weight: bold;
   background-color: cyan;
   margin:auto;
-}
+} */
 
 #addToBasketBtn {
   position: absolute;
@@ -101,7 +117,7 @@ footer h3,
 footer h6{
   color: #fff
 }
-#showProductDetailsBtn {
+/* #showProductDetailsBtn {
   margin-bottom: 10px;
   cursor: pointer;
   background-color: cyan;
@@ -113,7 +129,7 @@ footer h6{
   position: absolute;
   margin: 0;
  
-}
+} */
 
 
 nav.scrolled-nav {
@@ -123,13 +139,13 @@ nav.scrolled-nav {
 nav.scrolled-nav:hover {
   opacity:1
 }
-#productDetailsPageMenu {
+/* #productDetailsPageMenu {
   position: absolute;
   color: #fff;
   background-color: rgba(248, 248, 248, 0.3);
   border: #fff;
   margin: 0;
-}
+} */
 
 #addToBasketWithIcon {
   background-color: rgb(75, 71, 71);
