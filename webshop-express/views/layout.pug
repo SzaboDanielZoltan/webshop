@@ -15,8 +15,8 @@ html
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
-          li.nav-item.menu-icon
-            a.nav-link(href="/products") Space meals
+          li.nav-item.menu-icon.mx-md-n5
+            a.nav-link.px-md-5(href="/products") Space meals
           li.nav-item.menu-icon
             a.nav-link(href="/about") About us   
           li.nav-item.menu-icon
@@ -33,9 +33,9 @@ html
                 .dropdown-divider
                 a.dropdown-item(href="/login/logout") Log out
             li.nav-item
-              a.nav-link(href="/basket")
-                img(src="/images/icons/shopping-cart.png", width="auto", height="20px")
-                sup #{basketValue}
+              a.nav-link.basketIcon(href="/basket")
+                img(src="/images/icons/shopping-cart.png", width="auto", height="30px")
+                sup.basketNumber #{basketValue}
           else if loggedadmin
             li.nav-item.dropdown
               a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')

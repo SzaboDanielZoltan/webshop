@@ -60,7 +60,7 @@ input[name="orderedAmount"] {
 }
 .menu-icon:hover{
   border-bottom: 2px solid #0a898d;
-  margin-left:2px
+  margin-left:2px;
 }
 
 footer{
@@ -86,4 +86,14 @@ nav.scrolled-nav {
 }
 nav.scrolled-nav:hover {
   opacity:1
+}
+.basketIcon{
+  box-sizing: border-box;
+  width:5vw;
+  height: auto;
+}
+
+.basketNumber{
+  color:#0a898d;
+ font-size: 1rem;
 }
