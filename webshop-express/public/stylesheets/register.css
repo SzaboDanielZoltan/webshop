@@ -1,12 +1,13 @@
 body {
     background: url("./../images/background/altalanos2.jpg");
+    background-attachment: fixed;
 }
 
 .login-container{
     margin-top: 5%;
     margin-bottom: 5%;
     font-family: spacetext;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 .login-logo{
     position: relative;
@@ -17,23 +18,24 @@ body {
     position: absolute;
     width: 20%;
     margin-top: 19%;
-    background: #282726;
+    background:  #000c14;
     border-radius: 4.5rem;
     padding: 5%;
 }
 .registration-form{
     padding: 9%;
-    background: cyan;
-    color: black;
+    background: #0a898d;
+    color: #000c14;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .registration-form h3{
     text-align: center;
     margin-bottom:12%;
+    font-weight: bold;
 }
 .login-form{
     padding: 9%;
-    background: #282726;
+    background: #000c14;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form h3{
@@ -44,7 +46,7 @@ body {
 .btnSubmit{
     font-weight: 600;
     width: 50%;
-    color: #282726;
+    color:  #000c14;
     background-color: #fff;
     border: none;
     border-radius: 1.5rem;

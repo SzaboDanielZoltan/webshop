@@ -3,24 +3,34 @@ extends layout
 block content
     link(href='/stylesheets/login.css', rel='stylesheet')
     if (success)
-      .alert.alert-success #{success}
+      .container
+        .alert.alert-success.m-3 #{success}
     .container.login-container
       .row
-        form.col-md-6.login-form(action='/login' method='post')
+        link(href='/stylesheets/validation.css', rel='stylesheet')
+        form.col-md-6.login-form.simple-form(action='/login' method='post')
           h3 Login
+          if (notRegistered)
+            p.loginfailtext #{notRegistered}
           .form-group
             input.form-control(name='email' type='text' placeholder='email' required)
           .form-group
             input.form-control(name='password' type='password' placeholder='password')
           br
           .form-group
-            input.btnSubmit(type='submit', value='Login')
+            button.btnSubmit(type='submit') Login
           .form-group
             a.btnForgetPwd(href='#') Forget Password?
         form.col-md-6.registration-form
           .login-logo
             img(src='https://image.ibb.co/n7oTvU/logo_white.png', alt='')
           h3 Register
+          .form-group
+            input.form-control(disabled)
+          .form-group
+            input.form-control(disabled)
+          .form-group
+            input.form-control(disabled)
           .form-group
             input.form-control(disabled)
           .form-group
