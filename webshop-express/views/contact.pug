@@ -1,4 +1,26 @@
 extends layout
 
 block content
-  p contact page
+  link(href='/stylesheets/contact.css', rel='stylesheet')
+  .container-fluid.p-0#contact  
+    .section-content.p-0
+      h1.section-header Get in touch with us:
+    .contact-section.p-0
+      .row.justify-content-center
+        .col-sm-10.col-md-5.col-lg-4
+          form
+            .form-group
+              label(for='exampleInputUsername') Name
+              input.form-control(type='text', id='', placeholder='name')
+            .form-group
+              label(for='exampleInputEmail') Email
+              input#exampleInputEmail.form-control(type='email', placeholder='email')
+            .form-group
+              label(for='telephone') Phone 
+              input#telephone.form-control(type='tel', placeholder='phone number')
+        .col-sm-10.col-md-5.col-lg-4.offset-lg-1
+          .form-group
+            label(for='description')  Message
+            textarea#description.form-control(placeholder='Enter your message')
+          div
+            button.btn.btn-sm.btn-alien.submit(type='button') Send

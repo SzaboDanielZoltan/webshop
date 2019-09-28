@@ -27,21 +27,21 @@ block content
         h3 Register
         .form-group
           input.form-control.fname(type='text', name='firstName' , placeholder='Firstname *', oninput="validateFirstName()")
-          p.error.message-fname Invalid firstname!
+          p.error.message-fname Invalid first name!
         .form-group
           input.form-control.lname(type='text', name='lastName' , placeholder='Lastname *', oninput="validateLastName()")
-          p.error.message-lname Invalid lastname!
+          p.error.message-lname Invalid last name!
         .form-group
           input.form-control.registerEmail(type='text', name='email' , placeholder='Email address *',  oninput="validateEmail()")
-          p.error.message-email Invalid Email!
+          p.error.message-email Invalid email!
         .form-group
           input.form-control.registerPassword#password(type='password' , name='password', placeholder='Password *' oninput="validatePassword()")
           p#password-strength-text
           meter#password-strength-meter(max="4")
-          p.error.message-password Use stronger password
+          p.error.message-password Use stronger password!
         .form-group
           input.form-control.registerAddress(type='text', name='address' , placeholder='Address *', oninput="validateAddress()")  
-          p.error.message-address Invalid Address!
+          p.error.message-address Invalid address!
         br  
         .form-group
           button.registerButton.btnSubmit(type='submit' ) Register

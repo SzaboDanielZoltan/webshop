@@ -9,8 +9,8 @@ html
       include ../public/javascripts/layout.js  
   body
     nav.navbar.navbar-expand-lg.navbar-dark.sticky-top
+      img(src="/images/icons/exploredribbblet.gif" width="10%" height="auto")
       a.navbar-brand(href="/") THE GASTRONAUT
-        img(src="/images/icons/exploredribbblet.gif" width="10%" height="auto")
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
@@ -47,22 +47,23 @@ html
           else
             li.nav-item
               a.btn.nav-link#loginNavLink(href="/login") Login/Register                   
-    .container-fluid  
+    .container-fluid.p-0  
       block content
-    footer.container-fluid.p-5.sticky-bottom
+    footer.container-fluid.p-4.sticky-bottom
       .row
         .col-md-6
           .row
             .col-md-6
               h3  THE GASTRONAUT
               img(src="/images/icons/exploredribbblet.gif" width="20%" height="auto")
-              p Training360 oktatóközpont
+              p 
+                | Training360 oktatóközpont
                 | South Buda Business
                 | Park irodaház
                 | 1117 Budapest,
                 | Budafoki út 56. 5. emelet
             .col-md-6.px-4
-              h6  About Company
+              h6  About our company
               p We deliver delicious meal everywhere in the galaxy
               a.btn-footer(href='/about')  More Info 
               br
