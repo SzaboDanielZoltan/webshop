@@ -1,0 +1,31 @@
+body {
+    background: url("./../images/background/indexBG.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#addToBasketWithIcon p{
+    font-weight: bold;
+}
+
+#addToBasketWithIcon button{
+    background-color:  #000c14;
+    color: #fff;
+    animation: pulse 3s ease infinite;
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1, 1);
+    }
+  
+    50% {
+      opacity: 0.9;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

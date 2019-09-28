@@ -62,29 +62,9 @@ input[name="orderedAmount"] {
   border-bottom: 2px solid #0a898d;
   margin-left:2px
 }
-/* 
-.card {
-  display: block;
-  border: none;
-  margin: 0 auto; 
-  float: none;
-  margin-bottom: 15px;
-  font-family: spacetext;
-}
-*/
 
-
-#addToBasketBtn {
-  position: absolute;
-  top: 0;
-  left: 0;;
-  overflow: hidden;
-  z-index: 1;
-  font-family: spacetext-bold;
-}
 footer{
   background-color: #000c14;
-  /* font-family: spacetext-bold; */
 }
 footer a,
 footer p{
@@ -99,20 +79,6 @@ footer h3,
 footer h6{
   color: #fff
 }
-/* #showProductDetailsBtn {
-  margin-bottom: 10px;
-  cursor: pointer;
-  background-color: cyan;
-  font-family: spacetext-bold;
-}
-
-#productsPageBackground {
-  background: url("./../images/background/altalanos2.jpg");
-  position: absolute;
-  margin: 0;
- 
-} */
-
 
 nav.scrolled-nav {
   opacity:0;
@@ -120,18 +86,4 @@ nav.scrolled-nav {
 }
 nav.scrolled-nav:hover {
   opacity:1
-}
-/* #productDetailsPageMenu {
-  position: absolute;
-  color: #fff;
-  background-color: rgba(248, 248, 248, 0.3);
-  border: #fff;
-  margin: 0;
-} */
-
-#addToBasketWithIcon {
-  background-color: rgb(75, 71, 71);
-  color: #fff;
-  padding: 0;
-  margin: 0;
 }
