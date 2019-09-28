@@ -2,9 +2,9 @@ extends layout
 
 block content
   link(href='/stylesheets/products.css', rel='stylesheet')
-  .container      
-    .row
-      .col-12.col-xs-6.col-md-3  
+  .container-fluid.p-0      
+    .row.filter-container 
+      .col-12.col-xs-6.col-md-3 
         - let limitNumber = displaySize || 10
         form.form-inline.mt-3.mb-3(method="POST" action="/products")
           .form-group
@@ -17,21 +17,24 @@ block content
                   option(value=`${view}`) #{view}                  
             span.input-group-btn  
               button.btn.btn-light.pageLimitSelector(type='submit') View
+  .container            
     .row
       each product , index in products
         if index < limitNumber
-          .col-lg-4.col-sm-12.product_content
-            .single_product_text
-              img.img-fluid(src='/images/food1.jpg')
+          .col-lg-4.col-sm-12.product_content.d-flex.justify-content-center.p-0
+            .single_product_text.m-3
+              img.img-fluid(src="/images/background/comida-tradicional-chilena-nomadicchica.com-6.jpg", style="width:400px;height:300px;")
               .product_images_overlay.text-center
                 h6.mt-1.mb-1 #{product.productName}
                 p.product_price #{product.type}
                 p.product_price #{product.price} Galaxy Dollars
-                a.btn.btn-primary(href=`/products/${product.urlPostfix}`) Click here         
-      .col-12.mt-3.mb-3.ml-3                      
+                a.btn.btn-primary(href=`/products/${product.urlPostfix}`) Show more
+  .container-fluid.p-0                       
+    .row.filter-container  
+      .col-12                      
         if numberOfproducts > limitNumber
           nav(aria-label='Page navigation')
-            ul.pagination.justify-content-center
+            ul.pagination.justify-content-center.m-3
               - let x = 1;
               - let y = Math.round(numberOfproducts/limitNumber) 
                 li.page-item

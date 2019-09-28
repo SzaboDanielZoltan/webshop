@@ -71,26 +71,8 @@ input[name="orderedAmount"] {
   margin-bottom: 15px;
   font-family: spacetext;
 }
+*/
 
-.card-header {
-  padding: 0;
-}
-
-.page-link, .pageLimitSelector {
-  color: cyan;
-  border-color: cyan;
-  font-weight: bold;
-  background-color: transparent;
-  margin:auto;
-}
-
-.page-link:hover, .pageLimitSelector:hover {
-  color: black;
-  border-color: cyan;
-  font-weight: bold;
-  background-color: cyan;
-  margin:auto;
-} */
 
 #addToBasketBtn {
   position: absolute;
