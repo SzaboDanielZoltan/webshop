@@ -25,6 +25,7 @@ a:focus {
   background: #111;
   color: cyan;
   transition: all 0.3s;
+  position: fixed;
 
   
   
