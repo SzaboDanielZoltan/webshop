@@ -75,6 +75,7 @@
     text-decoration: none;
     font-family: spacetext-bold;
     animation: pulse 3s ease infinite;
+    margin-bottom: 10px;
   }
   
   .btn-alien:hover {
@@ -88,4 +89,13 @@
   input, textarea {
     background-color: #111;
     opacity: 0.6;
+  }
+
+  body {
+    padding: 0;
+    background-image: url("./../images/background/contact.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0px;
   }
