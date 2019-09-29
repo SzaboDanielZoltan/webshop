@@ -28,7 +28,7 @@ block content
                   td
                     a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
             tfoot
-              tr
+              tr#totalPriceText
                 th
                 th
                 th Total price:
@@ -42,7 +42,7 @@ block content
             
 
         else
-          .col#emptyBasketText.text-center
+          .col#emptyBasketText.text-center.p-4
             h3 Your basket is empty.
             h5 Please check out our&nbsp;
              a(href='/products') food variety

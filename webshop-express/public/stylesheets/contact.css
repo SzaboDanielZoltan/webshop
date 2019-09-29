@@ -9,6 +9,12 @@
     src: url(./../fonts/A-Space\ Regular\ Demo.otf);
   }
   
+  body {
+    background-image: url("./../images/background/contact.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
 
   .content-header{
     font-family: spacetext-bold;
@@ -23,10 +29,6 @@
   #contact{
     font-family: spacetext;
     padding: 0;
-    background-image: url("./../images/background/contact.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     margin: 0px;
     color: #fff;    
   }
@@ -91,11 +93,10 @@
     opacity: 0.6;
   }
 
-  body {
-    padding: 0;
-    background-image: url("./../images/background/contact.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0px;
+  footer{
+    background-color: #000c14;
+    position: absolute;
+
   }
+  
+  
