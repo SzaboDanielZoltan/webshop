@@ -12,6 +12,9 @@ export class OrderListComponent implements OnInit {
 
   userSubscription: Subscription;
   orderList: Array<Order>;
+  searchText: string = '';
+  changeCounter: number = 0;
+  details: boolean = true;
 
   constructor(private os: OrderService) {
 
@@ -25,6 +28,25 @@ export class OrderListComponent implements OnInit {
       },
       err => console.error(err)
     );
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+  }
+
+  onDelete(id: number): void {
+    this.os.delete(id).forEach(data => {
+      let index = this.orderList.findIndex(product => product.id == id);
+      this.orderList.splice(index, 1);
+      this.changeCounter++;
+    });
+  }
+  changeDetails() {
+    if (this.details == true) {
+      this.details = false;
+    } else {
+      this.details = true;
+    }
   }
 
 }

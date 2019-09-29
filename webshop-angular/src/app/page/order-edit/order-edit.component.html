@@ -1,1 +1,83 @@
-<p>order-edit works!</p>
+<div class="text-center">
+    <h1>Edit {{editOrder.orderID}} page</h1>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="newInputs">
+        <form class="form simple-form"
+              (submit)="onUpdate()">
+            <div class="text-center"><label for="orderid">OrderID</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="orderID"
+                   id="orderid"
+                   placeholder="OrderID"
+                   [(ngModel)]="editOrder.id">
+            <div class="text-center"><label for="customerid">Customer ID</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="customerID"
+                   id="customerid"
+                   placeholder="Customer ID"
+                   [(ngModel)]="editOrder.customerID">
+            <div class="text-center"><label for="customerfname">Customer first name</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="firstName"
+                   id="customerfname"
+                   placeholder="Customer first Name"
+                   [(ngModel)]="editOrder.firstName">
+            <div class="text-center"><label for="customerlname">Customer last name</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="lastName"
+                   id="customerlname"
+                   placeholder="Customer first name"
+                   [(ngModel)]="editOrder.lastName">
+            <div class="text-center"><label for="products">Products</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="products"
+                   id="products"
+                   placeholder="Products"
+                   [(ngModel)]="editOrder.products">
+            <div class="text-center"><label for="address">Shiping address</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="address"
+                   id="address"
+                   placeholder="Shiping address"
+                   [(ngModel)]="editOrder.address">
+            <div class="text-center"><label for="totalPrice">Total price</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="totalPrice"
+                   id="totalPrice"
+                   placeholder="Total Price"
+                   [(ngModel)]="editOrder.totalPrice">
+            <div class="text-center"><label for="orderDate">Order date</label></div>
+            <input class="form-control"
+                   type="text"
+                   name="orderDate"
+                   id="orderDate"
+                   placeholder="Order Date"
+                   [(ngModel)]="editOrder.orderDate">
+            <div class="text-center">
+                <button class="btn btn-info">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--<td>{{ order.id }}</td>
+<td>{{ order.customerID }}</td>
+<td>{{ order.totalPrice }}</td>
+<td>{{ order.orderDate }}</td>
+
+<td>
+    <div class="btn-group">
+        <a class="btn btn-info"
+           routerLink="/orders/update/{{order.id}}">Edit</a>
+        <a class="btn btn-danger"
+           (click)="onDelete(order.id)">Delete</a>
+    </div>
+</td>-->
