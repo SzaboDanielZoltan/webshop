@@ -8,19 +8,22 @@ block content
     .contact-section.p-0
       .row.justify-content-center
         .col-sm-10.col-md-5.col-lg-4
-          form
+          form(action='mailto:jnmako@gmail.com', method='POST', enctype="text/plain")
             .form-group
-              label(for='exampleInputUsername') Name
-              input.form-control(type='text', id='', placeholder='name')
+              label(for='name') Name
+              input.form-control(type='text', name='name', id='name', placeholder='name')
             .form-group
-              label(for='exampleInputEmail') Email
-              input#exampleInputEmail.form-control(type='email', placeholder='email')
+              label(for='email') Email
+              input.form-control(type='email', name='email', id='email', placeholder='email')
             .form-group
-              label(for='telephone') Phone 
-              input#telephone.form-control(type='tel', placeholder='phone number')
+              label(for='phone') Phone 
+              input.form-control(type='tel', name='phone', id='phone', placeholder='phone number')
         .col-sm-10.col-md-5.col-lg-4.offset-lg-1
           .form-group
-            label(for='description')  Message
-            textarea#description.form-control(placeholder='Enter your message')
+            label(for='subject') Subject
+            input.form-control(type='text', name='subject', id='subject' placeholder='subject')
+          .form-group
+            label(for='message')  Message
+            textarea.form-control(name='message', placeholder='Enter your message')
           div
-            button.btn.btn-sm.btn-alien.submit(type='button') Send
+            button.btn.btn-sm.btn-alien.submit(type='submit', onclick='mailUs') Send
