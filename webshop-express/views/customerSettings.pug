@@ -4,4 +4,94 @@ block content
   .container
     .row
       .col
-        p hello
+        if message
+          .alert.alert-success.visible #{message}
+        else if alert
+          .alert.alert-danger #{alert}
+        else
+          .alert.alert-success.invisible #{message}
+    .row
+      if attr==="firstName"
+        .col-6.offset-3
+          form(action="/settings/firstName" method="post")
+            .form-inline
+                label(for="firstName") Fistname:&nbsp;
+                input(type="text" id="firstName" name="firstName" value=`${loggedcustomer.firstName}` class="form-control")
+                button(type="submit" class="btn btn-warning") Change
+      else
+        .col-2.offset-3
+          span Firstname:
+        .col-3
+          span #{loggedcustomer.firstName}
+        .col-1
+          a(href="/settings/firstName") Edit
+    hr
+    .row
+      if attr==="lastName"
+        .col-6.offset-3
+          form(action="/settings/lastName" method="post")
+            .form-inline
+                label(for="lastName") Lastname:&nbsp;
+                input(type="text" id="lastName" name="lastName" value=`${loggedcustomer.lastName}` class="form-control")
+                button(type="submit" class="btn btn-warning") Change
+      else
+        .col-2.offset-3
+          span Lastname:
+        .col-3
+          span #{loggedcustomer.lastName}
+        .col-1
+          a(href="/settings/lastName") Edit
+    hr
+    .row
+      if attr==="email"
+        .col-6.offset-3
+          .alert.alert-warning Be careful, you have to use your new email next time when you log in!
+          form(action="/settings/email" method="post")
+            .form-inline
+              label(for="email") Email:&nbsp;
+              input(type="text" id="email" name="email" value=`${loggedcustomer.email}` class="form-control")
+              button(type="submit" class="btn btn-warning") Change
+      else
+        .col-2.offset-3
+          span Email:
+        .col-3
+          span #{loggedcustomer.email}
+        .col-1
+          a(href="/settings/email") Edit
+    hr
+    .row
+      if attr==="address"
+        .col-6.offset-3
+          form(action="/settings/address" method="post")
+            .form-inline
+                label(for="address") Address:&nbsp;
+                input(type="text" id="address" name="address" value=`${loggedcustomer.address}` class="form-control")
+                button(type="submit" class="btn btn-warning") Change
+      else
+        .col-2.offset-3
+          span Address:
+        .col-3
+          span #{loggedcustomer.address}
+        .col-1
+          a(href="/settings/address") Edit
+    hr
+    .row
+      if attr==="password"
+        .col-6.offset-3
+          form(action="/settings/password" method="post")
+            .form-group
+              label(for="passwordNow") Actual password:&nbsp;
+              input(type="password" id="passwordNow" name="actualPassword" class="form-control")
+            hr
+            .form-group
+              label(for="newPassword1") New password:&nbsp;
+              input(type="password" id="newPassword1" name="newPassword1" class="form-control")
+            .form-group
+              label(for="newPassword2") New password again:&nbsp;
+              input(type="password" id="newPassword2" name="newPassword2" class="form-control")
+            button(type="submit" class="btn btn-warning") Change
+      else
+        .col-5.offset-3
+          span Password
+        .col-1
+          a(href="/settings/password") Change
