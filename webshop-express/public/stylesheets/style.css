@@ -82,7 +82,7 @@ footer h6{
 
 nav.scrolled-nav {
   opacity:0;
-  transition: opacity 0.8s linear 
+  transition: opacity 0.3s linear 
 }
 nav.scrolled-nav:hover {
   opacity:1
