@@ -25,9 +25,9 @@ input[name="orderedAmount"] {
   src: url(./../fonts/A-Space\ Regular\ Demo.otf);
 }
 
-/* .contentContainer{
+.contentContainer{
   margin-bottom: 13rem;
-} */
+}
 .navbar {
   background-color: #000c14;
   font-family: spacetext;
@@ -71,9 +71,9 @@ input[name="orderedAmount"] {
 
 footer{
   background-color: #000c14;
-  position: relative;
+  position: fixed;
   bottom: 0;
-  left: 0;
+  /* left: 0; */
 }
 
 
