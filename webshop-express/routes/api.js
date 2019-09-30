@@ -1,12 +1,12 @@
 const express = require('express');
-const sha1 = require('js-sha1');
+const router = express.Router();
 const bll = require('./../bll/products');
-
-const db = new bll();
-
 const bllCustomer = require('./../bll/customers');
-
+const bllOrder = require('./../bll/orders');
+const sha1 = require('js-sha1');
+const db = new bll();
 const dbCustomer = new bllCustomer();
+const dbOrder = new bllOrder();
 
 const router = express.Router();
 
@@ -48,6 +48,25 @@ router.put('/customers/:id', async (req, res, next) => {
   const result = await dbCustomer.updateCustomer(req.body);
   res.json(result);
 });
+
+// Order admin methods
+
+router.get('/orders', async (req, res, next) => {
+  const result = await dbOrder.getAllOrdersWithCustomers();
+  res.json(result);
+});
+router.delete('/orders/:id', async (req, res, next) => {
+  const result = await dbOrder.deleteOrder(req.params.id);
+  res.json(result);
+})
+// router.post('/orders', async (req, res, next) => {
+//   const result = await dbOrder.createOrder(req.body);
+//   res.json(result);
+// })
+router.put('/orders/:id', async (req, res, next) => {
+  const result = await dbOrder.updateOrder(req.body);
+  res.json(result);
+})
 
 
 module.exports = router;
