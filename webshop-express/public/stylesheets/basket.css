@@ -1,0 +1,66 @@
+
+@font-face {
+    font-family: basic-sans-sherif;
+    src: url(./../fonts/basic_sans_serif_7.ttf);
+  }
+ 
+  body {
+    padding: 0;
+    background-image: url("./../images/background/basketcover.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  
+#basketDiv {
+    margin: 20px;
+    background-color: rgba(255, 255, 255);
+    padding: 20px;
+    border-collapse: collapse;
+    font-size: 17px;
+}
+
+
+#basketDiv tr, th {
+    color: #000c14;
+}
+
+
+ #orderBtn{
+    background-color: #0a898d;
+    color: #000c14;
+ }
+
+
+ #emptyBasketBtn{
+    color: #0a898d;
+    background-color: #000c14;
+ }
+
+
+ #removeBtn{
+    color: #0a898d;
+    background-color: #000c14;
+ }
+
+
+ #productDetailsLink {
+    color: #0a898d;
+    font-weight: bold;
+ }
+
+
+ #emptyBasketText {
+    color: #000c14;
+ }
+
+
+ #emptyBasketText a {
+    color: #0a898d;
+ }
+
+  
+  #totalPriceText {
+      font-size: 20px;
+  }

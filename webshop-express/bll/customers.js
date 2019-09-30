@@ -21,6 +21,9 @@ module.exports = class customersBusinessLogicLayer {
   }
 
   async updateCustomer(customer) {
+    if (customer.password) {
+      customer.password = sha1(customer.password);
+    }
     const update = await db.update('customers', customer);
     return update;
   }
@@ -99,5 +102,18 @@ module.exports = class customersBusinessLogicLayer {
   async getOneCustomerOrders(customerID) {
     const userOrders = await db.innerJoinRead('customers', 'orders', 'id', 'customerID', customerID);
     return userOrders;
+  }
+
+  async getOneCustomerOrder(orderID) {
+    const order = await db.read('orders', orderID);
+    return order;
+  }
+  async deleteCustomerOrder(orderID) {
+    const result = await db.delete('orders', orderID);
+    return result;
+  }
+  async updateCustomerOrder(order) {
+    const result = await db.update('orders', order);
+    return result;
   }
 };

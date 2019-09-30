@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
+  collapsed: boolean = false;
+  collapsing: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleShow(ev) {
+    ev.preventDefault();
+    this.collapsed = !this.collapsed;
   }
 
 }

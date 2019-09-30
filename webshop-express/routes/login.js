@@ -31,7 +31,8 @@ router.post('/', async (req, res, next) => {
       res.cookie('adminvalidator', token);
       res.redirect('/admin');
     }
-    res.redirect('/login');
+    const message = "You did not sign correctly, please try again!"
+    res.render('login',{notRegistered:message});
   }
 });
 

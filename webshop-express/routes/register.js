@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
 
     return res.render('login', { success: successMessage })
   }
-  const message = "This email address is already exist."
+  const message = " email has already been taken."
   res.render('register', { notValidmessage: message, email: req.body.email })
 })
 

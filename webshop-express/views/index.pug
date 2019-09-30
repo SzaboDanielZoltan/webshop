@@ -1,10 +1,45 @@
 extends layout
 
 block content
-  body#backgroundCover
-      .row.text-right
-        .col-sm-12#astrodiv
-          h1(style="font-size:6vw;") THE GASTRONAUT
-          br
-          h4(style="font-size:2vw;") Delicious dishes for the galaxy 
-          h4(style="font-size:2vw;") and beyond
+  link(href='/stylesheets/index.css', rel='stylesheet')
+  script(src="/javascripts/jquery.min.js")
+  script(src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")      
+  script
+    include ../public/javascripts/design.js  
+  .row#backgroundCover1
+    .col-lg-7.col-sm-12.green-galaxy-container
+    .col-lg-5.col-sm-12.mt-5.mb-5#astrodiv.text-right
+      h1(style="font-size:5vw;") THE GASTRONAUT
+      br
+      h4(style="font-size:2vw;") Delicious dishes for the galaxy 
+      h4(style="font-size:2vw;") and beyond
+  .row#backgroundCover2
+    h3 TRADITIONAL MEALS FROM THE GALAXY
+    .col-12
+      .row
+        img.planets-photos.img-fluid(src="/images/background/planetsShowFood.png")
+        .col-6.text-right.jupiter-popover
+          i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Jupiter meal" data-html="true" data-content="<img src='/images//productImages/space-menu-1.jpg' width='200' />")  
+        .col-6
+          i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Saturnus meal" data-html="true" data-content="<img src='/images/productImages/saturnian-chicken-foot.jpg' width='200' />")
+          .row
+            .col-12.text-right.neptune-popover
+              i.fa.fa-plus-circle.fa-2x(data-toggle="popover" title="Neptune meal" data-html="true" data-content="<img src='/images/productImages/the-vegan-plutonean.jpg' width='200' />")
+        a.btn.btn-alien(href="/products") Alien meals     
+  .row#backgroundCover3
+    .col-12.text-earth-food.m-5
+      h3 TRADITIONAL MEALS FROM THE EARTH
+    .row  
+      .col-2
+        img.img-fluid(src="/images/productImages/bombay-stew.jpg")
+      .col-2
+        img.img-fluid(src="/images/productImages/noodles-with-shrimps.jpg")
+      .col-2
+        img.img-fluid(src="/images/productImages/vanilla-javascript-ice-cream.jpg")
+      .col-2
+        img.img-fluid(src="/images/productImages/binding-this.jpg")
+      .col-2
+        img.img-fluid(src="/images/productImages/schweppes-tonic.jpg")
+      .col-2
+        img.img-fluid(src="/images/productImages/pepperoni-and-mushrooms-pizza.jpg")
+      a.btn.btn-alien.m-5(href="/products") Human meals    
