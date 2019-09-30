@@ -22,7 +22,7 @@ a:focus {
   min-width: 250px;
   max-width: 250px;
   min-height: 200%;
-  background: #003a8e;
+  background: #0a898d;
   color: white;
   transition: all 0.3s;
   position: fixed;
@@ -76,7 +76,7 @@ p {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #2650ac;
+  background: #10989c;
 }
 
 @media (max-width: 768px) {

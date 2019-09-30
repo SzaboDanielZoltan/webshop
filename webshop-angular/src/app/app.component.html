@@ -1,41 +1,26 @@
 <div class="container-fluid p-0">
   <div class="row wrapper">
-    <div class="col-3"><app-sidenav></app-sidenav></div>
-    <div class="col-3" id="content">
-    <div class="toggle-button-aside fixed-top">
-        <button type="button" id="sidebarCollapse" class="btn" (click)="toggleSide()">
-          <span><img src="https://img.icons8.com/material-rounded/24/000000/menu.png"></span>
+    <div class="col-3">
+      <app-sidenav></app-sidenav>
+    </div>
+    <div class="col-3"
+         id="content">
+      <div class="toggle-button-aside fixed-top">
+        <button type="button"
+                id="sidebarCollapse"
+                class="btn"
+                (click)="toggleSide()">
+          <span><img
+                 src="https://img.icons8.com/material-rounded/24/000000/menu.png"></span>
           <br>
           <span>Menu</span>
         </button>
-    </div>
-  </div>
-      <div class="container mt-5 col-6">
-          <router-outlet></router-outlet>
       </div>
+    </div>
+    <div class="container mt-5 col-6">
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <script src="node_modules/chart.js/src/chart.js"></script>
 
-  <div class="container">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/bar-chart">Bar Chart</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/doughnut-chart">Doughnut Chart</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/radar-chart">Radar Chart</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/pie-chart">Pie Chart</a>
-    </li>
-  </ul>
-  <div>
-      <router-outlet></router-outlet>
-  </div>
 </div>
-
-
-</div>
-
