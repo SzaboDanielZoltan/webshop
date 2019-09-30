@@ -29,7 +29,7 @@
 
  #orderBtn{
     background-color: #0a898d;
-    color: #000c14;
+    color: #fff;
  }
 
 
@@ -64,3 +64,9 @@
   #totalPriceText {
       font-size: 20px;
   }
+
+  
+#headingText {
+   color: #fff;
+ }
+ 

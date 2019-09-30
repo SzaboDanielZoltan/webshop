@@ -2,7 +2,10 @@ extends layout
 
 block content
   link(href='/stylesheets/basket.css', rel='stylesheet')
-  .container.mt-5.mb-5
+  .container
+    .row
+      .col-12.text-center.mt-4.mb-4
+        h1#headingText Please check your basket!
     .row
       .col#basketDiv
         if loggedcustomer.basket!=='{}'

@@ -3,9 +3,12 @@ extends layout
 block content
   link(href='/stylesheets/orders.css', rel='stylesheet')
   .container
-    .row.text-center
-      .col-10
-        table.table.text-center
+    .row
+      .col-12.text-center.mt-4.mb-4
+        h1#headingText Your order history
+    .row.justify-content-center
+      .col-12#ordersDiv.p-0
+        table.table-responsive.table.text-center.table-hover
           thead
             tr
               th Address

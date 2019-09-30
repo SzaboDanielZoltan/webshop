@@ -24,16 +24,13 @@
 
 #orderDiv tr, th {
     color: #000c14;
-
 }
-
 
  #orderBtn{
     background-color: #0a898d;
-    color: #000c14;
+    color: #fff;
     vertical-align: middle;
  }
-
 
  #addMoreBtn{
     color: #111;
@@ -41,21 +38,11 @@
     vertical-align: middle;
  }
 
-
- #removeBtn{
-    color: #0a898d;
-    background-color: #000c14;
- }
-
-
  #productDetailsLink {
     color: #0a898d;
     font-weight: bold;
  }
 
-  #totalPriceText {
-      font-size: 20px;
-  }
 
   #orderFooter {
    width: 100%;
@@ -69,3 +56,12 @@
   #headingText {
      color: #fff;
   }
+
+  tr {
+     padding: 2px;
+  }
+
+  
+  #totalPriceText {
+   font-size: 20px;
+}

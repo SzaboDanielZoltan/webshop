@@ -1,0 +1,40 @@
+body {
+    padding: 0;
+    background-image: url("./../images/background/basketcover.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+ 
+  
+#ordersDiv {
+  margin: 20px;
+  background-color: rgba(255, 255, 255);
+  padding: 20px;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+
+#ordersDiv tr, th {
+  color: #000c14;
+}
+
+
+#headingText {
+  color: #fff;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+
+a {
+  color: #0a898d;
+  font-weight: bold;
+}
