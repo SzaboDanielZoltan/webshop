@@ -8,11 +8,13 @@
     min-width: 100%;
 }
 .toggle-button-aside{
-    padding:10px
+    /* padding-left: 10px;
+    position: fixed; */
+    transform: translateX(17%);
 }
 
 #sidebarCollapse {
-    position: fixed;
+    
     
 }
 

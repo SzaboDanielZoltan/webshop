@@ -1,0 +1,167 @@
+.btn-alien {
+  background-color: #000c14;
+  color: #0a898d;
+  border: 2px solid #0a898d;
+  text-decoration: none;
+  font-family: spacetext-bold;
+  animation: pulse 3s ease infinite;
+}
+
+.btn-alien:hover {
+  background-color: #0a898d;
+  color: #000c14;
+  border: 2px solid #0a898d;
+  text-decoration: none;
+  font-family: spacetext-bold;
+}
+
+#astrodiv {
+  color: #fff;
+  z-index: 1;
+  transform: translateX(-30%);
+  animation: astrodiv 2s linear;
+}
+
+
+#astrodiv h1 {
+  font-family: spacebar;
+}
+
+#astrodiv h4 {
+  font-family: spacetext-bold;
+}
+
+@keyframes astrodiv {
+  0% {
+    transform: translateX(150%);
+  }
+
+  25% {
+    transform: translateX(100%);
+  }
+
+  50% {
+    transform: translateX(50%);
+  }
+
+  75% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-30%);
+  }
+}
+
+#backgroundCover1 {
+  background-image: linear-gradient(to right, #000c14, #0a898d);
+  margin: 0px;
+  height: 85vh;
+  width: auto;
+}
+
+#backgroundCover3 {
+  margin: 0px;
+  padding: 150px;
+  background-image: url("./../images/background/dotsEarthMap.png");
+  background-color: #000c14;
+  background-attachment: fixed;
+}
+
+#backgroundCover2 {
+  background-color: #000c14;
+  margin: 0px;
+  padding: 150px;
+}
+
+#backgroundCover2 h3,
+#backgroundCover3 h3 {
+  color: #0a898d;
+  font-family: spacetext-bold;
+}
+
+#backgroundCover2 i {
+  color: #0a898d;
+  animation: pulse 3s ease infinite;
+}
+
+#backgroundCover2 i:hover {
+  color: #0a898d;
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.deliveryShip-photo,
+.deliveryGuy-photo {
+  max-width: 100%;
+  max-height: 50vh;
+}
+
+.jupiter-popover {
+  transform: translateX(-10%)
+}
+
+.galaxy-text {
+  color: #fff;
+  font-family: spacetext-bold;
+  padding: 80px;
+}
+
+.green-galaxy-container {
+  /* padding: 0; */
+  background-image: url("./../images/background/indexBG_green.jpg");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+
+
+.green-galaxy {
+  height: 100%;
+  width: 100%;
+}
+
+.neptune-popover {
+  transform: translateX(-25%)
+}
+
+.text-earth-food{
+  background-color: #000c14;
+}
+
+@media screen and (max-width: 996px) {
+  #backgroundCover1 {
+    height: 70%;
+  }
+  .deliveryShip-photo,
+  .deliveryGuy-photo {
+    max-width: 100%;
+    height: 20vh;
+    padding: 0
+  }
+}
+
+
+@media screen and (max-width: 1140px) {
+  #backgroundCover1 {
+    height: 20%;
+  }
+
+}
+body{
+  background-color: #000c14;
+  margin:0;
+}

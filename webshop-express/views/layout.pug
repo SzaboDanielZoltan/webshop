@@ -5,18 +5,22 @@ html
     link(rel='stylesheet', href='/bootstrap/dist/css/bootstrap.min.css')
     link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    //- link(rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png")
+    script
+      include ../public/javascripts/layout.js  
   body
     nav.navbar.navbar-expand-lg.navbar-dark.sticky-top
-      a.navbar-brand(href="/") Explore the Foodyverse!
+      img(src="/images/icons/exploredribbblet.gif" width="10%" height="auto")
+      a.navbar-brand(href="/") THE GASTRONAUT
       button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item
-            a.nav-link(href="/products") Space meals 
-          li.nav-item
-            a.nav-link(href="/") Contact us
+        ul.navbar-nav.ml-auto
+          li.nav-item.menu-icon
+            a.nav-link(href="/") Home    
+          li.nav-item.menu-icon
+            a.nav-link(href="/products") Space meals
+          li.nav-item.menu-icon
+            a.nav-link(href="/contact") Contact us
         ul.navbar-nav
           if loggedcustomer
             li.nav-item.dropdown
@@ -29,9 +33,9 @@ html
                 .dropdown-divider
                 a.dropdown-item(href="/login/logout") Log out
             li.nav-item
-              a.nav-link(href="/basket")
-                img(src="/images/icons/shopping-cart.png", width="auto", height="20px")
-                sup #{basketValue}
+              a.nav-link.basketIcon(href="/basket")
+                img(src="/images/icons/shopping-cart.png", width="auto", height="30px")
+                sup.basketNumber #{basketValue}
           else if loggedadmin
             li.nav-item.dropdown
               a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
@@ -42,13 +46,48 @@ html
                 a.dropdown-item(href="/login/logout") Log out
           else
             li.nav-item
-              a.nav-link#loginNavLink(href="/login") Login/Register
-    br
-
-    .container
+              a.btn.nav-link#loginNavLink(href="/login") Login/Register                   
+    .container-fluid.p-0.contentContainer
       block content
-
-
-
-    script(src="/javascripts/jquery.min.js")
-    script(src="/bootstrap/dist/js/bootstrap.min.js")
+    footer.container-fluid.p-4
+      .row
+        .col-md-6
+          .row
+            .col-md-6
+              h3  THE GASTRONAUT
+              img(src="/images/icons/exploredribbblet.gif" width="20%" height="auto")
+              p 
+                | Training360 oktatóközpont
+                | South Buda Business
+                | Park irodaház
+                | 1117 Budapest,
+                | Budafoki út 56. 5. emelet
+            .col-md-6.px-4
+              h6  About our company
+              p We deliver delicious meal everywhere in the galaxy
+              a.btn-footer(href='/about')  More Info 
+              br
+              a.btn-footer(href='/contact')  Contact Us
+        .col-md-6
+          .row
+            .col-md-6
+              h6 Our services
+              ul 
+                li
+                  a(href='/')  Home
+                li
+                  a(href='/products')  Service
+                li
+                  a(href='/contact')  Help
+                li
+                  a(href='/contact')  Contact
+            .col-md-6
+              h6  Social media
+              .social
+                a.p-2(href='#')
+                  i.fa.fa-facebook.fa-2x(aria-hidden='true')
+                a.p-2(href='#')
+                  i.fa.fa-instagram.fa-2x(aria-hidden='true')
+  script(src="/javascripts/jquery.min.js")
+  script(src=" https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js")
+  script(src="/bootstrap/dist/js/bootstrap.min.js")
