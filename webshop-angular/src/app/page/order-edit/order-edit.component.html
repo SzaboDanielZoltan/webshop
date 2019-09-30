@@ -1,38 +1,20 @@
 <div class="text-center">
     <h1>Edit {{editOrder.orderID}} page</h1>
 </div>
+<br>
+
 <div class="d-flex justify-content-center">
     <div class="newInputs">
         <form class="form simple-form"
               (submit)="onUpdate()">
             <div class="text-center"><label for="orderid">OrderID</label></div>
-            <input class="form-control"
-                   type="text"
-                   name="orderID"
-                   id="orderid"
-                   placeholder="OrderID"
-                   [(ngModel)]="editOrder.id">
+            <p class="text-center">{{editOrder.id}}</p>
+            <div class="text-center"><label for="orderDate">Order date</label></div>
+            <p class="text-center">{{editOrder.orderDate}}</p>
             <div class="text-center"><label for="customerid">Customer ID</label></div>
-            <input class="form-control"
-                   type="text"
-                   name="customerID"
-                   id="customerid"
-                   placeholder="Customer ID"
-                   [(ngModel)]="editOrder.customerID">
-            <div class="text-center"><label for="customerfname">Customer first name</label></div>
-            <input class="form-control"
-                   type="text"
-                   name="firstName"
-                   id="customerfname"
-                   placeholder="Customer first Name"
-                   [(ngModel)]="editOrder.firstName">
-            <div class="text-center"><label for="customerlname">Customer last name</label></div>
-            <input class="form-control"
-                   type="text"
-                   name="lastName"
-                   id="customerlname"
-                   placeholder="Customer first name"
-                   [(ngModel)]="editOrder.lastName">
+            <p class="text-center">{{editOrder.customerID}}</p>
+            <div class="text-center"><label for="customerfname">Customer name</label></div>
+            <p class="text-center">{{editOrder.firstName}} {{editOrder.lastName}}</p>
             <div class="text-center"><label for="products">Products</label></div>
             <input class="form-control"
                    type="text"
@@ -40,6 +22,7 @@
                    id="products"
                    placeholder="Products"
                    [(ngModel)]="editOrder.products">
+
             <div class="text-center"><label for="address">Shiping address</label></div>
             <input class="form-control"
                    type="text"
@@ -48,19 +31,9 @@
                    placeholder="Shiping address"
                    [(ngModel)]="editOrder.address">
             <div class="text-center"><label for="totalPrice">Total price</label></div>
-            <input class="form-control"
-                   type="text"
-                   name="totalPrice"
-                   id="totalPrice"
-                   placeholder="Total Price"
-                   [(ngModel)]="editOrder.totalPrice">
-            <div class="text-center"><label for="orderDate">Order date</label></div>
-            <input class="form-control"
-                   type="text"
-                   name="orderDate"
-                   id="orderDate"
-                   placeholder="Order Date"
-                   [(ngModel)]="editOrder.orderDate">
+            <p class="text-center">{{editOrder.totalPrice}}</p>
+
+
             <div class="text-center">
                 <button class="btn btn-info">Update</button>
             </div>

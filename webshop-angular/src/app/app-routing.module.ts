@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'customers', component: CustomerListComponent },
   { path: 'customers/update/:id', component: CustomerEditComponent },
   { path: 'orders', component: OrderListComponent },
-  { path: 'orders/update/id', component: OrderEditComponent },
+  { path: 'orders/update/:id', component: OrderEditComponent },
   { path: '**', component: PageNotFoundComponent },
 
 ];

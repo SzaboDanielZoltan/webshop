@@ -19,7 +19,7 @@ module.exports = class productsBusinessLogicLayer {
     return result;
   }
   async getAllOrdersWithCustomers() {
-    const orders = await db.innerJoinRead('orders', 'customers', 'customerID', 'id');
+    const orders = await db.innerJoinRead('customers', 'orders', 'id', 'customerID');
     return orders;
   }
 }
