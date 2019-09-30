@@ -28,13 +28,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of editOrder.products">
+                    <tr *ngFor="let product of editOrder.products; let i = index">
                         <td>{{product.id}}</td>
                         <td>{{product.productName}}</td>
                         <td>{{product.price}}</td>
-                        <td>{{product.amount}}</td>
+                        <td class="btn-group"><a class="btn btn-info"
+                               (click)="changingAmountMinus(i)">
+                                <</a> <input
+                                   class="text-center"
+                                   type="text"
+                                   value="{{product.amount}}">
+
+                                    <a class="btn btn-info"
+                                       (click)="changingAmountPlus(i)">>
+                                    </a></td>
                         <td><button class="btn btn-danger"
-                                    (click)="deleteProduct(product.id)">Delete</button></td>
+                                    (click)="deleteProduct(i)">Delete</button></td>
                     </tr>
 
                 </tbody>
@@ -48,7 +57,9 @@
                    placeholder="Shipping address"
                    [(ngModel)]="editOrder.shippingAddress">
             <div class="text-center"><label for="totalPrice">Total price</label></div>
-            <p class="text-center">{{editOrder.totalPrice}}</p>
+            <div class="text-center">
+                <p>{{editOrder.totalPrice}}</p>
+            </div>
 
 
             <div class="text-center">
