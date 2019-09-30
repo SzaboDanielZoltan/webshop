@@ -1,0 +1,100 @@
+
+@font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
+}
+
+@font-face {
+    font-family: spacetext-bold;
+    src: url(./../fonts/A-Space\ Bold\ Demo.otf);
+  }
+  
+  @font-face {
+    font-family: spacetext;
+    src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+  }
+  
+  body {
+    background-image: url("./../images/background/contact.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .content-header{
+    font-family: spacetext-bold;
+    color:#fcc500;
+    font-size: 45px;
+  }
+  
+  .section-content{
+    text-align: center; 
+  
+  }
+  #contact{
+    font-family: spacetext;
+    padding: 0;
+    margin: 0px;
+    color: #fff;    
+  }
+  .contact-section{
+    padding-top: 40px;
+  }
+  .contact-section .col-md-6{
+    width: 50%;
+  }
+  
+  .form-line{
+    border-right: 1px solid #B29999;
+  }
+  
+  .form-group{
+    margin-top: 10px;
+  }
+  label{
+    font-size: 1.3em;
+    line-height: 1em;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+  .form-control{
+    font-size: 1.3em;
+    color: #080808;
+  }
+  textarea.form-control {
+      height: 135px;
+     /* margin-top: px;*/
+  }
+  
+  .submit{
+    font-size: 1.1em;
+    float: right;
+    width: 150px;
+    background-color: transparent;
+    color: #fff;
+  
+  }
+  
+  .btn-alien {
+    background-color: #000c14;
+    color: #0a898d;
+    border: 2px solid #0a898d;
+    text-decoration: none;
+    font-family: spacetext-bold;
+    animation: pulse 3s ease infinite;
+    margin-bottom: 10px;
+  }
+  
+  .btn-alien:hover {
+    background-color: #0a898d;
+    color: #000c14;
+    border: 2px solid #0a898d;
+    text-decoration: none;
+    font-family: spacetext-bold;
+  }
+
+  input, textarea {
+    background-color: #111;
+  }
+
+  

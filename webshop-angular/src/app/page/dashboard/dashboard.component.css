@@ -9,7 +9,7 @@ body {
 button:focus {
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 a,
@@ -30,17 +30,21 @@ img {
     max-width: 1300px;
   }
 }
-.box{
-    margin:5rem 0 15rem;
+
+.box {
+  margin: 5rem 0 15rem;
 }
-.heading{
-     text-align: center;
-    position: relative;
-    font-size: 3.3rem;
-    font-weight: bold;
-    margin: 3rem 0;
+
+.heading {
+  text-align: center;
+  position: relative;
+  font-size: 3.3rem;
+  font-weight: bold;
+  margin: 3rem 0;
+  margin-top: -60px;
 
 }
+
 .box figure {
   -webkit-transition: 1s all;
   transition: 1s all;
@@ -50,11 +54,11 @@ img {
 .box figure img {
   height: 223px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -webkit-transition: .3s all;
   transition: .3s all;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .box figure figcaption {
@@ -66,7 +70,7 @@ img {
   color: #000;
   padding: 20px 15px;
   -webkit-box-shadow: 0 5px 10px #00000033;
-          box-shadow: 0 5px 10px #00000033;
+  box-shadow: 0 5px 10px #00000033;
   -webkit-transition: .5s all;
   transition: .5s all;
 }
@@ -74,7 +78,7 @@ img {
 .box figure figcaption::after {
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   bottom: 0;
   height: 2px;
   background: cyan;
@@ -99,7 +103,7 @@ img {
 
 .box figure:hover {
   -webkit-transform: translateY(5px);
-          transform: translateY(5px);
+  transform: translateY(5px);
 }
 
 .box figure:hover h5 {
@@ -108,19 +112,20 @@ img {
 
 .box figure:hover img {
   -webkit-box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px cyan;
-          box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px cyan;
+  box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px cyan;
 }
 
 .box2 figure:hover figcaption {
   -webkit-transform: translateY(-7px);
-          transform: translateY(-7px);
+  transform: translateY(-7px);
   -webkit-box-shadow: 0 10px 10px #0000004f;
-          box-shadow: 0 10px 10px #0000004f;
+  box-shadow: 0 10px 10px #0000004f;
 }
 
 .box figure:hover figcaption::after {
   width: 100%;
 }
+
 .box h3 {
   font-size: 3rem;
   font-family: inherit;
@@ -133,4 +138,3 @@ img {
   font-family: "helveticaregular";
   color: rgba(255, 255, 255, 0.7);
 }
-

@@ -15,7 +15,7 @@ module.exports = class customersBusinessLogicLayer {
   }
 
   async createCustomer(customer) {
-    customer.password = sha1(customer.password)
+    customer.password = sha1(customer.password);
     const create = await db.create('customers', customer);
     return create;
   }
@@ -60,6 +60,7 @@ module.exports = class customersBusinessLogicLayer {
     }
     const customer = await this.getOneCustomer(customerID);
     customer.token = token;
+    console.log(customer);
     await this.updateCustomer(customer);
     return token;
   }
@@ -79,16 +80,14 @@ module.exports = class customersBusinessLogicLayer {
 
   async validateEmail(email) {
     const getAllCustomers = await this.getCustomers();
-    let validationEmail = true
+    let validationEmail = true;
     for (let i = 0; i < getAllCustomers.length; i += 1) {
       if (getAllCustomers[i].email == email) {
-
         validationEmail = false;
         break;
-
       }
     }
-    return validationEmail
+    return validationEmail;
   }
 
   // ORDERS

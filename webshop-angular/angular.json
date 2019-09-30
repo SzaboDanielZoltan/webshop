@@ -25,6 +25,7 @@
             ],
             "styles": [
               "src/styles.css",
+              "node_modules/bootswatch/dist/cyborg/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
@@ -85,6 +86,7 @@
               "src/assets"
             ],
             "styles": [
+
               "src/styles.css"
             ],
             "scripts": []

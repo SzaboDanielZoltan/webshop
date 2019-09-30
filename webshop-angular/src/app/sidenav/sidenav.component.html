@@ -1,26 +1,60 @@
 <nav id="sidebar">
-
+  <div id="sidebar-content">
     <div class="sidebar-header">
-        <h3>Admin site</h3>
+      <h3>Admin site</h3>
     </div>
-    <ul class="list-unstyled components">
-        <li class="active">
-            <a routerLink="/"
-               data-toggle="collapse"
-               aria-expanded="false">Dashboard</a>
+    <div>
+      <ul class="list-unstyled components">
+        <li>
+          <a routerLink="/dashboard"
+             data-toggle="collapse"
+             aria-expanded="false">Dashboard</a>
         </li>
         <li>
-            <a routerLink="/products">Products</a>
+          <a routerLink="/products">Products</a>
         </li>
         <li>
-            <a routerLink="/customers"
-               data-toggle="collapse"
-               aria-expanded="false">Customers</a>
+          <a routerLink="/customers"
+             data-toggle="collapse"
+             aria-expanded="false">Customers</a>
         </li>
         <li>
             <a routerLink="/orders"
                data-toggle="collapse"
                aria-expanded="false">Orders</a>
         </li>
-    </ul>
+
+        <div class="wrapper">
+          <li class="active">
+            <a (click)="toggleShow($event)"
+               href="#homeSubmenu"
+               data-toggle="collapse"
+               aria-expanded="false"
+               class="dropdown-toggle">Charts</a>
+            <ul [ngClass]="{'collapse': collapsed, 'collapsing': collapsing}"
+                class="list-unstyled"
+                id="homeSubmenu">
+              <li>
+                <a routerLink="/bar-chart">Bar Chart</a>
+              </li>
+              <li>
+                <a routerLink="/doughnut-chart">Doughnut Chart</a>
+              </li>
+              <li>
+                <a routerLink="/radar-chart">Radar Chart</a>
+              </li>
+              <li>
+                <a routerLink="/pie-chart">Pie Chart</a>
+              </li>
+            </ul>
+          </li>
+        </div>
+
+
+
+
+
+      </ul>
+    </div>
+  </div>
 </nav>
