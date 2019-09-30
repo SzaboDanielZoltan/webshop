@@ -8,7 +8,6 @@ const db = new bll();
 const dbCustomer = new bllCustomer();
 const dbOrder = new bllOrder();
 
-const router = express.Router();
 
 /* Product admin methods */
 router.get('/', async (req, res, next) => {
