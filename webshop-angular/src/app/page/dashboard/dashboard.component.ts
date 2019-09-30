@@ -34,33 +34,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
       err => console.error(err)
     );
 
-    let chart = new CanvasJS.Chart("chartContainer", {
-      animationEnabled: true,
-      exportEnabled: true,
-      title: {
-        text: "Gastronaut Monthly "
-      },
-      data: [{
-        type: "column",
-        dataPoints: [
-          { y: 71, label: "January" },
-          { y: 55, label: "February" },
-          { y: 50, label: "Marc" },
-          { y: 65, label: "April" },
-          { y: 95, label: "May" },
-          { y: 68, label: "June" },
-          { y: 28, label: "July" },
-          { y: 34, label: "August" },
-          { y: 14, label: "September" },
-          { y: 64, label: "October" },
-          { y: 14, label: "November" },
-          { y: 74, label: "December" }
-        ]
-      }]
-    });
-      
-    chart.render();
-      
+   
+         
 
   }
 

@@ -17,6 +17,12 @@ import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
 import { CustomerFilterPipe } from './pipe/customer-filter.pipe';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
+import { Routes, RouterModule } from '@angular/router';
+import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
+import { MyDoughnutChartComponent } from './my-doughnut-chart/my-doughnut-chart.component';
+import { MyRadarChartComponent } from './my-radar-chart/my-radar-chart.component';
+import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +38,21 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
     CustomerFilterPipe,
     SidenavComponent,
     DashboardComponent,
+    MyBarChartComponent,
+    MyDoughnutChartComponent,
+    MyRadarChartComponent,
+    MyPieChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
