@@ -92,3 +92,9 @@ ul ul a {
 #sidebar-content {
     position: fixed;
 }
+
+.wrapper {
+  
+  width: 100%;
+  align-items: stretch;
+}
