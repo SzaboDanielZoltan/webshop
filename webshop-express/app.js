@@ -13,7 +13,6 @@ const basketRouter = require('./routes/basket');
 const ordersRouter = require('./routes/orders');
 const apiRouter = require('./routes/api');
 const registerRouter = require('./routes/register');
-const aboutRouter = require('./routes/about');
 const contactRouter = require('./routes/contact');
 
 
@@ -48,7 +47,6 @@ app.use('/basket', basketRouter);
 app.use('/register', registerRouter);
 app.use('/orders', ordersRouter);
 app.use('/api', apiRouter);
-app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 
 
