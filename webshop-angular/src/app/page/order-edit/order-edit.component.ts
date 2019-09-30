@@ -12,45 +12,48 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class OrderEditComponent implements OnInit {
 
   editOrder: Order = new Order();
-  orderList: Array<Order>;
-  userSubscription: Subscription;
-  details: boolean = true;
+
+  changeCounter: number = 0;
 
   constructor(private os: OrderService, private router: Router, private ar: ActivatedRoute) {
 
     let id: number;
 
     ar.params.forEach(data => id = data.id)
-    console.log(id);
+
     os.read().forEach(memberArray => {
       this.editOrder = memberArray.filter(member => member.id == id)[0];
-      console.log(this.editOrder);
+      this.editOrder.products = JSON.parse(this.editOrder.products);
     })
   }
-  changeDetails() {
-    if (this.details == true) {
-      this.details = false;
-    } else {
-      this.details = true;
-    }
+
+
+  deleteProduct(id) {
+    let index = this.editOrder.products.findIndex(product => product.id == id);
+    this.editOrder.products.splice(index, 1);
+    this.editOrder.totalPrice = 0;
+    this.editOrder.products.forEach(product => {
+      this.editOrder.totalPrice += product.price * product.amount;
+    })
+
+    this.changeCounter++;
+
   }
 
   ngOnInit() {
-
-    this.userSubscription = this.os.read().subscribe(
-      products => {
-        this.orderList = products;
-      },
-      err => console.error(err)
-    );
   }
 
   ngOnDestroy() {
-    this.userSubscription.unsubscribe();
   }
 
   onUpdate() {
-    this.os.update(this.editOrder, this.editOrder.id).forEach(
+    let updateOrder = {
+      id: this.editOrder.id,
+      products: this.editOrder.products,
+      shippingAdress: this.editOrder.shippingAdress,
+      totalPrice: this.editOrder.totalPrice
+    };
+    this.os.update(updateOrder).forEach(
       data => this.router.navigateByUrl('/orders')
     )
   }

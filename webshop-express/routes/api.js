@@ -62,7 +62,8 @@ router.delete('/orders/:id', async (req, res, next) => {
 //   const result = await dbOrder.createOrder(req.body);
 //   res.json(result);
 // })
-router.put('/orders/:id', async (req, res, next) => {
+router.put('/orders', async (req, res, next) => {
+  req.body.products = JSON.stringify(req.body.products)
   const result = await dbOrder.updateOrder(req.body);
   res.json(result);
 })

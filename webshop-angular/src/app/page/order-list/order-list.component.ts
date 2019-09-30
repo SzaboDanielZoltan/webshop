@@ -24,6 +24,7 @@ export class OrderListComponent implements OnInit {
     this.userSubscription = this.os.read().subscribe(
       orders => {
         this.orderList = orders;
+        this.orderList.sort((a, b) => b.id - a.id);
         console.log(this.orderList);
       },
       err => console.error(err)

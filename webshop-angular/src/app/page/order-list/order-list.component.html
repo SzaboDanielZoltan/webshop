@@ -16,6 +16,7 @@
     <tr>
       <th>Order ID</th>
       <th>Customer ID</th>
+      <th>Customer name</th>
       <th>Total price</th>
       <th>Order date</th>
       <th>Actions</th>
@@ -25,8 +26,9 @@
     <tr *ngFor="let order of orderList">
       <td>{{ order.id }}</td>
       <td>{{ order.customerID }}</td>
+      <td>{{ order.firstName }} {{order.lastName}}</td>
       <td>{{ order.totalPrice }}</td>
-      <td>{{ order.orderDate }}</td>
+      <td>{{ order.orderDate | date:'short' }}</td>
       <td>
         <div class="btn-group">
           <a class="btn btn-info"
