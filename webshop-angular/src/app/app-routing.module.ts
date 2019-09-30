@@ -18,6 +18,7 @@ import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'products', component: ProductListComponent },
   { path: 'products/new', component: ProductNewComponent },
   { path: 'products/update/:id', component: ProductEditComponent },
