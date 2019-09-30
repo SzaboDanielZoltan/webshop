@@ -16,9 +16,9 @@ html
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.ml-auto
           li.nav-item.menu-icon
-            a.nav-link(href="/products") Space meals
+            a.nav-link(href="/") Home    
           li.nav-item.menu-icon
-            a.nav-link(href="/about") About us   
+            a.nav-link(href="/products") Space meals
           li.nav-item.menu-icon
             a.nav-link(href="/contact") Contact us
         ul.navbar-nav
@@ -47,7 +47,7 @@ html
           else
             li.nav-item
               a.btn.nav-link#loginNavLink(href="/login") Login/Register                   
-    .container-fluid.p-0  
+    .container-fluid.p-0.contentContainer
       block content
     footer.container-fluid.p-4
       .row
@@ -75,8 +75,6 @@ html
               ul 
                 li
                   a(href='/')  Home
-                li
-                  a(href='/about')  About
                 li
                   a(href='/products')  Service
                 li
