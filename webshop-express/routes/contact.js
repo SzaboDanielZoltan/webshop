@@ -7,16 +7,8 @@ router.get('/', (req, res, next) => {
   res.render('contact');
 });
 
-/*itt sajnos nem lehet metódust megadni*/
-// function mailUs() {
-// console.log(this.message)
-//  this.emailString = `mailto:jnmako@gmail.com?subject=${this.subject}&body=
-//  Dear Madam/Sir,%0D%0A
-//  %0D%0A
-//  ${this.message}
-//  %0D%0A
-//  %0D%0ABest regard: ${this.name}`;
-// window.location.href = this.emailString;
-// };
+router.post('/', (req, res, next) => {
+  res.render('contact');
+});
 
 module.exports = router;
