@@ -9,11 +9,11 @@ block content
           .card-body
             .row
               .col-lg-6.col-sm-12.text-center
-                img.card-img-top.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`, style="width:400px;height:350px;")
-              .col-lg-6.col-sm-12           
-                h4 #{product.productName}
-                h6 Food category: #{product.type}
-                h1 8.75                   
+                img.card-img-top.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`)
+              .col-lg-6.col-sm-12.pl-4           
+                h1#productName.pt-3 #{product.productName}
+                h2.pb-3 Food type: #{product.type}
+                h4 Customers' rating: #{product.rating}                 
                 span
                   img(src="/images/icons/rocket.png" , width="20px", height="auto")
                   img(src="/images/icons/rocket.png" , width="20px", height="auto")
@@ -23,7 +23,7 @@ block content
                   em(style='width: 91%')
                 br
                 small (320 ratings)
-                h5 Now only for $#{product.price}          
+                h5#productPrice Now only for $#{product.price}          
                 #addToBasketWithIcon
                   if loggedcustomer
                     form(action=`/basket/add/${product.id}` method='post')

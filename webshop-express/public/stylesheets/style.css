@@ -71,6 +71,7 @@ footer{
   background-color: #000c14;
   position: fixed;
   bottom: 0;
+  display: none;
  
 }
 

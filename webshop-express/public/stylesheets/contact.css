@@ -1,5 +1,10 @@
 
 @font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
+}
+
+@font-face {
     font-family: spacetext-bold;
     src: url(./../fonts/A-Space\ Bold\ Demo.otf);
   }
@@ -90,7 +95,6 @@
 
   input, textarea {
     background-color: #111;
-    opacity: 0.6;
   }
 
   footer{

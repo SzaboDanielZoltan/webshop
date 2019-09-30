@@ -1,6 +1,8 @@
 body {
-    background: url("./../images/background/altalanos2.jpg");
+    background: url("./../images/background/indexBG_green.jpg");
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .login-container{
@@ -28,6 +30,7 @@ body {
     /* background-image: linear-gradient(to right, #0a898d, #000c14); */
     color: #000c14;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2%;
 }
 .login-form h3{
     text-align: center;
@@ -38,6 +41,7 @@ body {
     padding: 9%;
     background:#000c14;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2%;
 }
 .registration-form h3{
     text-align: center;
