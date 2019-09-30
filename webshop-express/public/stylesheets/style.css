@@ -69,7 +69,8 @@ input[name="orderedAmount"] {
 
 footer{
   background-color: #000c14;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
  
 }
 
