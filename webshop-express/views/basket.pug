@@ -1,11 +1,12 @@
 extends layout
 
 block content
-  .container
+  link(href='/stylesheets/basket.css', rel='stylesheet')
+  .container.mt-5.mb-5
     .row
-      .col
+      .col#basketDiv
         if loggedcustomer.basket!=='{}'
-          table.table
+          table.table.text-center
             thead
               tr
                 th Product name
@@ -18,28 +19,33 @@ block content
                 tr
                   td #{product.productName}
                   td
-                    a(href=`/products/${product.urlPostfix}`) Product details
+                    a#productDetailsLink(href=`/products/${product.urlPostfix}`) Product details
                   td
                     i.fa.fa-chevron-left(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'minusOne')`)
                     input(name='orderedAmount' type='number' value=`${product.orderedAmount}` readonly)
                     i.fa.fa-chevron-right(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'plusOne')`)
                   td #{product.price}
                   td
-                    a.btn.btn-danger(href=`/basket/remove/${product.id}`) Remove
+                    a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
             tfoot
-              tr
+              tr#totalPriceText
                 th
                 th
                 th Total price:
                 th#totalPrice #{total}
                 th
-          a.btn.btn-primary(href='/orders/actual') Order
-          a.btn.btn-warning(href='/basket/empty') Empty basket
+          .row
+            .col-sm-12.col-md-5.offset-md-1
+              a#emptyBasketBtn.btn.btn-block(href='/basket/empty') Empty basket
+            .col-sm-12.col-md-5
+              a#orderBtn.btn.btn-block(href='/orders/actual') Order
+            
 
         else
-          p Your basket is empty.
-          p Our&nbsp;
-            a(href='/products') foods
-            span !
+          .col#emptyBasketText.text-center.p-4
+            h3 Your basket is empty.
+            h5 Please check out our&nbsp;
+             a(href='/products') food variety
+             span !
 
   script(src="/javascripts/basket.js")

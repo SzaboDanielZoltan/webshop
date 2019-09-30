@@ -1,0 +1,9 @@
+body {
+    padding: 0;
+    background-image: url("./../images/background/basketcover.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  

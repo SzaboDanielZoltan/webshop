@@ -20,6 +20,12 @@ import { DashboardComponent } from './page/dashboard/dashboard.component';
 import { OrderListComponent } from './page/order-list/order-list.component';
 import { OrderEditComponent } from './page/order-edit/order-edit.component';
 import { PageNotFoundComponent } from './page/page-not-found/page-not-found.component';
+import { ChartsModule } from 'ng2-charts';
+import { Routes, RouterModule } from '@angular/router';
+import { MyBarChartComponent } from './my-bar-chart/my-bar-chart.component';
+import { MyDoughnutChartComponent } from './my-doughnut-chart/my-doughnut-chart.component';
+import { MyRadarChartComponent } from './my-radar-chart/my-radar-chart.component';
+import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +44,21 @@ import { PageNotFoundComponent } from './page/page-not-found/page-not-found.comp
     OrderListComponent,
     OrderEditComponent,
     PageNotFoundComponent,
+    MyBarChartComponent,
+    MyDoughnutChartComponent,
+    MyRadarChartComponent,
+    MyPieChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

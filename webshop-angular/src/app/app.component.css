@@ -3,4 +3,18 @@
     width: 100%;
     align-items: stretch;
 }
+#content{
+    min-height: auto;
+    min-width: 100%;
+}
+.toggle-button-aside{
+    /* padding-left: 10px;
+    position: fixed; */
+    transform: translateX(17%);
+}
+
+#sidebarCollapse {
+    
+    
+}
 
