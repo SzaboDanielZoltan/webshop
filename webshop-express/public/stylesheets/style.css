@@ -62,6 +62,10 @@ input[name="orderedAmount"] {
   border-bottom: 2px solid #0a898d;
   margin-left:2px;
 }
+.menu-icon{
+  border-bottom: 2px solid #000c14;
+  margin-left:2px;
+}
 
 footer{
   background-color: #000c14;
