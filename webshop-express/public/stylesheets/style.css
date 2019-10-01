@@ -23,6 +23,11 @@ input[name="orderedAmount"] {
   src: url(./../fonts/A-Space\ Regular\ Demo.otf);
 }
 
+@font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
+}
+
 .contentContainer{
   min-height: 80vh;
 }
@@ -114,6 +119,7 @@ footer{
   position: relative;
   bottom: 0;
   left:0;
+  font-family: basic-sans-sherif;
 }
 
 footer a,
