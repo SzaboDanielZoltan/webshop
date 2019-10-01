@@ -3,21 +3,29 @@ extends layout
 block content
   link(href='/stylesheets/products.css', rel='stylesheet')
   .container-fluid.p-0      
-    .row.filter-container.m-0 
-      .col-12.col-xs-6.col-md-3 
-        - let limitNumber = displaySize || 12
-        form.form-inline.mt-3.mb-3(method="POST" action="/products")
-          .form-group
-            select.form-control.pageLimitSelector(name="limit")
-              -let viewArray = [10,15,20,25,50];
-              each view in viewArray
-                if view == displaySize
-                  option(value=`${view}` selected) #{view}
-                else 
-                  option(value=`${view}`) #{view}                  
-            span.input-group-btn  
-              button.btn.btn-light.pageLimitSelector(type='submit') View
-  .container           
+      .row.filter-container.justify-content-md-center.text-center
+        .col-2.p-0
+          - let limitNumber = displaySize || 12
+          form.form-inline.mt-3.mb-3(method="POST" action="/products").text-center
+            .form-group
+              select.form-control.pageLimitSelector(name="limit")
+                -let viewArray = [12,15,20,25,50];
+                each view in viewArray
+                  if view == displaySize
+                    option(value=`${view}` selected) #{view}
+                  else 
+                    option(value=`${view}`) #{view}                  
+              span.input-group-btn  
+                button.btn.btn-light.pageLimitSelector(type='submit') View
+        .col-2.mt-3.mb-3.p-0
+          a.btn.pageLimitSelector(href=`/products?filter=all`) All
+        .col-2.mt-3.mb-3.p-0
+          a.btn.pageLimitSelector(href=`/products?filter=human`) Human
+        .col-2.mt-3.mb-3.p-0        
+          a.btn.pageLimitSelector(href=`/products?filter=alien`) Alien
+        .col-2.mt-3.mb-3.p-0        
+          a.btn.pageLimitSelector(href=`/products?filter=drinks`) Drinks  
+  .container.mt-5.mb-5           
     .row
       each product , index in products
         if index < limitNumber
@@ -37,14 +45,15 @@ block content
             ul.pagination.justify-content-center.m-3
               - let x = 1;
               - let y = Math.round(numberOfproducts/limitNumber) 
+              - let all = "all"
                 li.page-item
-                  a.page-link(href=`/products?page=${prevPage || 1 }&limit=${limitNumber}` aria-label='Previous')
+                  a.page-link(href=`/products?filter=${filterItem || all }&page=${prevPage || 1 }&limit=${limitNumber}` aria-label='Previous')
                     span(aria-hidden='true') &laquo;
                     span.sr-only Previous
                 while x <= y
                   li.page-item
-                    a.page-link(href=`/products?page=${x}&limit=${limitNumber}`) #{x++}    
+                    a.page-link(href=`/products?filter=${filterItem || all }&page=${x}&limit=${limitNumber}`) #{x++}    
                 li.page-item
-                  a.page-link(href=`/products?page=${nextPage || 1 }&limit=${limitNumber}` aria-label='Next')
+                  a.page-link(href=`/products?filter=${filterItem || all }&page=${nextPage || 1 }&limit=${limitNumber}` aria-label='Next')
                     span(aria-hidden='true') &raquo;
                     span.sr-only Next

@@ -8,17 +8,45 @@ const router = express.Router();
 /* GET products page in order by productName ASC + pagination logic */
 router.get('/', async (req, res, next) => {
   const result = await db.getProductsInOrder();
-  const resultSize = result.length;
+  let resultSize = result.length;
   const viewSize = req.cookies.viewSize;
+  const filterData = [];
+  let products = result
 
-  /* If you have query string, then this will run, if not just normal render */
-  if (req.query.limit && req.query.page != undefined) {
-    const getData = [];
-    result.forEach((data, index) => {
-      if (index < (req.query.page * req.query.limit)) {
-        getData.push(data);
+  /*setting filter data and filter length*/
+  if (req.query.filter != undefined && req.query.filter != 'all') {
+    console.log(req.query.filter);
+    result.forEach((data) => {
+      if (req.query.filter == data.type) {
+        filterData.push(data);
+      } else if (req.query.filter == 'drinks') {
+        if (data.type == null) {
+          filterData.push(data);
+        }
       }
     });
+    products = filterData;
+    resultSize = filterData.length
+  }
+
+  /* If you have query string, then this will run, if not just normal render */
+  if (req.query.filter && req.query.limit && req.query.page != undefined) {
+    const getData = [];
+    if (req.query.filter == 'all') {
+      result.forEach((data, index) => {
+        if (index < (req.query.page * req.query.limit)) {
+          getData.push(data);
+        }
+      });
+    }
+    else if (req.query.filter != 'all') {
+      filterData.forEach((data, index) => {
+        if (index < (req.query.page * req.query.limit)) {
+          getData.push(data);
+        }
+      });     
+    }
+ 
     let previosPage;
     let nextOnePage;
     if (req.query.page <= 1) {
@@ -38,10 +66,11 @@ router.get('/', async (req, res, next) => {
       prevPage: previosPage,
       nextPage: nextOnePage,
       displaySize: viewSize,
+      filterItem: req.query.filter,
     });
   }
 
-  res.render('products', { products: result, numberOfproducts: resultSize, displaySize: viewSize });
+  res.render('products', { products: products, numberOfproducts: resultSize, displaySize: viewSize, filterItem: req.query.filter });
 });
 
 router.post('/', (req, res, next) => {
