@@ -24,10 +24,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let order of orderList">
-      <td>{{ order.id }}</td>
-      <td>{{ order.customerID }}</td>
-      <td>{{ order.firstName }} {{order.lastName}}</td>
-      <td>{{ order.totalPrice }}</td>
+      <td class="text-center">{{ order.id }}</td>
+      <td class="text-center">{{ order.customerID }}</td>
+      <td class="text-center">{{ order.firstName }} {{order.lastName}}</td>
+      <td class="text-center">{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
       <td>
         <div class="btn-group">
