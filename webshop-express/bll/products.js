@@ -55,10 +55,9 @@ module.exports = class productsBusinessLogicLayer {
 
   async getProductsInOrder(){
     const result = await this.getProducts();
-    const activeProducts = []
+    const activeProducts = [];
     result.forEach(product => {
-      if(product.active = true){
-
+      if(product.active == 1){
         activeProducts.push(product)
       }
     });
