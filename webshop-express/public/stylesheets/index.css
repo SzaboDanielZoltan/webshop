@@ -165,3 +165,9 @@ body{
   background-color: #000c14;
   margin:0;
 }
+
+#carouselContainer {
+  background-color: #0a898d;
+  color:  #000c14;
+  font-family: spacetext;
+}
