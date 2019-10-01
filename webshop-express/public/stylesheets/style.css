@@ -26,7 +26,7 @@ input[name="orderedAmount"] {
 }
 
 .contentContainer{
-  margin-bottom: 13rem;
+  min-height: 80vh;
 }
 .navbar {
   background-color: #000c14;
@@ -71,9 +71,9 @@ input[name="orderedAmount"] {
 
 footer{
   background-color: #000c14;
-  position: fixed;
+  position: relative;
   bottom: 0;
-  /* left: 0; */
+  left:0;
 }
 
 

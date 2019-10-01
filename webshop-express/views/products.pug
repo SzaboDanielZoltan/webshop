@@ -5,7 +5,7 @@ block content
   .container-fluid.p-0      
     .row.filter-container.m-0 
       .col-12.col-xs-6.col-md-3 
-        - let limitNumber = displaySize || 10
+        - let limitNumber = displaySize || 12
         form.form-inline.mt-3.mb-3(method="POST" action="/products")
           .form-group
             select.form-control.pageLimitSelector(name="limit")
@@ -21,7 +21,7 @@ block content
     .row
       each product , index in products
         if index < limitNumber
-          .col-lg-4.col-sm-12.product_content.d-flex.justify-content-center.p-0
+          .col-lg-4.col-sm-6.product_content.d-flex.justify-content-center.p-0
             .single_product_text.m-3
               img.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`, style="width:400px;height:300px;")
               .product_images_overlay.text-center
