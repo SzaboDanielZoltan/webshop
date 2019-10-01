@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let order of orderList | sorter:orderKey:orderDirection:changeCounter">
+    <tr *ngFor="let order of orderList | filter:searchText:changeCounter  | sorter:orderKey:orderDirection:changeCounter">
       <td class="text-center">{{ order.id }}</td>
       <td class="text-center">{{ order.customerID }}</td>
       <td class="text-center">{{ order.firstName }} {{order.lastName}}</td>
