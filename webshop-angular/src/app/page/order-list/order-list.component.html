@@ -24,12 +24,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let order of orderList"
-        class="alert alert-secondary">
-      <td>{{ order.id }}</td>
-      <td>{{ order.customerID }}</td>
-      <td>{{ order.firstName }} {{order.lastName}}</td>
-      <td>{{ order.totalPrice }}</td>
+    <tr *ngFor="let order of orderList">
+      <td class="text-center">{{ order.id }}</td>
+      <td class="text-center">{{ order.customerID }}</td>
+      <td class="text-center">{{ order.firstName }} {{order.lastName}}</td>
+      <td class="text-center">{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
       <td><select name="order.status"
                 id="order.status"

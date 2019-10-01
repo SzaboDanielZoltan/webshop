@@ -3,6 +3,7 @@ import { Order } from 'src/app/model/order';
 import { Subscription } from 'rxjs';
 import { OrderService } from 'src/app/service/order.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-order-edit',
@@ -43,9 +44,25 @@ export class OrderEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngOnDestroy() {
+  changingAmountMinus(id) {
+
+    if (this.editOrder.products[id].amount >= 1) {
+      this.editOrder.products[id].amount--;
+    }
+    this.editOrder.products.forEach(product => {
+      this.editOrder.totalPrice += product.price * product.amount;
+    })
   }
 
+  changingAmountPlus(id) {
+    if (this.editOrder.products[id].amount <= 100) {
+      this.editOrder.products[id].amount++;
+    }
+    this.editOrder.products.forEach(product => {
+      this.editOrder.totalPrice += product.price * product.amount;
+    })
+
+  }
   onUpdate() {
     let updateOrder = {
       id: this.editOrder.id,
