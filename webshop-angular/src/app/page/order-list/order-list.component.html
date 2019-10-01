@@ -31,10 +31,10 @@
       <td class="text-center">{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
       <ng-container *ngIf="order.status==1; else elseTemplate">
-        <td class="text-center">Processing</td>
+        <td class="text-center"><a class="btn btn-warning"> Processing</a></td>
       </ng-container>
       <ng-template #elseTemplate>
-        <td class="text-center">Completed</td>
+        <td class="text-center"><a class="btn btn-success">Completed</a></td>
       </ng-template>
 
       <td></td>

@@ -65,8 +65,10 @@
                         id="status"
                         name="status"
                         [(ngModel)]="editOrder.status">
-                    <option [value]="1">Processing</option>
-                    <option [value]="0">Completed</option>
+                    <option [value]="1"
+                            class="btn btn-warning">Processing</option>
+                    <option [value]="0"
+                            class="btn btn-success">Completed</option>
                 </select>
             </div>
             <br>
