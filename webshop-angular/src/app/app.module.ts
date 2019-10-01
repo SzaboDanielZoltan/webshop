@@ -13,7 +13,7 @@ import { SearchFriendlyNamePipe } from './pipe/search-friendly-name.pipe';
 import { CustomerListComponent } from './page/customer-list/customer-list.component';
 import { CustomerEditComponent } from './page/customer-edit/customer-edit.component';
 import { ProductFilterPipe } from './pipe/product-filter.pipe';
-import { UrlPostfixValidatePipe } from './pipe/url-postfix-validate.pipe';
+import { SorterPipe } from './pipe/sorter.pipe';
 import { CustomerFilterPipe } from './pipe/customer-filter.pipe';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './page/dashboard/dashboard.component';
@@ -37,7 +37,7 @@ import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
     CustomerListComponent,
     CustomerEditComponent,
     ProductFilterPipe,
-    UrlPostfixValidatePipe,
+    SorterPipe,
     CustomerFilterPipe,
     SidenavComponent,
     DashboardComponent,
@@ -55,7 +55,7 @@ import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
     HttpClientModule,
     FormsModule,
     ChartsModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,17 +14,17 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Order ID</th>
-      <th>Customer ID</th>
-      <th>Customer name</th>
+      <th (click)="setSorterKey('id')">Order ID</th>
+      <th (click)="setSorterKey('customerID')">Customer ID</th>
+      <th (click)="setSorterKey('firstName')">Customer name</th>
       <th>Total price</th>
-      <th>Order date</th>
-      <th>Status</th>
+      <th (click)="setSorterKey('orderDate')">Order date</th>
+      <th (click)="setSorterKey('status')">Status</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let order of orderList">
+    <tr *ngFor="let order of orderList | sorter:orderKey:orderDirection:changeCounter">
       <td class="text-center">{{ order.id }}</td>
       <td class="text-center">{{ order.customerID }}</td>
       <td class="text-center">{{ order.firstName }} {{order.lastName}}</td>
