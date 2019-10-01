@@ -14,28 +14,31 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th>Order ID</th>
-      <th>Customer ID</th>
-      <th>Customer name</th>
+      <th (click)="setSorterKey('id')">Order ID</th>
+      <th (click)="setSorterKey('customerID')">Customer ID</th>
+      <th (click)="setSorterKey('firstName')">Customer name</th>
       <th>Total price</th>
-      <th>Order date</th>
+      <th (click)="setSorterKey('orderDate')">Order date</th>
+      <th (click)="setSorterKey('status')">Status</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let order of orderList">
-      <td>{{ order.id }}</td>
-      <td>{{ order.customerID }}</td>
-      <td>{{ order.firstName }} {{order.lastName}}</td>
-      <td>{{ order.totalPrice }}</td>
+    <tr *ngFor="let order of orderList | filter:searchText:changeCounter  | sorter:orderKey:orderDirection:changeCounter">
+      <td class="text-center">{{ order.id }}</td>
+      <td class="text-center">{{ order.customerID }}</td>
+      <td class="text-center">{{ order.firstName }} {{order.lastName}}</td>
+      <td class="text-center">{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
+      <ng-container *ngIf="order.status==1; else elseTemplate">
+        <td class="text-center"><a class="btn btn-warning"> Processing</a></td>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <td class="text-center"><a class="btn btn-success">Completed</a></td>
+      </ng-template>
       <td>
-        <div class="btn-group">
-          <a class="btn btn-info"
-             routerLink="/orders/update/{{order.id}}">Edit</a>
-          <a class="btn btn-danger"
-             (click)="onDelete(order.id)">Delete</a>
-        </div>
+        <a class="btn btn-info"
+           routerLink="/orders/update/{{order.id}}">Edit</a>
       </td>
     </tr>
   </tbody>
