@@ -26,7 +26,7 @@ html
             li.nav-item.dropdown
               a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                 | #{loggedcustomer.firstName} #{loggedcustomer.lastName}
-              .dropdown-menu(aria-labelledby='navbarDropdown')
+              .dropdown-menu(aria-labelledby='navbarDropdown').text-center
                 a.dropdown-item(href="/basket") Basket
                 a.dropdown-item(href='/orders') Orders
                 a.dropdown-item(href='/settings') Settings
