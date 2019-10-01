@@ -47,7 +47,8 @@ export class ProductEditComponent implements OnInit {
   }
 
   onUpdate() {
-    this.editProduct.active = parseInt(this.editProduct.active)
+    this.editProduct.active = parseInt(this.editProduct.active);
+    delete this.editProduct.rating;
     this.ps.update(this.editProduct, this.editProduct.id).forEach(
       data => this.router.navigateByUrl('/products')
     )

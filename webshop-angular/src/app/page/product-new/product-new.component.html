@@ -1,10 +1,12 @@
 <div class="text-center">
-  <h2>New product - admin</h2>
+       <h2>New product - admin</h2>
 </div>
 <br>
 <div class="d-flex justify-content-center">
        <div class="newInputs">
-              <form class="form simple-form" #newProductForm="ngForm" novalidate
+              <form class="form simple-form"
+                    #newProductForm="ngForm"
+                    novalidate
                     (submit)="onCreate()">
                      <div class="text-center"><label for="name">Name</label></div>
                      <input class="form-control"
@@ -17,7 +19,8 @@
                             required
                             #newName='ngModel'
                             pattern="^\S[A-Za-z0-9]*(\s{1}[A-Za-z0-9]+)*\S$">
-                            <p  *ngIf="newName.invalid && newName.touched" class="text-invalid">Invalid, only one space and letters, numbers only!</p>       
+                     <p *ngIf="newName.invalid && newName.touched"
+                        class="text-invalid">Invalid, only one space and letters, numbers only!</p>
                      <div class="text-center"><label for="urlPostfix">Url-Postfix</label></div>
                      <input class="form-control disable"
                             type="text"
@@ -28,7 +31,8 @@
                             readonly
                             #newUrl='ngModel'
                             pattern="^(?!This postfix is already exist).*$">
-                            <p  *ngIf="newUrl.invalid" class="text-invalid">Please write a not existing products name!</p>
+                     <p *ngIf="newUrl.invalid"
+                        class="text-invalid">Please write a not existing products name!</p>
                      <div class="text-center"><label for="type">Type</label></div>
                      <input class="form-control"
                             type="text"
@@ -38,7 +42,8 @@
                             [(ngModel)]="newProduct.type"
                             required
                             #newType='ngModel'>
-                            <p  *ngIf="newType.invalid && newType.touched" class="text-invalid">Required to fill up!</p>    
+                     <p *ngIf="newType.invalid && newType.touched"
+                        class="text-invalid">Required to fill up!</p>
                      <div class="text-center"><label for="price">Price</label></div>
                      <input class="form-control"
                             type="number"
@@ -50,10 +55,20 @@
                             #newPrice='ngModel'
                             min="1"
                             pattern="^[0-9]+$">
-                            <p  *ngIf="newPrice.invalid && newPrice.touched" class="text-invalid">Required to fill up!</p>    
+                     <p *ngIf="newPrice.invalid && newPrice.touched"
+                        class="text-invalid">Required to fill up!</p>
+                     <div class="text-center"><label for="price">Active/Inactive product</label></div>
+                     <select class="form-control"
+                             id="active"
+                             name="active"
+                             [(ngModel)]="editProduct.active">
+                            <option [value]="0">Inactive</option>
+                            <option [value]="1">Active</option>
+                     </select>
                      <br>
                      <div class="text-center">
-                            <button class="btn btn-info" [disabled]="!newProductForm.form.valid">Add</button>
+                            <button class="btn btn-info"
+                                    [disabled]="!newProductForm.form.valid">Add</button>
                      </div>
               </form>
        </div>
