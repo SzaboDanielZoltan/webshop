@@ -1,3 +1,8 @@
+@font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
+}
+
 body {
     background: url("./../images/background/indexBG_green.jpg");
     background-attachment: fixed;
@@ -16,6 +21,7 @@ body {
 
 .card {
   border-radius: 1%;
+  font-family: basic-sans-sherif;
   }
 
 
@@ -29,6 +35,11 @@ body {
 
 #productName {
   color: #0a898d;
+
+}
+
+.form-group {
+  font-size: 120%;
 
 }
 @keyframes pulse {

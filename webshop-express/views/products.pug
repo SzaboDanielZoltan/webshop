@@ -35,10 +35,11 @@ block content
                 strong #{product.productName}
               img.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`, style="width:400px;height:300px;")
               .product_images_overlay.text-center
-                h6.mt-1.mb-1 #{product.productName}
-                p.product_price #{product.type}
-                p.product_price #{product.price} Galaxy $
-                a.btn.btn-primary(href=`/products/${product.urlPostfix}`) Show more
+                .col.mt-5.mb-5
+                  h4.mt-3.mb-1 #{product.productName}
+                  p.product_price #{product.type}
+                  h6.product_price.mb-3 #{product.price} Galaxy $
+                  a.btn.btn-primary.mt-3(href=`/products/${product.urlPostfix}`) Show more
   .container-fluid.p-0                       
     .row.filter-container.m-0  
       .col-12                      
