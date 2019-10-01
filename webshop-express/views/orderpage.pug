@@ -5,7 +5,7 @@ block content
   .container
     .row
       .col-12.text-center.mt-4.mb-4
-        h1#headingText Please check your basket!
+        h1#headingText Please confirm your order!
     .row
       .col#orderDiv
         table.table.text-center
@@ -14,23 +14,23 @@ block content
                th Product name
                th Details
                th Unit price
+               th Unit
                th Total price
-               th #
           tbody
             each product in order
               tr
                 td #{product.productName}
                 td
                   a#productDetailsLink(href=`${product.url}`) Details
-                td #{product.price}
+                td $#{product.price}
                 td #{product.amount}
-                td #{product.amount*product.price}
+                td $#{product.amount*product.price}
             tr
               td
               td
               td
               td
-              td#totalPriceText Total price: #{total}
+              td#totalPriceText Total price: $#{total}
         .row#orderFooter
           .col-6.text-left.pl-5
             h6 Name:&nbsp;
@@ -38,6 +38,5 @@ block content
             h6 Address:&nbsp;
               span #{loggedcustomer.address}
           .col-6.text-right
-           a.btn#addMoreBtn.m-3(href='/products') Add more
-           a.btn#orderBtn.m-3(href='/orders/neworder') Order
+           a.btn#orderBtn.m-4(href='/orders/neworder') I send my order
            

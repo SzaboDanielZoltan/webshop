@@ -1,4 +1,14 @@
-body {
+@font-face {
+  font-family: spacetext;
+  src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+}
+
+@font-face {
+   font-family: basic-sans-sherif;
+   src: url(./../fonts/basic_sans_serif_7.ttf);
+ }
+ 
+ body {
     padding: 0;
     background-image: url("./../images/background/basketcover.jpg");
     background-size: cover;
@@ -13,6 +23,8 @@ body {
   padding: 20px;
   border-collapse: collapse;
   font-size: 17px;
+  font-family: basic-sans-sherif;
+  overflow-x:auto;
 }
 
 
@@ -20,10 +32,12 @@ body {
   color: #000c14;
 }
 
-
+ 
 #headingText {
   color: #fff;
+  font-family: spacetext;
 }
+
 
 
 ul {

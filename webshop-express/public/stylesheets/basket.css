@@ -1,5 +1,10 @@
 
 @font-face {
+   font-family: spacetext;
+   src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+ }
+
+@font-face {
     font-family: basic-sans-sherif;
     src: url(./../fonts/basic_sans_serif_7.ttf);
   }
@@ -19,13 +24,17 @@
     padding: 20px;
     border-collapse: collapse;
     font-size: 17px;
+    font-family: basic-sans-sherif;
+    overflow-x:auto;
 }
 
+table {
+   table-layout: fixed; 
+}
 
-#basketDiv tr, th {
+#table tr th {
     color: #000c14;
 }
-
 
  #orderBtn{
     background-color: #0a898d;
@@ -44,6 +53,11 @@
     background-color: #000c14;
  }
 
+ #addMoreBtn{
+   color: #111;
+   background-color: #a4a7a8;
+   vertical-align: middle;
+}
 
  #productDetailsLink {
     color: #0a898d;
@@ -63,10 +77,13 @@
   
   #totalPriceText {
       font-size: 20px;
+      font-weight: bold;
+      text-shadow: 1px 1px #0a898d;
   }
 
   
 #headingText {
    color: #fff;
+   font-family: spacetext;
  }
  
