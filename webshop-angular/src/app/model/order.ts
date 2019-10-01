@@ -7,4 +7,5 @@ export class Order {
     customerID?: number;
     lastName?: string;
     firstName?: string;
+    status?: number;
 }
