@@ -24,6 +24,18 @@
 .simple-form input.ng-invalid {
   border-left-color: salmon;
 }
-h2 {
-  color: #0a898d;
+
+#baseContainer {
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 20px 70px;
+  border-collapse: collapse;
+  overflow-x:auto;
+}
+
+label {
+  font-size: 17px;
+  font-family: basic-sans-sherif;
+  font-weight: bold;
 }

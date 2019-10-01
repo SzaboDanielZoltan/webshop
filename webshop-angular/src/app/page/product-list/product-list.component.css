@@ -2,10 +2,8 @@
     width: 30vw;
 }
 
-h2 {
-    color: #0a898d;
+body {
+  background-image: url(./../../../assets/images/angularBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
-/* #product-list {
-
-} */

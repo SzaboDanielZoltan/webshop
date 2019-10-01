@@ -1,20 +1,18 @@
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
+
 #content{
     min-height: auto;
     min-width: 100%;
 }
 .toggle-button-aside{
-    /* padding-left: 10px;
-    position: fixed; */
+    position: relative;
     transform: translateX(17%);
 }
 
 #sidebarCollapse {
-    
-    
+  background: #096b6e;
+  color: #fff;
 }
 
+#sandwich {
+  background-color: #fff;
+}

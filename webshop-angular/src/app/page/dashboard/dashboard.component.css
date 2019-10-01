@@ -1,10 +1,4 @@
-html {
-  font-size: 62.5%;
-}
 
-body {
-  font-family: "Montserrat", sans-serif;
-}
 
 button:focus {
   outline: none;
@@ -81,7 +75,7 @@ img {
   transform: translateX(-50%);
   bottom: 0;
   height: 2px;
-  background: cyan;
+  background: #0fafb4;
   content: '';
   width: 0;
   position: absolute;
@@ -107,12 +101,12 @@ img {
 }
 
 .box figure:hover h5 {
-  color: cyan;
+  color: #0fafb4;
 }
 
 .box figure:hover img {
-  -webkit-box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px cyan;
-  box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px cyan;
+  -webkit-box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px #0fafb4;
+  box-shadow: 0px 0px 6px #0000004f, -10px -10px 1px #0fafb4;
 }
 
 .box2 figure:hover figcaption {
