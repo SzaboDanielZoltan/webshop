@@ -4,9 +4,8 @@ export class Order {
     totalPrice: number;
     orderDate: any;
     shippingAdress: string;
-    status: boolean;
+    status: number;
     customerID?: number;
     lastName?: string;
     firstName?: string;
-    status?: number;
 }
