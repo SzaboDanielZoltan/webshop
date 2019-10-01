@@ -10,7 +10,7 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './product-new.component.html',
   styleUrls: ['./product-new.component.css']
 })
-export class ProductNewComponent implements OnInit , OnDestroy {
+export class ProductNewComponent implements OnInit, OnDestroy {
 
   //productsList$: Observable<any> = this.ps.read();
   newProduct: Product = new Product();
@@ -20,7 +20,7 @@ export class ProductNewComponent implements OnInit , OnDestroy {
 
   constructor(private ps: ProductService, private router: Router) { }
 
- 
+
   ngOnInit() {
     this.userSubscription = this.ps.read().subscribe(
       products => {
@@ -40,6 +40,7 @@ export class ProductNewComponent implements OnInit , OnDestroy {
   }
 
   onCreate() {
+    this.newProduct.active = parseInt(this.newProduct.active);
     this.ps.create(this.newProduct).forEach(
       data => this.router.navigateByUrl('/products')
     )

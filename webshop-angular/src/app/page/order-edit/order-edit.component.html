@@ -28,14 +28,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of editOrder.products">
+                    <tr *ngFor="let product of editOrder.products; let i = index">
                         <td>{{product.id}}</td>
                         <td>{{product.productName}}</td>
                         <td>{{product.price}}</td>
-                        <td>{{product.amount}}</td>
+                        <td class="btn-group"><a class="btn btn-info"
+                               (click)="changingAmountMinus(i)">
+                                <</a> <input
+                                   class="text-center"
+                                   type="text"
+                                   value="{{product.amount}}">
+
+                                    <a class="btn btn-info"
+                                       (click)="changingAmountPlus(i)">>
+                                    </a></td>
                         <td><button class="btn btn-danger"
-                                    (click)="deleteProduct(product.id)">Delete</button></td>
+                                    (click)="deleteProduct(i)">Delete</button></td>
                     </tr>
+
 
                 </tbody>
 
@@ -49,8 +59,19 @@
                    [(ngModel)]="editOrder.shippingAddress">
             <div class="text-center"><label for="totalPrice">Total price</label></div>
             <p class="text-center">{{editOrder.totalPrice}}</p>
-
-
+            <br>
+            <div class="text-center">
+                <select class="btn btn-success"
+                        id="status"
+                        name="status"
+                        [(ngModel)]="editOrder.status">
+                    <option [value]="1"
+                            class="btn btn-warning">Processing</option>
+                    <option [value]="0"
+                            class="btn btn-success">Completed</option>
+                </select>
+            </div>
+            <br>
             <div class="text-center">
                 <button class="btn btn-info"
                         (click)="onUpdate()">Update</button>
