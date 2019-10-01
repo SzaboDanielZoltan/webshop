@@ -19,16 +19,25 @@
       <th>Customer name</th>
       <th>Total price</th>
       <th>Order date</th>
+      <th>Active</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let order of orderList">
+    <tr *ngFor="let order of orderList"
+        class="alert alert-secondary">
       <td>{{ order.id }}</td>
       <td>{{ order.customerID }}</td>
       <td>{{ order.firstName }} {{order.lastName}}</td>
       <td>{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
+      <td><select name="order.status"
+                id="order.status"
+                class="selectpicker show-tick"
+                value="order.status">
+          <option value="true">Active</option>
+          <option value="false">Inactive</option>
+        </select></td>
       <td>
         <div class="btn-group">
           <a class="btn btn-info"

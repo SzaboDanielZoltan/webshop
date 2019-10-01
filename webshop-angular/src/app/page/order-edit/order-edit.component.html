@@ -37,6 +37,7 @@
                                     (click)="deleteProduct(product.id)">Delete</button></td>
                     </tr>
 
+
                 </tbody>
 
             </table>
@@ -49,8 +50,17 @@
                    [(ngModel)]="editOrder.shippingAddress">
             <div class="text-center"><label for="totalPrice">Total price</label></div>
             <p class="text-center">{{editOrder.totalPrice}}</p>
-
-
+            <br>
+            <div class="text-center">
+                <select name="order.status"
+                        id="order.status"
+                        class="selectpicker show-tick btn btn-success"
+                        value="order.status">
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </div>
+            <br>
             <div class="text-center">
                 <button class="btn btn-info"
                         (click)="onUpdate()">Update</button>

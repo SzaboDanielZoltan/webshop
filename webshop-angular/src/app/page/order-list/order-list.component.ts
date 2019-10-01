@@ -25,7 +25,7 @@ export class OrderListComponent implements OnInit {
       orders => {
         this.orderList = orders;
         this.orderList.sort((a, b) => b.id - a.id);
-        console.log(this.orderList);
+        console.log(this.orderList[0].active);
       },
       err => console.error(err)
     );

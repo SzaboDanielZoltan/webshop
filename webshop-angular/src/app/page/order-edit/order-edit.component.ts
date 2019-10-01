@@ -51,10 +51,11 @@ export class OrderEditComponent implements OnInit {
       id: this.editOrder.id,
       products: this.editOrder.products,
       shippingAdress: this.editOrder.shippingAdress,
-      totalPrice: this.editOrder.totalPrice
+      totalPrice: this.editOrder.totalPrice,
+      status: this.editOrder.status
     };
     this.os.update(updateOrder).forEach(
-      data => this.router.navigateByUrl('/orders')
+      data => console.log(updateOrder.status)//this.router.navigateByUrl('/orders')
     )
   }
 }
