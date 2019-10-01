@@ -3,7 +3,9 @@
 </div>
 <div class="d-flex justify-content-center">
        <div class="newInputs">
-              <form class="form simple-form" #editProductForm="ngForm" novalidate
+              <form class="form simple-form"
+                    #editProductForm="ngForm"
+                    novalidate
                     (submit)="onUpdate()">
                      <div class="text-center"><label for="id">ID</label></div>
                      <input class="form-control"
@@ -24,7 +26,8 @@
                             required
                             #editName='ngModel'
                             pattern="^\S[A-Za-z0-9]*(\s{1}[A-Za-z0-9]+)*\S$">
-                            <p  *ngIf="editName.invalid" class="text-danger">Invalid, only one space and letters, numbers only!</p>    
+                     <p *ngIf="editName.invalid"
+                        class="text-danger">Invalid, only one space and letters, numbers only!</p>
                      <div class="text-center"><label for="urlPostfix">URL</label></div>
                      <input class="form-control"
                             type="text"
@@ -35,7 +38,8 @@
                             readonly
                             #editUrl='ngModel'
                             pattern="^(?!This postfix is already exist).*$">
-                            <p  *ngIf="editUrl.invalid" class="text-danger">Invalid!</p>
+                     <p *ngIf="editUrl.invalid"
+                        class="text-danger">Invalid!</p>
                      <div class="text-center"><label for="type">Type</label></div>
                      <input class="form-control"
                             type="text"
@@ -45,7 +49,8 @@
                             [(ngModel)]="editProduct.type"
                             required
                             #editType='ngModel'>
-                            <p  *ngIf="editType.invalid && editType.touched" class="text-danger">Required to fill up!</p>
+                     <p *ngIf="editType.invalid && editType.touched"
+                        class="text-danger">Required to fill up!</p>
                      <div class="text-center"><label for="price">Price</label></div>
                      <input class="form-control"
                             type="number"
@@ -57,10 +62,21 @@
                             #newPrice='ngModel'
                             min="1"
                             pattern="^[0-9]+$">
-                            <p  *ngIf="newPrice.invalid && newPrice.touched" class="text-danger">Required to fill up!</p> 
+                     <p *ngIf="newPrice.invalid && newPrice.touched"
+                        class="text-danger">Required to fill up!</p>
+                     <div class="text-center"><label for="price">Active/Inactive product</label></div>
+                     <select class="form-control"
+                             id="active"
+                             name="active"
+                             [(ngModel)]="editProduct.active">
+                            <option [value]="0">Inactive</option>
+                            <option [value]="1">Active</option>
+                     </select>
+
                      <br>
                      <div class="text-center">
-                            <button class="btn btn-info" [disabled]="!editProductForm.form.valid">Update</button>
+                            <button class="btn btn-info"
+                                    [disabled]="!editProductForm.form.valid">Update</button>
                      </div>
               </form>
        </div>
