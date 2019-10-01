@@ -17,6 +17,7 @@
      padding: 0;
      position: relative;
      overflow: hidden;
+     background-color: #000c14;
  }
 
  .single_product_text:hover .product_images_overlay {
@@ -39,6 +40,10 @@
 
  .product_images_overlay h6 {
      text-transform: uppercase;
+ }
+
+ .foodName{
+    color: #0a898d;
  }
 
  .btn-primary {

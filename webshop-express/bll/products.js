@@ -55,7 +55,13 @@ module.exports = class productsBusinessLogicLayer {
 
   async getProductsInOrder(){
     const result = await this.getProducts();
+    const activeProducts = []
+    result.forEach(product => {
+      if(product.active = true){
 
+        activeProducts.push(product)
+      }
+    });
      // comparison function
      const compare = (x, y) => {
       return x > y ? 1 : x < y ? -1 : 0; 
@@ -63,7 +69,7 @@ module.exports = class productsBusinessLogicLayer {
 
       //sort by productName ascending then type ascending
       // if you want descending write - before the compare
-      const sortedProduts = result.sort((a, b) => {
+      const sortedProduts = activeProducts.sort((a, b) => {
         return compare( 
             [compare(a.productName, b.productName), compare(a.type, b.type)], 
             [compare(b.productName, a.productName), compare(b.type, a.type)]

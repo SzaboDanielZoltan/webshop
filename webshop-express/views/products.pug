@@ -31,6 +31,8 @@ block content
         if index < limitNumber
           .col-lg-4.col-sm-6.product_content.d-flex.justify-content-center.p-0
             .single_product_text.m-3
+              p.text-center.foodName.mt-1.mb-1
+                strong #{product.productName}
               img.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`, style="width:400px;height:300px;")
               .product_images_overlay.text-center
                 h6.mt-1.mb-1 #{product.productName}
