@@ -61,12 +61,12 @@
             <p class="text-center">{{editOrder.totalPrice}}</p>
             <br>
             <div class="text-center">
-                <select name="order.status"
-                        id="order.status"
-                        class="selectpicker show-tick btn btn-success"
-                        value="order.status">
-                    <option value="true">Active</option>
-                    <option value="false">Inactive</option>
+                <select class="btn btn-success"
+                        id="status"
+                        name="status"
+                        [(ngModel)]="editOrder.status">
+                    <option [value]="1">Processing</option>
+                    <option [value]="0">Completed</option>
                 </select>
             </div>
             <br>

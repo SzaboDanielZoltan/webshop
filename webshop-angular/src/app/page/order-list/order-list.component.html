@@ -19,7 +19,7 @@
       <th>Customer name</th>
       <th>Total price</th>
       <th>Order date</th>
-      <th>Active</th>
+      <th>Status</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -30,13 +30,14 @@
       <td class="text-center">{{ order.firstName }} {{order.lastName}}</td>
       <td class="text-center">{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
-      <td><select name="order.status"
-                id="order.status"
-                class="selectpicker show-tick"
-                value="order.status">
-          <option value="true">Active</option>
-          <option value="false">Inactive</option>
-        </select></td>
+      <ng-container *ngIf="order.status==1; else elseTemplate">
+        <td class="text-center">Processing</td>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <td class="text-center">Completed</td>
+      </ng-template>
+
+      <td></td>
       <td>
         <div class="btn-group">
           <a class="btn btn-info"
