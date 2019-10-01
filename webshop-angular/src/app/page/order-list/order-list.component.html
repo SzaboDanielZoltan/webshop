@@ -36,15 +36,10 @@
       <ng-template #elseTemplate>
         <td class="text-center"><a class="btn btn-success">Completed</a></td>
       </ng-template>
-
       <td></td>
       <td>
-        <div class="btn-group">
-          <a class="btn btn-info"
-             routerLink="/orders/update/{{order.id}}">Edit</a>
-          <a class="btn btn-danger"
-             (click)="onDelete(order.id)">Delete</a>
-        </div>
+        <a class="btn btn-info"
+           routerLink="/orders/update/{{order.id}}">Edit</a>
       </td>
     </tr>
   </tbody>
