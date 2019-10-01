@@ -4,5 +4,5 @@ export class Product {
   urlPostfix: string;
   type: string;
   price: number;
-  active?: boolean;
+  active: number = 0;
 }
