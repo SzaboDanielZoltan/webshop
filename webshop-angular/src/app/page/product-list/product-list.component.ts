@@ -9,7 +9,7 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  userSubscription: Subscription;
+  productSubscription: Subscription;
   productList: Array<Product>;
   searchText: string = '';
   changeCounter: number = 0;
@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.userSubscription = this.ps.read().subscribe(
+    this.productSubscription = this.ps.read().subscribe(
       products => {
         this.productList = products;
       },
@@ -28,7 +28,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.userSubscription.unsubscribe();
+    this.productSubscription.unsubscribe();
   }
 
   onDelete(id: number): void {

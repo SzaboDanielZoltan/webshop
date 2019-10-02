@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/service/customer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Customer } from 'src/app/model/customer';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-customer-edit',
@@ -11,6 +12,9 @@ import { Customer } from 'src/app/model/customer';
 export class CustomerEditComponent implements OnInit {
 
   editCustomer: Customer = new Customer();
+  customerSubscription: Subscription;
+  customerList$: Array<Customer>;
+  changeCounter: number = 0;
 
   constructor(private cs: CustomerService, private router: Router, private ar: ActivatedRoute) {
 
@@ -25,6 +29,13 @@ export class CustomerEditComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.customerSubscription = this.cs.read().subscribe(
+      customers => {
+        this.customerList$ = customers;
+      },
+      err => console.error(err)
+    );
   }
 
   onCustomerUpdate() {
@@ -38,5 +49,17 @@ export class CustomerEditComponent implements OnInit {
   onPasswordChangeAllowed() {
     this.isPasswordDisabled = false;
     this.editCustomer.password = "";
+  }
+  ngOnDestroy() {
+    this.customerSubscription.unsubscribe();
+  }
+
+  onCustomerDelete(id: number): void {
+    this.cs.delete(id).forEach(data => {
+      let index = this.customerList$.findIndex(customer => customer.id == id);
+      this.customerList$.splice(index, 1);
+      this.changeCounter++;
+      this.router.navigateByUrl('/customers');
+    });
   }
 }
