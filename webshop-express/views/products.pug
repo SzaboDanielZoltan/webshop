@@ -3,7 +3,7 @@ extends layout
 block content
   link(href='/stylesheets/products.css', rel='stylesheet')
   .container-fluid.p-0      
-      .row.filter-container.justify-content-md-center.text-center
+      .row.filter-container.justify-content-md-center.text-center.m-0
         .col-2.p-0
           - let limitNumber = displaySize || 12
           form.form-inline.mt-3.mb-3(method="POST" action="/products").text-center
