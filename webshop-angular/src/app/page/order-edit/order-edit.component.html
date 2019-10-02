@@ -4,7 +4,8 @@
 <br>
 
 <div class="d-flex justify-content-center">
-    <div class="newInputs">
+    <div class="container">
+
         <form class="form simple-form"
               (submit)="onUpdate()">
             <div class="text-center"><label for="orderid">OrderID</label></div>
@@ -35,7 +36,7 @@
                         <td class="btn-group"><a class="btn btn-info"
                                (click)="changingAmountMinus(i)">
                                 <</a> <input
-                                   class="text-center"
+                                   class="text-center amountCounter"
                                    type="text"
                                    value="{{product.amount}}">
 
@@ -73,23 +74,52 @@
             </div>
             <br>
             <div class="text-center">
-                <button class="btn btn-info"
+                <button class="btn btn-info btn-block"
                         (click)="onUpdate()">Update</button>
             </div>
         </form>
+        <br>
+        <div class="d-flex justify-content-center">
+            <p>If you wanna delete</p>
+        </div>
+        <button class="btn btn-block btn-danger"
+                data-target="#deleteConfirm"
+                data-toggle="modal">Delete</button>
+        <br>
+        <div class="modal"
+             tabindex="-1"
+             role="dialog"
+             id="deleteConfirm">
+            <div class="modal-dialog"
+                 role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete confirm</h5>
+                        <button type="button"
+                                class="close"
+                                data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p> Do You want to delete {{editOrder.firstName }} {{editOrder.lastName}} customer {{editOrder.id}}. Order?</p>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="button"
+                                class="btn btn-success"
+                                data-dismiss="modal">Cancel</button>
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-dismiss="modal"
+                                (click)="onSoftDelete()">Switch status</button>
+                        <button type="button"
+                                class="btn btn-danger"
+                                data-dismiss="modal"
+                                (click)="onDelete(editOrder.id)">Hard delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
-<!--<td>{{ order.id }}</td>
-<td>{{ order.customerID }}</td>
-<td>{{ order.totalPrice }}</td>
-<td>{{ order.orderDate }}</td>
-
-<td>
-    <div class="btn-group">
-        <a class="btn btn-info"
-           routerLink="/orders/update/{{order.id}}">Edit</a>
-        <a class="btn btn-danger"
-           (click)="onDelete(order.id)">Delete</a>
-    </div>
-</td>-->

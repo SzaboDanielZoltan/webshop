@@ -13,8 +13,9 @@ import { SearchFriendlyNamePipe } from 'src/app/pipe/search-friendly-name.pipe';
 export class ProductEditComponent implements OnInit {
 
   editProduct: Product = new Product();
+  productSubscription: Subscription;
   productList: Array<Product>;
-  userSubscription: Subscription;
+  changeCounter: number = 0;
   urlPostfixPipe: PipeTransform = new SearchFriendlyNamePipe();
 
   constructor(private ps: ProductService, private router: Router, private ar: ActivatedRoute) {
@@ -30,7 +31,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userSubscription = this.ps.read().subscribe(
+    this.productSubscription = this.ps.read().subscribe(
       products => {
         this.productList = products;
       },
@@ -39,7 +40,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.userSubscription.unsubscribe();
+    this.productSubscription.unsubscribe();
   }
 
   updateUrlPostfix(value) {
@@ -52,5 +53,17 @@ export class ProductEditComponent implements OnInit {
       data => this.router.navigateByUrl('/products')
     )
   }
+  onSoftDelete() {
+    this.editProduct.active = 0;
+  }
+
+  onDelete(id: number): void {
+    this.ps.delete(id).forEach(data => {
+      let index = this.productList.findIndex(product => product.id == id);
+      this.productList.splice(index, 1);
+      this.changeCounter++;
+    });
+  }
+
 
 }
