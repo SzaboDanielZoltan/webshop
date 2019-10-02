@@ -20,4 +20,5 @@ export class SidenavComponent implements OnInit {
     this.collapsed = !this.collapsed;
   }
 
+
 }

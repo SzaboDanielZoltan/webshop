@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+@media only screen and (max-width: 1400px) {
+  body {
+    background-color: lightblue;
+  }
+
+  /* .sideNavClass {
+    z-index: 10000;
+    display: none;
+  } */
+}
+
+.routerOutletClass table {
+ z-index: 0;
+}
+
+.sideNavClass {
+    z-index: 10000;
+}
