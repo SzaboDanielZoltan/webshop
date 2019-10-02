@@ -4,3 +4,25 @@ h2, h5 {
 .amountCounter {
     width: 5vw;
 }
+
+.simple-form input {
+  margin: 0 .25rem;
+  min-width: 125px;
+  border: 1px solid #eee;
+  border-left: 5px solid;
+  border-radius: 5px;
+  transition: border-color .5s ease-out;
+}
+
+
+.simple-form input:optional {
+  border-left-color: rgb(234, 238, 4);
+}
+
+.simple-form input:required {
+  border-left-color: rgb(18, 221, 18);
+}
+
+.simple-form input.ng-invalid {
+  border-left-color: rgb(235, 49, 29);
+}

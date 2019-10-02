@@ -16,7 +16,7 @@
              [(ngModel)]="editCustomer.id"
              disabled>
     </div>
-    <div class="text-center mb-4"><label for="firstName">First Name</label>
+    <div class="text-center mb-4"><label for="firstName">First name</label>
       <input class="form-control text-center"
              type="text"
              name="firstName"
@@ -28,7 +28,7 @@
       <p class="text-danger"
          *ngIf="editFirstName.invalid && editFirstName.touched">Please add a valid first name.</p>
     </div>
-    <div class="text-center mb-4"><label for="lastName">Last Name</label>
+    <div class="text-center mb-4"><label for="lastName">Last name</label>
       <input class="form-control text-center"
              type="text"
              name="lastName"
@@ -98,7 +98,7 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <p> Do You want to delete {{editCustomer.firstName }} {{editCustomer.lastName}} customer?</p>
+        <p> Do you want to delete our customer, {{editCustomer.firstName }} {{editCustomer.lastName}}?</p>
       </div>
       <div class="modal-footer d-flex justify-content-center">
         <button type="button"
