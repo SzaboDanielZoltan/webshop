@@ -1,7 +1,8 @@
-<p>2019 Income</p>
+<p>{{ thisYear }} monthly income</p>
 <div>
   <div style="display: block">
-    <canvas baseChart *ngIf="showChart" 
+    <canvas baseChart
+            *ngIf="showChart"
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"

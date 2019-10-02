@@ -24,11 +24,11 @@ export class MyBarChartComponent implements OnInit {
     this.os.read().forEach(data => {
       this.barChartLabels = [`${this.thisYear} Jan`, `${this.thisYear} Feb`, `${this.thisYear} Mar`, `${this.thisYear} Apr`, `${this.thisYear} May`, `${this.thisYear} Jun`, `${this.thisYear} Jul`, `${this.thisYear} Aug`, `${this.thisYear} Sep`, `${this.thisYear} Oct`, `${this.thisYear} Nov`, `${this.thisYear} Dec`]
       this.barChartData = [
-        { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: "Mnthly income" }
+        { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: "Total income" }
       ];
-      this.showChart = true;
       data.forEach(el =>
         new Date(el.orderDate).getFullYear() === this.thisYear ? this.barChartData[0].data[new Date(el.orderDate).getMonth()] += el.totalPrice : el);
+      this.showChart = true;
     });
   }
 
