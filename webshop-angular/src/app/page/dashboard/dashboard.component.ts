@@ -15,17 +15,21 @@ import { OrderService } from 'src/app/service/order.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   customerSubscription: Subscription;
-  customerList$: Array<Customer>;
   productSubscription: Subscription;
-  productList$: Array<Product>;
   orderSubscription: Subscription;
-  orderList$: Array<Order>;
+
+  customersTotal: number;
+  productsTotal: number;
+  productsActive: number;
+  ordersInProgress: number;
+  ordersDelivered: number;
+
   constructor(private cs: CustomerService, private ps: ProductService, private os: OrderService) { }
 
   ngOnInit() {
     this.customerSubscription = this.cs.read().subscribe(
       customers => {
-        this.customerList$ = customers;
+        this.customersTotal = customers.length;
       },
       err => console.error(err)
     );
@@ -33,26 +37,21 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.productSubscription = this.ps.read().subscribe(
       products => {
-        this.productList$ = products;
+        this.productsTotal = products.length;
+        this.productsActive = products.filter(product => product.active === 1).length;
       },
       err => console.error(err)
     );
 
-    
+
     this.orderSubscription = this.os.read().subscribe(
       orders => {
-        this.orderList$ = orders;
+        this.ordersInProgress = orders.filter(order => order.status === 1).length;
+        this.ordersDelivered = orders.filter(order => order.status === 0).length;
       },
       err => console.error(err)
     );
-
-
-
-
   }
-
-
-
 
   ngOnDestroy() {
     this.customerSubscription.unsubscribe();
