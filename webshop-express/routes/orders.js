@@ -9,21 +9,21 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   const customerOrders = await customersBLL.getOneCustomerOrders(res.locals.loggedcustomer.id);
-  const activeOrder = [] ;
+  const activeOrder = [];
   const inActiveOrder = [];
   customerOrders.forEach(order => order.products = JSON.parse(order.products));
   customerOrders.sort((a, b) => b.orderDate.getTime() - a.orderDate.getTime());
-  customerOrders.map(order =>{
-    if (order.status == 1){
-      activeOrder.push(order)
+  customerOrders.map((order) => {
+    if (order.status == 1) {
+      activeOrder.push(order);
     } else {
-      inActiveOrder.push(order)
+      inActiveOrder.push(order);
     }
-  })
+  });
   console.log(activeOrder);
   console.log(inActiveOrder);
-  
-   res.render('orders', { orders: customerOrders , active :activeOrder , inactive :inActiveOrder});
+
+  res.render('orders', { orders: customerOrders, active: activeOrder, inactive: inActiveOrder });
 });
 
 router.get('/actual', (req, res, next) => {
@@ -45,22 +45,26 @@ router.get('/actual', (req, res, next) => {
 });
 
 router.get('/neworder', (req, res, next) => {
-  const basket = JSON.parse(res.locals.loggedcustomer.basket);
-  Promise.all(Object.keys(basket).map(async (productID) => {
-    const product = await productsBLL.getOneProduct(parseInt(productID, 10));
-    const productOrderObj = {};
-    productOrderObj.id = product.id;
-    productOrderObj.productName = product.productName;
-    productOrderObj.url = `/products/${product.urlPostfix}`;
-    productOrderObj.price = product.price;
-    productOrderObj.amount = basket[productID];
-    return productOrderObj;
-  })).then(async (productsArray) => {
-    await customersBLL.addNewCustomerOrder(res.locals.loggedcustomer.id, res.locals.loggedcustomer.address, productsArray);
-    res.locals.loggedcustomer.basket = '{}';
-    await customersBLL.updateCustomer(res.locals.loggedcustomer);
-    res.redirect('/');
-  });
+  if (res.locals.loggedcustomer.basket === '{}') {
+    res.redirect('/basket');
+  } else {
+    const basket = JSON.parse(res.locals.loggedcustomer.basket);
+    Promise.all(Object.keys(basket).map(async (productID) => {
+      const product = await productsBLL.getOneProduct(parseInt(productID, 10));
+      const productOrderObj = {};
+      productOrderObj.id = product.id;
+      productOrderObj.productName = product.productName;
+      productOrderObj.url = `/products/${product.urlPostfix}`;
+      productOrderObj.price = product.price;
+      productOrderObj.amount = basket[productID];
+      return productOrderObj;
+    })).then(async (productsArray) => {
+      await customersBLL.addNewCustomerOrder(res.locals.loggedcustomer.id, res.locals.loggedcustomer.address, productsArray);
+      res.locals.loggedcustomer.basket = '{}';
+      await customersBLL.updateCustomer(res.locals.loggedcustomer);
+      res.redirect('/');
+    });
+  }
 });
 
 module.exports = router;
