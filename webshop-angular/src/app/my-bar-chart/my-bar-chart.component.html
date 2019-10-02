@@ -1,7 +1,7 @@
 <p>2019 Income</p>
 <div>
   <div style="display: block">
-    <canvas baseChart
+    <canvas baseChart *ngIf="showChart" 
             [datasets]="barChartData"
             [labels]="barChartLabels"
             [options]="barChartOptions"
