@@ -1,4 +1,12 @@
-
+#headingText {
+  color: white;
+  font-family: spacetext;
+  text-align: center;
+  position: relative;
+  font-size: 3.3rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
 
 #baseContainer {
   margin: 20px;
@@ -13,6 +21,14 @@
   width: 30vw;
 }
 
-label {
+table, input {
+  font-size: 17px;
+  font-family: basic-sans-sherif;
+  color: #000;
+}
+
+.greenBtn {
+  background-color: #0a898d;
   color: #fff;
 }
+

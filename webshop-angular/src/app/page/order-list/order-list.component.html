@@ -33,14 +33,14 @@
       <td class="text-center">{{ order.totalPrice }}</td>
       <td>{{ order.orderDate | date:'short' }}</td>
       <ng-container *ngIf="order.status==1; else elseTemplate">
-        <td class="text-center"><a class="btn btn-warning"> Processing</a></td>
+        <td class="text-center"><p style="color: rgba(247, 124, 10, 0.87); font-weight: bold;"> Processing</p></td>
       </ng-container>
       <ng-template #elseTemplate>
-        <td class="text-center"><a class="btn btn-success">Completed</a></td>
+        <td class="text-center"><p style="color: rgba(12, 194, 6, 0.774); font-weight: bold;"></p>Completed</td>
       </ng-template>
       <td>
-        <a class="btn btn-info"
-           routerLink="/orders/update/{{order.id}}">Edit</a>
+        <a class="btn greenBtn"
+           routerLink="/orders/update/{{order.id}}">Change</a>
       </td>
     </tr>
   </tbody>

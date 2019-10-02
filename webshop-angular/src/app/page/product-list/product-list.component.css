@@ -1,5 +1,3 @@
-
-
 #baseContainer {
   margin: 20px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -24,12 +22,12 @@ label {
 
 
 .blackBtn {
-  color: #0a898d;
-  background-color: #000c14;
+  background-color: #ca200d;
+  color: #fff;
 }
 
 table, input {
   font-size: 17px;
   font-family: basic-sans-sherif;
-  color: #000;
+
 }

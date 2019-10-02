@@ -1,3 +1,12 @@
+@font-face {
+  font-family: spacetext;
+  src: url("/assets/fonts/A-Space\ Regular\ Demo.otf");
+}
+
+@font-face {
+   font-family: basic-sans-sherif;
+   src: url("/assets/fonts/basic_sans_serif_7.ttf");
+ }
 
 
 button:focus {
@@ -27,6 +36,7 @@ img {
 
 .box {
   margin: 5rem 0 15rem;
+  font-family: basic-sans-sherif;
 }
 
 .heading {
@@ -122,13 +132,13 @@ img {
 
 .box h3 {
   font-size: 3rem;
-  font-family: inherit;
+  font-family: ibasic-sans-sherif;
   font-weight: bold;
   line-height: 4rem;
 }
 
 .box p {
   font-size: 2rem;
-  font-family: "helveticaregular";
+  font-family: basic-sans-sherif;;
   color: rgba(255, 255, 255, 0.7);
 }

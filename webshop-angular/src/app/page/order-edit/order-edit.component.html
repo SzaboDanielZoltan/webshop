@@ -1,9 +1,9 @@
-<div class="text-center">
-    <h1 id="headingText">Edit order data</h1>
+<div class="container text-center">
+  <h1 id="headingText"> Edit order data</h1>
 </div>
-<br>
 
-<div class="d-flex justify-content-center">
+<div class="container-fluid" id="baseContainer">
+  <div class="d-flex justify-content-center">
     <div class="newInputs">
         <form class="form simple-form"
               (submit)="onUpdate()">
@@ -16,7 +16,7 @@
             <div class="text-center"><label for="customerfname">Customer name</label></div>
             <p class="text-center">{{editOrder.firstName}} {{editOrder.lastName}}</p>
             <div class="text-center"><label for="products">Products</label></div>
-            <table class="table table-hover">
+            <table class="table table-hover table striped table-light">
                 <thead>
                     <tr>
                         <th>Product ID</th>
@@ -45,12 +45,10 @@
                         <td><button class="btn btn-danger"
                                     (click)="deleteProduct(i)">Delete</button></td>
                     </tr>
-
-
                 </tbody>
-
             </table>
-            <div class="text-center"><label for="address">Shipping address</label></div>
+
+            <div class="d-flex text-center"><label for="address">Shipping address</label></div>
             <input class="form-control"
                    type="text"
                    name="address"
@@ -79,17 +77,4 @@
         </form>
     </div>
 </div>
-
-<!--<td>{{ order.id }}</td>
-<td>{{ order.customerID }}</td>
-<td>{{ order.totalPrice }}</td>
-<td>{{ order.orderDate }}</td>
-
-<td>
-    <div class="btn-group">
-        <a class="btn btn-info"
-           routerLink="/orders/update/{{order.id}}">Edit</a>
-        <a class="btn btn-danger"
-           (click)="onDelete(order.id)">Delete</a>
-    </div>
-</td>-->
+</div>
