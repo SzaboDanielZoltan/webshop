@@ -79,7 +79,7 @@ ul ul a {
   background: #10989c;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1400px) {
   #sidebar {
     margin-left: -250px;
   }

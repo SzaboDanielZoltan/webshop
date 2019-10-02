@@ -13,6 +13,29 @@ block content
       br
       h4(style="font-size:2vw;") Delicious dishes for the galaxy 
       h4(style="font-size:2vw;") and beyond
+  if lastThreeProd.length===3
+    .row#carouselBackground.justify-content-center.text-center.p-4.m-0
+      .col-md-12.pl-5.mb-2
+        h3#carouselHeading CHECK OUT OUR LAST ORDERED MEALS!
+      .col-12
+        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+          .carousel-inner.p-2
+            .carousel-item.active
+              a(href=`/products/${lastThreeProd[0]}`)
+                img.image-fluid(src=`/images/productImages/${lastThreeProd[0]}.jpg`, alt='Image', style='width: 400px; height: 300px;')
+            .carousel-item
+              a(href=`/products/${lastThreeProd[1]}`)
+                img.image-fluid(src=`/images/productImages/${lastThreeProd[1]}.jpg`, alt='Image', style='width: 400px; height: 300px;')
+            .carousel-item
+              a(href=`/products/${lastThreeProd[2]}`)
+                img.image-fluid(src=`/images/productImages/${lastThreeProd[2]}.jpg`, alt='Image', style='width: 400px; height: 300px;')
+          a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+            span.carousel-control-prev-icon(aria-hidden='true')
+            span.sr-only Previous
+          a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+            span.carousel-control-next-icon(aria-hidden='true')
+            span.sr-only Next
+
   .row#backgroundCover2
     h3 TRADITIONAL MEALS FROM THE GALAXY
     .col-12
