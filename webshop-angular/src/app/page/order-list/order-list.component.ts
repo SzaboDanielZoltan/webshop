@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class OrderListComponent implements OnInit {
 
-  userSubscription: Subscription;
+  orderSubscription: Subscription;
   orderList: Array<Order>;
   searchText: string = '';
   orderDirection: number = 1;
@@ -23,7 +23,7 @@ export class OrderListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userSubscription = this.os.read().subscribe(
+    this.orderSubscription = this.os.read().subscribe(
       orders => {
         this.orderList = orders;
         this.orderList.sort((a, b) => b.id - a.id);
@@ -33,7 +33,7 @@ export class OrderListComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.userSubscription.unsubscribe();
+    this.orderSubscription.unsubscribe();
   }
 
   onDelete(id: number): void {
