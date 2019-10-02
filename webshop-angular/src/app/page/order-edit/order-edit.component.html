@@ -36,7 +36,7 @@
                         <td class="btn-group"><a class="btn btn-info"
                                (click)="changingAmountMinus(i)">
                                 <</a> <input
-                                   class="text-center"
+                                   class="text-center amountCounter"
                                    type="text"
                                    value="{{product.amount}}">
 
@@ -103,7 +103,7 @@
                         </button>
                     </div>
                     <div class="modal-body text-center">
-                        <p> Do You want to delete {{editOrder.firstName }} {{editOrder.lastName}} customer {{editOrder.orderid}} Order?</p>
+                        <p> Do You want to delete {{editOrder.firstName }} {{editOrder.lastName}} customer {{editOrder.id}}. Order?</p>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
                         <button type="button"
@@ -112,7 +112,7 @@
                         <button type="button"
                                 class="btn btn-primary"
                                 data-dismiss="modal"
-                                (click)="onSoftDelete()">Soft delete</button>
+                                (click)="onSoftDelete()">Switch status</button>
                         <button type="button"
                                 class="btn btn-danger"
                                 data-dismiss="modal"
