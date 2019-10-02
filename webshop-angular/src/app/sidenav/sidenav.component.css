@@ -98,3 +98,27 @@ ul ul a {
   width: 100%;
   align-items: stretch;
 }
+
+.bar-chart {
+  width: 30px;
+    height: 30px;
+}
+
+.pie-chart {
+  width: 30px;
+    height: 30px;
+}
+
+.dashboard-icon {
+  width: 40px;
+    height: 40px;
+}
+.product-icon {
+  width: 35px;
+    height: 35px;
+}
+
+.orders-icon {
+  width: 30px;
+    height: 30px;
+}
