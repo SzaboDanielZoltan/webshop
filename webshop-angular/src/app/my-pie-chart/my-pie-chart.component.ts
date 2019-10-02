@@ -7,7 +7,7 @@ import { OrderService } from '../service/order.service';
   styleUrls: ['./my-pie-chart.component.css']
 })
 export class MyPieChartComponent implements OnInit {
-  pieChartLabels = ['Active', 'Delivered'];
+  pieChartLabels = ['Processing', 'Delivered'];
   pieChartData = [0, 0];
   pieChartType = 'pie';
   constructor(private os: OrderService) {
