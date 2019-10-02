@@ -6,6 +6,13 @@ module.exports = class productsBusinessLogicLayer {
   constructor() {
 
   }
+
+  async getAllOrderProducts() {
+    const orders = await db.read('orders');
+    const products = [];
+    orders.forEach(order => JSON.parse(order.products).forEach(product => products.push(product)));
+    return products;
+  }
   async getOneOrder(orderID) {
     const order = await db.read('orders', orderID);
     return order;
