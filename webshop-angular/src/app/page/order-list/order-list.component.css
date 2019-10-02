@@ -5,7 +5,7 @@
   font-weight: bold;
   margin: 3rem 0;
   margin-top: -60px;
-  color: #10989c;
+  color: #fff;
 }
 
 #baseContainer {
@@ -19,4 +19,9 @@
 
 label {
   font-size: 17px;
+}
+
+.greenBtn {
+  background-color: #0a898d;
+  color: #fff;
 }
