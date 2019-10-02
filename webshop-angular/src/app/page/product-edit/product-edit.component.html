@@ -41,16 +41,17 @@
                      <p *ngIf="editUrl.invalid"
                         class="text-danger">Invalid!</p>
                      <div class="text-center"><label for="type">Type</label></div>
-                     <input class="form-control"
-                            type="text"
-                            name="type"
-                            id="type"
-                            placeholder="Type"
-                            [(ngModel)]="editProduct.type"
-                            required
-                            #editType='ngModel'>
-                     <p *ngIf="editType.invalid && editType.touched"
-                        class="text-danger">Required to fill up!</p>
+                     <select class="form-control custom-select"
+                             id="type"
+                             name="type"
+                             [(ngModel)]="editProduct.type">
+                            <option name="type"
+                                    [value]="human">human</option>
+                            <option name="type"
+                                    [value]="alien">alien</option>
+                            <option name="type"
+                                    [value]="drinks">drinks</option>
+                     </select>
                      <div class="text-center"><label for="price">Price</label></div>
                      <input class="form-control"
                             type="number"
