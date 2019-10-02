@@ -1,39 +1,76 @@
 <div class="container text-center">
-  <h1>Edit Customer data</h1>
+  <h2>Edit Customer data</h2>
 </div>
 <br>
 <div class="container text-center">
-    <form class="simple-form form" #editCustomerTable="ngForm" (submit)="onCustomerUpdate()">
-      <div class="text-center mb-4">
-        <label for="id">ID</label>
-        <input class="form-control text-center" type="text" name="id" id="id" [(ngModel)]="editCustomer.id" disabled>
-      </div>
-      <div class="text-center mb-4"><label for="firstName">First Name</label>
-        <input class="form-control text-center" type="text" name="firstName" id="firstName" #editFirstName='ngModel'
-          [(ngModel)]="editCustomer.firstName" required pattern="[A-Za-z ]{1,32}">
-          <p class="text-danger" *ngIf="editFirstName.invalid && editFirstName.touched">Please add a valid first name.</p>
-      </div>
-      <div class="text-center mb-4"><label for="lastName">Last Name</label>
-        <input class="form-control text-center" type="text" name="lastName" id="lastName" #editLastName='ngModel'
-          [(ngModel)]="editCustomer.lastName" required pattern="[A-Za-z -]{1,32}">
-          <p class="text-danger" *ngIf="editLastName.invalid && editLastName.touched">Please add a valid last name.</p>
-      </div>
-      <div class="text-center mb-4"><label for="userName">Customer email</label>
-        <input class="form-control text-center" type="text" name="userName" id="userName" #editEmail='ngModel'
-          [(ngModel)]="editCustomer.email" #editEmail="ngModel" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$">
-        <p class="text-danger" *ngIf="editEmail.invalid && editEmail.touched">Please add a valid email address.</p>
-      </div>
-      <div class="text-center mb-4">
-        <label for="password">Password</label>
-        <button type="button" class="btn btn-warning btn-block" (click)="onPasswordChangeAllowed()">Password change</button>
-        <input class="form-control text-center" type="text" name="password" id="password" #editPassword='ngModel' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
-          [(ngModel)]="editCustomer.password" [disabled]="isPasswordDisabled">
-      </div>
-        <div class="text-center mt-4">
-        <p class="text-danger" *ngIf="editPassword.invalid">The password should contain minimum eight characters, at least one uppercase letter, one lowercase letter and one number.</p>
-        </div>
-      <div class="text-center mt-4"><button class="btn btn-block btn-info"
-          [disabled]="!editCustomerTable.form.valid">Update</button>
-      </div>
-    </form>
+  <form class="simple-form form"
+        #editCustomerTable="ngForm"
+        (submit)="onCustomerUpdate()">
+    <div class="text-center mb-4">
+      <label for="id">ID</label>
+      <input class="form-control text-center"
+             type="text"
+             name="id"
+             id="id"
+             [(ngModel)]="editCustomer.id"
+             disabled>
+    </div>
+    <div class="text-center mb-4"><label for="firstName">First Name</label>
+      <input class="form-control text-center"
+             type="text"
+             name="firstName"
+             id="firstName"
+             #editFirstName='ngModel'
+             [(ngModel)]="editCustomer.firstName"
+             required
+             pattern="[A-Za-z ]{1,32}">
+      <p class="text-danger"
+         *ngIf="editFirstName.invalid && editFirstName.touched">Please add a valid first name.</p>
+    </div>
+    <div class="text-center mb-4"><label for="lastName">Last Name</label>
+      <input class="form-control text-center"
+             type="text"
+             name="lastName"
+             id="lastName"
+             #editLastName='ngModel'
+             [(ngModel)]="editCustomer.lastName"
+             required
+             pattern="[A-Za-z -]{1,32}">
+      <p class="text-danger"
+         *ngIf="editLastName.invalid && editLastName.touched">Please add a valid last name.</p>
+    </div>
+    <div class="text-center mb-4"><label for="userName">Customer email</label>
+      <input class="form-control text-center"
+             type="text"
+             name="userName"
+             id="userName"
+             #editEmail='ngModel'
+             [(ngModel)]="editCustomer.email"
+             #editEmail="ngModel"
+             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,6}$">
+      <p class="text-danger"
+         *ngIf="editEmail.invalid && editEmail.touched">Please add a valid email address.</p>
+    </div>
+    <div class="text-center mb-4">
+      <label for="password">Password</label>
+      <button type="button"
+              class="btn btn-warning btn-block"
+              (click)="onPasswordChangeAllowed()">Password change</button>
+      <input class="form-control text-center"
+             type="text"
+             name="password"
+             id="password"
+             #editPassword='ngModel'
+             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+             [(ngModel)]="editCustomer.password"
+             [disabled]="isPasswordDisabled">
+    </div>
+    <div class="text-center mt-4">
+      <p class="text-danger"
+         *ngIf="editPassword.invalid">The password should contain minimum eight characters, at least one uppercase letter, one lowercase letter and one number.</p>
+    </div>
+    <div class="text-center mt-4"><button class="btn btn-block btn-info"
+              [disabled]="!editCustomerTable.form.valid">Update</button>
+    </div>
+  </form>
 </div>

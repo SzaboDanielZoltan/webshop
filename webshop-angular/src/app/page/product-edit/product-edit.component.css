@@ -24,3 +24,6 @@
 .simple-form input.ng-invalid {
   border-left-color: salmon;
 }
+h2 {
+  color: #0a898d;
+}
