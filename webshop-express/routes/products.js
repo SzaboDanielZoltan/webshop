@@ -19,11 +19,7 @@ router.get('/', async (req, res, next) => {
     result.forEach((data) => {
       if (req.query.filter == data.type) {
         filterData.push(data);
-      } else if (req.query.filter == 'drinks') {
-        if (data.type == null) {
-          filterData.push(data);
-        }
-      }
+      } 
     });
     products = filterData;
     resultSize = filterData.length

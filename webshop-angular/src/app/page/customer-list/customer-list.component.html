@@ -11,32 +11,31 @@
   </div>
 </div>
 <br>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>User name</th>
-      <th>Password</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr
-        *ngFor="let customer of customerList$ | customerFilter:searchCustomer:changeCounter">
-      <td>{{ customer.id }}</td>
-      <td>{{ customer.firstName }}</td>
-      <td>{{ customer.lastName }}</td>
-      <td>{{ customer.email }}</td>
-      <td>{{ customer.password }}</td>
-      <td>
-        <div class="btn-group">
-          <a class="btn btn-warning"
-             routerLink="/customers/update/{{customer.id}}">Edit</a>
-          <a class="btn btn-danger"
-             (click)="onCustomerDelete(customer.id)">Delete</a>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row justify-content-center text-center">
+    <table class="col-11 table table-striped table-hover">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+          <th scope="col">User name</th>
+          <th scope="col">Password</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let customer of customerList$ | customerFilter:searchCustomer:changeCounter">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.firstName }}</td>
+          <td>{{ customer.lastName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.password }}</td>
+          <td>
+            <a class="btn btn-warning"
+               routerLink="/customers/update/{{customer.id}}">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

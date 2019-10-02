@@ -1,83 +1,127 @@
 <div class="text-center">
-       <h2>Edit product data</h2>
+  <h2>Edit product data</h2>
 </div>
 <div class="d-flex justify-content-center">
-       <div class="newInputs">
-              <form class="form simple-form"
-                    #editProductForm="ngForm"
-                    novalidate
-                    (submit)="onUpdate()">
-                     <div class="text-center"><label for="id">ID</label></div>
-                     <input class="form-control"
-                            type="text"
-                            name="id"
-                            id="id"
-                            placeholder="id"
-                            [(ngModel)]="editProduct.id"
-                            readonly>
-                     <div class="text-center"><label for="name">Name</label></div>
-                     <input class="form-control"
-                            type="text"
-                            name="name"
-                            id="name"
-                            placeholder="Name"
-                            [(ngModel)]="editProduct.productName"
-                            (ngModelChange)="updateUrlPostfix($event)"
-                            required
-                            #editName='ngModel'
-                            pattern="^\S[A-Za-z0-9]*(\s{1}[A-Za-z0-9]+)*\S$">
-                     <p *ngIf="editName.invalid"
-                        class="text-danger">Invalid, only one space and letters, numbers only!</p>
-                     <div class="text-center"><label for="urlPostfix">URL</label></div>
-                     <input class="form-control"
-                            type="text"
-                            name="urlPostfix"
-                            id="urlPostfix"
-                            [ngModel]="editProduct.productName | searchFriendlyName : productList :editProduct.id"
-                            required
-                            readonly
-                            #editUrl='ngModel'
-                            pattern="^(?!This postfix is already exist).*$">
-                     <p *ngIf="editUrl.invalid"
-                        class="text-danger">Invalid!</p>
-                     <div class="text-center"><label for="type">Type</label></div>
-                     <input class="form-control"
-                            type="text"
-                            name="type"
-                            id="type"
-                            placeholder="Type"
-                            [(ngModel)]="editProduct.type"
-                            required
-                            #editType='ngModel'>
-                     <p *ngIf="editType.invalid && editType.touched"
-                        class="text-danger">Required to fill up!</p>
-                     <div class="text-center"><label for="price">Price</label></div>
-                     <input class="form-control"
-                            type="number"
-                            name="price"
-                            id="price"
-                            placeholder="Price"
-                            [(ngModel)]="editProduct.price"
-                            required
-                            #newPrice='ngModel'
-                            min="1"
-                            pattern="^[0-9]+$">
-                     <p *ngIf="newPrice.invalid && newPrice.touched"
-                        class="text-danger">Required to fill up!</p>
-                     <div class="text-center"><label for="price">Active/Inactive product</label></div>
-                     <select class="form-control"
-                             id="active"
-                             name="active"
-                             [(ngModel)]="editProduct.active">
-                            <option [value]="0">Inactive</option>
-                            <option [value]="1">Active</option>
-                     </select>
+  <div class="newInputs">
+    <form class="form simple-form"
+          #editProductForm="ngForm"
+          novalidate
+          (submit)="onUpdate()">
+      <div class="text-center"><label for="id">ID</label></div>
+      <input class="form-control"
+             type="text"
+             name="id"
+             id="id"
+             placeholder="id"
+             [(ngModel)]="editProduct.id"
+             readonly>
+      <div class="text-center"><label for="name">Name</label></div>
+      <input class="form-control"
+             type="text"
+             name="name"
+             id="name"
+             placeholder="Name"
+             [(ngModel)]="editProduct.productName"
+             (ngModelChange)="updateUrlPostfix($event)"
+             required
+             #editName='ngModel'
+             pattern="^\S[A-Za-z0-9]*(\s{1}[A-Za-z0-9]+)*\S$">
+      <p *ngIf="editName.invalid"
+         class="text-danger">Invalid, only one space and letters, numbers only!</p>
+      <div class="text-center"><label for="urlPostfix">URL</label></div>
+      <input class="form-control"
+             type="text"
+             name="urlPostfix"
+             id="urlPostfix"
+             [ngModel]="editProduct.productName | searchFriendlyName : productList :editProduct.id"
+             required
+             readonly
+             #editUrl='ngModel'
+             pattern="^(?!This postfix is already exist).*$">
+      <p *ngIf="editUrl.invalid"
+         class="text-danger">Invalid!</p>
+      <div class="text-center"><label for="type">Type</label></div>
+      <select class="form-control custom-select"
+              id="type"
+              name="type"
+              [(ngModel)]="editProduct.type">
+        <option name="type"
+                [value]="human">human</option>
+        <option name="type"
+                [value]="alien">alien</option>
+        <option name="type"
+                [value]="drinks">drinks</option>
+      </select>
+      <div class="text-center"><label for="price">Price</label></div>
+      <input class="form-control"
+             type="number"
+             name="price"
+             id="price"
+             placeholder="Price"
+             [(ngModel)]="editProduct.price"
+             required
+             #newPrice='ngModel'
+             min="1"
+             pattern="^[0-9]+$">
+      <p *ngIf="newPrice.invalid && newPrice.touched"
+         class="text-danger">Required to fill up!</p>
+      <div class="text-center"><label for="price">Active/Inactive product</label></div>
+      <select class="form-control"
+              id="active"
+              name="active"
+              [(ngModel)]="editProduct.active">
+        <option [value]="0">Inactive</option>
+        <option [value]="1">Active</option>
+      </select>
 
-                     <br>
-                     <div class="text-center">
-                            <button class="btn btn-info"
-                                    [disabled]="!editProductForm.form.valid">Update</button>
-                     </div>
-              </form>
-       </div>
+      <br>
+      <div class="text-center">
+        <button class="btn btn-info"
+                [disabled]="!editProductForm.form.valid">Update</button>
+      </div>
+    </form>
+    <br>
+    <div class="d-flex justify-content-center">
+      <p>If you wanna delete</p>
+    </div>
+    <button class="btn btn-block btn-danger"
+            data-target="#deleteConfirm"
+            data-toggle="modal">Delete</button>
+    <br>
+    <div class="modal"
+         tabindex="-1"
+         role="dialog"
+         id="deleteConfirm">
+      <div class="modal-dialog"
+           role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Delete confirm</h5>
+            <button type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <p> Do You want to delete {{editProduct.productName }} product? </p>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button"
+                    class="btn btn-success"
+                    data-dismiss="modal">Cancel</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                    (click)="onSoftDelete()">Change activity</button>
+            <button type="button"
+                    class="btn btn-danger"
+                    data-dismiss="modal"
+                    (click)="onDelete(editProduct.id)">Hard delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

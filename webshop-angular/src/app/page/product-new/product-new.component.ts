@@ -41,6 +41,7 @@ export class ProductNewComponent implements OnInit, OnDestroy {
 
   onCreate() {
     this.newProduct.active = parseInt(this.newProduct.active);
+    console.log(this.newProduct);
     this.ps.create(this.newProduct).forEach(
       data => this.router.navigateByUrl('/products')
     )

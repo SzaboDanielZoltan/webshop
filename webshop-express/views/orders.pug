@@ -7,17 +7,18 @@ block content
       .col-12.text-center.mt-4.mb-4
         h1#headingText Your order history
     .row.justify-content-center
-      .col-12#ordersDiv.p-0
-        table.table-responsive.table.text-center.table-hover
-          thead
-            tr
-              th Address
-              th Order date
-              th Ordered products
-              th Total price
-              th Order status
+      if active != undefined
+        .col-12#ordersDiv.p-0
+          h3.p-3 Your active orders
+          table.table.text-center.table-hover.mr-0
+            thead
+              tr
+                th Address
+                th Order date
+                th Ordered products
+                th Total price
             tbody
-              each order in orders
+              each order in active
                 tr
                   td #{order.shippingAddress}
                   td #{order.orderDate}
@@ -27,4 +28,25 @@ block content
                         li 
                           a(href=`${product.url}`) #{product.productName}
                   td $#{order.totalPrice}
-                  td #{order.status}
+    .row.justify-content-center
+      if inactive.length != 0
+        .col-12#ordersDiv.p-0
+          h3.p-3 Your delivered orders
+          table.table.text-center.table-hover
+            thead
+              tr
+                th Address
+                th Order date
+                th Ordered products
+                th Total price
+            tbody
+              each order in inactive
+                tr
+                  td #{order.shippingAddress}
+                  td #{order.orderDate}
+                  td
+                    ul
+                      each product in order.products
+                        li 
+                          a(href=`${product.url}`) #{product.productName}
+                  td $#{order.totalPrice}          

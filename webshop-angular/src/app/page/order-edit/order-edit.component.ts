@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Order } from 'src/app/model/order';
 import { OrderService } from 'src/app/service/order.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class OrderEditComponent implements OnInit {
 
+  orderSubscription: Subscription;
+  orderList: Array<Order>;
   editOrder: Order = new Order();
-
   changeCounter: number = 0;
 
   constructor(private os: OrderService, private router: Router, private ar: ActivatedRoute) {
@@ -41,6 +43,13 @@ export class OrderEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.orderSubscription = this.os.read().subscribe(
+      orders => {
+        this.orderList = orders;
+        this.orderList.sort((a, b) => b.id - a.id);
+      },
+      err => console.error(err)
+    );
   }
 
   changingAmountMinus(id) {
@@ -75,5 +84,21 @@ export class OrderEditComponent implements OnInit {
     this.os.update(updateOrder).forEach(
       data => this.router.navigateByUrl('/orders')
     )
+  }
+  ngOnDestroy() {
+    this.orderSubscription.unsubscribe();
+  }
+
+  onSoftDelete() {
+    this.editOrder.status = 0;
+  }
+
+  onDelete(id: number): void {
+    this.os.delete(id).forEach(data => {
+      let index = this.orderList.findIndex(product => product.id == id);
+      this.orderList.splice(index, 1);
+      this.changeCounter++;
+      this.router.navigateByUrl('/orders');
+    });
   }
 }
