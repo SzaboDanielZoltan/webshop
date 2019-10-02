@@ -1,8 +1,9 @@
-<div class="container text-center">
-  <h2>Edit Customer data</h2>
-</div>
-<br>
-<div class="container text-center">
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <h2 class="heading"> Edit customer data </h2>
+    </div>
+  </div>
+<div class="container text-center" id="baseContainer">
   <form class="simple-form form"
         #editCustomerTable="ngForm"
         (submit)="onCustomerUpdate()">
@@ -75,9 +76,7 @@
     </div>
   </form>
   <br>
-  <div class="text-center">
-    <p>If you wanna delete</p>
-  </div>
+
   <button class="btn btn-block btn-danger"
           data-target="#deleteConfirm"
           data-toggle="modal">Delete</button>
