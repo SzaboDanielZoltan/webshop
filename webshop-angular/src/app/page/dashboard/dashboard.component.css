@@ -36,7 +36,6 @@ img {
 
 .box {
   margin: 5rem 0 15rem;
-  font-family: basic-sans-sherif;
 }
 
 .heading {
@@ -46,6 +45,7 @@ img {
   font-weight: bold;
   margin: 3rem 0;
   margin-top: -60px;
+  color: #096b6e;
 
 }
 
@@ -56,7 +56,7 @@ img {
 }
 
 .box figure img {
-  height: 223px;
+  height: 300px;
   -o-object-fit: cover;
   object-fit: cover;
   -webkit-transition: .3s all;

@@ -1,12 +1,11 @@
 <nav id="sidebar">
   <div id="sidebar-content">
     <div class="sidebar-header">
-      <br>
-      <br>
-      <h3>Admin site</h3>
+      <h3 class="mt-5 mb-5 text-center">Admin site</h3>
+      <hr style="color: #fff;">
     </div>
     <div>
-      <ul class="list-unstyled components">
+      <ul class="list-unstyled components text-center m-0">
         <li>
           <a routerLink="/dashboard"
              data-toggle="collapse"
@@ -26,7 +25,7 @@
                aria-expanded="false">Orders</a>
         </li>
 
-        <div class="wrapper">
+        <div class="wrapper text-center">
           <li class="active">
             <a (click)="toggleShow($event)"
                href="#homeSubmenu"
@@ -36,7 +35,7 @@
             <ul [ngClass]="{'collapse': collapsed, 'collapsing': collapsing}"
                 class="list-unstyled"
                 id="homeSubmenu">
-              <li>
+              <li pb-2 pt-5>
                 <a routerLink="/bar-chart">Bar Chart</a>
               </li>
               <li>
@@ -51,11 +50,6 @@
             </ul>
           </li>
         </div>
-
-
-
-
-
       </ul>
     </div>
   </div>

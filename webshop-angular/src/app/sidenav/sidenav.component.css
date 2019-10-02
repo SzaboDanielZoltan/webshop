@@ -21,15 +21,15 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  min-height: 200%;
-  background: #0a898d;
+  height: 100%;
+  background: #096b6e;
   color: white;
   transition: all 0.3s;
   position: fixed;
 
-  
-  
- 
+
+
+
 
 }
 
@@ -39,14 +39,14 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  
-  
+
+
 }
 
 #sidebar ul.components {
   padding: 20px 0;
-  border-bottom: 1px solid #47748b;
- 
+  /* border-bottom: 1px solid #47748b; */
+
 }
 
 #sidebar ul p {
@@ -61,8 +61,8 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-  color: #03338e;
-  background: #dddddd;
+  color: #096b6e;
+  background-color: white;
 }
 
 p {
@@ -75,8 +75,17 @@ p {
 
 ul ul a {
   font-size: 0.9em !important;
-  padding-left: 30px !important;
-  background: #10989c;
+  padding: 5px !important;
+  background-color: #10989c;
+}
+
+#sidebar-content {
+    position: relative;
+}
+
+.wrapper {
+  width: 100%;
+  align-items: stretch;
 }
 
 @media (max-width: 1400px) {
@@ -88,13 +97,13 @@ ul ul a {
     margin-left: 0;
   }
 }
-
+/*
 #sidebar-content {
     position: fixed;
 }
 
 .wrapper {
-  
+
   width: 100%;
   align-items: stretch;
-}
+} */
