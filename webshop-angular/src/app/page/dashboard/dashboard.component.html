@@ -9,30 +9,30 @@
     <div class="row">
       <div class="col-md-4">
         <figure class="text-center">
-          <img src="./../../../assets/images/customers.jpg" alt="customers">
+          <img src="/assets/images/customers.jpg" alt="customers">
           <figcaption>
             <h4>Customers</h4>
-            <h5>Total: {{ customerList$.length }} </h5>
+            <h5>Total: {{ customersTotal }} </h5>
           </figcaption>
         </figure>
       </div>
       <div class="col-md-4">
         <figure class="text-center">
-          <img src="./../../../assets/images/products.jpg" alt="products">
+          <img src="/assets/images/products.jpg" alt="products">
           <figcaption>
             <h4>Products</h4>
-            <h5>Active: </h5>
-            <h5>Total: {{ productList$.length }} </h5>
+            <h5>Active: {{ productsActive }}</h5>
+            <h5>Total: {{ productsTotal }} </h5>
           </figcaption>
         </figure>
       </div>
       <div class="col-md-4">
         <figure class="text-center">
-          <img src="./../../../assets/images/orders.jpg" alt="orders">
+          <img src="/assets/images/orders.jpg" alt="orders">
           <figcaption>
             <h4>Orders</h4>
-            <h5>Active: </h5>
-            <h5>Total: {{ orderList$.length }} </h5>
+            <h5>In progress: {{ ordersInProgress }}</h5>
+            <h5>Delivered: {{ ordersDelivered }} </h5>
           </figcaption>
         </figure>
       </div>
