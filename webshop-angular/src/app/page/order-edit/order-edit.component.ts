@@ -14,6 +14,7 @@ export class OrderEditComponent implements OnInit {
 
   orderSubscription: Subscription;
   orderList: Array<Order>;
+  editedProductID: number = 0;
   editOrder: Order = new Order();
   changeCounter: number = 0;
 
@@ -29,6 +30,9 @@ export class OrderEditComponent implements OnInit {
     })
   }
 
+  onEditedProducID(id) {
+    this.editedProductID = id;
+  }
 
   deleteProduct(id) {
     let index = this.editOrder.products.findIndex(product => product.id == id);
