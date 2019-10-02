@@ -21,7 +21,6 @@ router.get('/', async (req, res, next) => {
     const filterProductsArray = productsArray.filter(el => el != null);
     let totalPrice = 0;
     filterProductsArray.forEach(product => (product.price && product.orderedAmount && product.active ? totalPrice += product.price * product.orderedAmount : product));
-    console.log(res.locals.loggedcustomer.basket);
     res.render('basket', { order: filterProductsArray, total: totalPrice });
   });
 });
