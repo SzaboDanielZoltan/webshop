@@ -13,8 +13,10 @@ export class OrderListComponent implements OnInit {
   userSubscription: Subscription;
   orderList: Array<Order>;
   searchText: string = '';
+  orderDirection: number = 1;
+  orderKey: string = '';
   changeCounter: number = 0;
-  details: boolean = true;
+
 
   constructor(private os: OrderService) {
 
@@ -25,7 +27,6 @@ export class OrderListComponent implements OnInit {
       orders => {
         this.orderList = orders;
         this.orderList.sort((a, b) => b.id - a.id);
-        console.log(this.orderList);
       },
       err => console.error(err)
     );
@@ -42,12 +43,14 @@ export class OrderListComponent implements OnInit {
       this.changeCounter++;
     });
   }
-  changeDetails() {
-    if (this.details == true) {
-      this.details = false;
+
+  setSorterKey(key: string): void {
+    if (key === this.orderKey) {
+      this.orderDirection = this.orderDirection === 1 ? -1 : 1;
     } else {
-      this.details = true;
+      this.orderDirection = 1;
     }
+    this.orderKey = key;
   }
 
 }

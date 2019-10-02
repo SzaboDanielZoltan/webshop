@@ -57,7 +57,6 @@ module.exports = class customersBusinessLogicLayer {
     }
     const customer = await this.getOneCustomer(customerID);
     customer.token = token;
-    console.log(customer);
     await this.updateCustomer(customer);
     return token;
   }
@@ -105,10 +104,12 @@ module.exports = class customersBusinessLogicLayer {
     const order = await db.read('orders', orderID);
     return order;
   }
+
   async deleteCustomerOrder(orderID) {
     const result = await db.delete('orders', orderID);
     return result;
   }
+
   async updateCustomerOrder(order) {
     const result = await db.update('orders', order);
     return result;

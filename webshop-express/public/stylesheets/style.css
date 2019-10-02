@@ -8,8 +8,6 @@ input[name="orderedAmount"] {
   border-radius: 10px;
 }
 
-/* Index page and navbar styling */
-
 @font-face {
   font-family: spacebar;
   src: url(./../fonts/SPACEBAR.ttf);
@@ -25,9 +23,17 @@ input[name="orderedAmount"] {
   src: url(./../fonts/A-Space\ Regular\ Demo.otf);
 }
 
-.contentContainer{
-  margin-bottom: 13rem;
+@font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
 }
+
+.contentContainer{
+  min-height: 80vh;
+}
+
+/* Navbar styling */
+
 .navbar {
   background-color: #000c14;
   font-family: spacetext;
@@ -60,44 +66,26 @@ input[name="orderedAmount"] {
   border : 2px solid #0a898d;
   background-color: #0a898d;
 }
+
 .menu-icon:hover{
   border-bottom: 2px solid #0a898d;
   margin-left:2px;
 }
+
 .menu-icon{
   border-bottom: 2px solid #000c14;
   margin-left:2px;
-}
-
-footer{
-  background-color: #000c14;
-  position: fixed;
-  bottom: 0;
-  /* left: 0; */
-}
-
-
-footer a,
-footer p{
-  text-decoration: none;
-  color: rgba(255,255,255,.5);
-}
-footer a:hover{
-  text-decoration: none;
-  color: #0a898d;
-}
-footer h3,
-footer h6{
-  color: #fff
 }
 
 nav.scrolled-nav {
   opacity:0;
   transition: opacity 0.3s linear 
 }
+
 nav.scrolled-nav:hover {
   opacity:1
 }
+
 .basketIcon{
   box-sizing: border-box;
   width:5vw;
@@ -107,4 +95,45 @@ nav.scrolled-nav:hover {
 .basketNumber{
   color:#0a898d;
  font-size: 1rem;
+}
+
+.dropdown-menu {
+ background-color:#0a898d;
+}
+
+.dropdown-item {
+ color: #000;
+font-weight: bold;
+}
+
+.dropdown-item:hover {
+  background-color:#096b6e;
+  color: #fff;
+ }
+ 
+
+/* Footer elements */
+
+footer{
+  background-color: #000c14;
+  position: relative;
+  bottom: 0;
+  left:0;
+  font-family: basic-sans-sherif;
+}
+
+footer a,
+footer p {
+  text-decoration: none;
+  color: rgba(255,255,255,.5);
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: #0a898d;
+}
+
+footer h3,
+footer h6 {
+  color: #fff
 }

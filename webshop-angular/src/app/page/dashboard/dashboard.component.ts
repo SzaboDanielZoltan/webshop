@@ -5,6 +5,8 @@ import { Customer } from 'src/app/model/customer';
 import { ProductService } from 'src/app/service/product.service';
 import { Product } from 'src/app/model/product';
 import { CustomerService } from 'src/app/service/customer.service';
+import { Order } from 'src/app/model/order';
+import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +18,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   customerList$: Array<Customer>;
   productSubscription: Subscription;
   productList$: Array<Product>;
-  constructor(private cs: CustomerService, private ps: ProductService) { }
+  orderSubscription: Subscription;
+  orderList$: Array<Order>;
+  constructor(private cs: CustomerService, private ps: ProductService, private os: OrderService) { }
 
   ngOnInit() {
     this.customerSubscription = this.cs.read().subscribe(
@@ -34,8 +38,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
       err => console.error(err)
     );
 
-   
-         
+    
+    this.orderSubscription = this.os.read().subscribe(
+      orders => {
+        this.orderList$ = orders;
+      },
+      err => console.error(err)
+    );
+
+
+
 
   }
 

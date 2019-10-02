@@ -4,6 +4,11 @@
     src: url(./../fonts/basic_sans_serif_7.ttf);
   }
  
+@font-face {
+   font-family: spacetext;
+   src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+ }
+
   body {
     padding: 0;
     background-image: url("./../images/background/basketcover.jpg");
@@ -19,32 +24,19 @@
     padding: 0px;
     border-collapse: collapse;
     font-size: 17px;
+    font-family: basic-sans-sherif;
+    overflow-x:auto;
 }
 
 
 #orderDiv tr, th {
     color: #000c14;
-
 }
-
 
  #orderBtn{
     background-color: #0a898d;
-    color: #000c14;
+    color: #fff;
     vertical-align: middle;
- }
-
-
- #addMoreBtn{
-    color: #111;
-    background-color: #a4a7a8;
-    vertical-align: middle;
- }
-
-
- #removeBtn{
-    color: #0a898d;
-    background-color: #000c14;
  }
 
 
@@ -53,19 +45,26 @@
     font-weight: bold;
  }
 
-  #totalPriceText {
-      font-size: 20px;
-  }
-
   #orderFooter {
    width: 100%;
    margin: 0px;
-   padding: 0, 10px;
+   padding: 0, 15px;
    align-items: center;
    background-color: #000c14;
    color: #0a898d;
   }
 
   #headingText {
-     color: #fff;
+   color: #fff;
+   font-family: spacetext;
+ }
+ 
+  tr {
+     padding: 2px;
   }
+
+#totalPriceText {
+   font-size: 20px;
+   font-weight: bold;
+   text-shadow: 1px 1px #0a898d;
+}

@@ -10,28 +10,17 @@ block content
             .row
               .col-lg-6.col-sm-12.text-center
                 img.card-img-top.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`)
-              .col-lg-6.col-sm-12.pl-4           
+              .col-lg-6.col-sm-12.pl-5          
                 h1#productName.pt-3 #{product.productName}
-                h2.pb-3 Food type: #{product.type}
-                h4 Customers' rating: #{product.rating}                 
-                span
-                  img(src="/images/icons/rocket.png" , width="20px", height="auto")
-                  img(src="/images/icons/rocket.png" , width="20px", height="auto")
-                  img(src="/images/icons/rocket.png" , width="20px", height="auto")
-                  img(src="/images/icons/rocket.png" , width="20px", height="auto")
-                  img(src="/images/icons/rocketDesaturated.png" , width="20px", height="auto")
-                  em(style='width: 91%')
-                br
-                small (320 ratings)
-                h5#productPrice Now only for $#{product.price}          
+                h4#productPrice.mb-3 Now only for $#{product.price}          
                 #addToBasketWithIcon
                   if loggedcustomer
                     form(action=`/basket/add/${product.id}` method='post')
                       .form-group
-                        label Quantity :
-                        input.form-control(type='number', name='orderQuantity', value=1 , min=1, style="width:100px") 
+                        label Quantity: 
+                          input.form-control.d-inline-block(type='number', name='orderQuantity', value=1 , min=1, style="width:100px") 
                         br
-                        button.btn Add to basket 
+                        button.btn.mt-5 Add to basket 
                           img.m-1(src="/images/icons/shopping-cart.png", width="30px", height="auto")
                   else
                     p.text-danger Please log in to order !

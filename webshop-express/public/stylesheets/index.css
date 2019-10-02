@@ -112,7 +112,7 @@
 }
 
 .jupiter-popover {
-  transform: translateX(-10%)
+  transform: translateX(-10%);
 }
 
 .galaxy-text {
@@ -164,4 +164,21 @@
 body{
   background-color: #000c14;
   margin:0;
+}
+
+#carouselHeading {
+color: #fff;
+font-family: spacetext-bold;
+}
+
+#carouselBackground {
+background-image: url("./../images/background/indexBG_green.jpg");
+background-size: 100% 100%;
+background-attachment: fixed;
+border: #0a898d;
+}
+
+.carousel-control-next .carousel-control-prev {
+  color: yellow;
+  opacity: 0;
 }

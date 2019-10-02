@@ -1,13 +1,26 @@
 const express = require('express');
-const Bll = require('./../bll/products');
+const OrdersBll = require('./../bll/orders');
 
-const db = new Bll();
+const ordersBll = new OrdersBll();
 const router = express.Router();
 
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
-  res.render('index');
+router.get('/', async (req, res, next) => {
+  const allOrderedProducts = await ordersBll.getAllOrderProducts();
+  let lastThreeDifferent = [];
+  for (let i = allOrderedProducts.length - 1; i >= 0; i--) {
+    if (lastThreeDifferent.findIndex(prod => prod.id === allOrderedProducts[i].id) === -1 || lastThreeDifferent.length === 0) {
+      lastThreeDifferent.push(allOrderedProducts[i]);
+    } else {
+      continue;
+    }
+    if (lastThreeDifferent.length === 3) {
+      break;
+    }
+  }
+  lastThreeDifferent = lastThreeDifferent.map(prod => prod.url.substr(10));
+  res.render('index', { lastThreeProd: lastThreeDifferent });
 });
 
 // /* pls let run once and it will fill the postfix in   */
