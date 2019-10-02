@@ -21,7 +21,7 @@ a:focus {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  min-height: 200%;
+  height: 100%;
   background: #096b6e;
   color: white;
   transition: all 0.3s;
@@ -58,12 +58,6 @@ a:focus {
   background-color: white;
 }
 
-p {
-  font-size: 1.1em;
-  font-weight: 300;
-  line-height: 1.7em;
-  color: #999;
-}
 
 ul ul a {
   font-size: 0.9em !important;

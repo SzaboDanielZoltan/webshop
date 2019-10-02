@@ -1,15 +1,15 @@
-<div class="container"
-     id="#baseContainer">
+<div class="container">
     <h1 id="headingText"> Products admin page </h1>
 </div>
 <br>
 
-<div class="text-center">
+<div class="container" id="baseContainer">
+  <div class="text-center">
     <a routerLink="/products/new"
-       class="btn btn-info">New product</a>
+       class="btn greenBtn">New product</a>
 </div>
 <br>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" id="search">
     <div class="text-center searchInput">
         <input type="text"
                class="form-control"
@@ -43,12 +43,14 @@
             </ng-template>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-info"
+                    <a class="btn greenBtn"
                        routerLink="/products/update/{{product.id}}">Edit</a>
-                    <a class="btn btn-danger"
+                    <a class="btn blackBtn"
                        (click)="onDelete(product.id)">Delete</a>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
+
+</div>

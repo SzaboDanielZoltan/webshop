@@ -16,13 +16,14 @@
   position: relative;
   font-size: 3.3rem;
   font-weight: bold;
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
 body {
   background-image: url(./assets/images/angularBackground.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
@@ -32,5 +33,16 @@ body {
   color: #fff;
   padding: 20px 70px;
   border-collapse: collapse;
-  overflow-x:auto;
 }
+
+.greenBtn {
+  background-color: #0a898d;
+  color: #fff;
+}
+
+
+.blackBtn{
+  color: #0a898d;
+  background-color: #000c14;
+}
+

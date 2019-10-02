@@ -2,6 +2,8 @@
   <h1 id="headingText"> Orders admin page </h1>
 </div>
 <br>
+<div class="container-fluid" id="baseContainer">
+
 <div class="d-flex justify-content-center">
   <div class="text-center searchInput">
     <input type="text"
@@ -11,7 +13,7 @@
   </div>
 </div>
 <br>
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-light">
   <thead>
     <tr>
       <th (click)="setSorterKey('id')">Order ID</th>
@@ -44,3 +46,5 @@
   </tbody>
 
 </table>
+
+</div>
