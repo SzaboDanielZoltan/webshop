@@ -14,6 +14,7 @@ export class ProductEditComponent implements OnInit {
 
   editProduct: Product = new Product();
   productList: Array<Product>;
+  selectedType = 'human'
   userSubscription: Subscription;
   urlPostfixPipe: PipeTransform = new SearchFriendlyNamePipe();
 
