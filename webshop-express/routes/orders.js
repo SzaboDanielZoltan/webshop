@@ -9,9 +9,21 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   const customerOrders = await customersBLL.getOneCustomerOrders(res.locals.loggedcustomer.id);
+  const activeOrder = [] ;
+  const inActiveOrder = [];
   customerOrders.forEach(order => order.products = JSON.parse(order.products));
   customerOrders.sort((a, b) => b.orderDate.getTime() - a.orderDate.getTime());
-  res.render('orders', { orders: customerOrders });
+  customerOrders.map(order =>{
+    if (order.status == 1){
+      activeOrder.push(order)
+    } else {
+      inActiveOrder.push(order)
+    }
+  })
+  console.log(activeOrder);
+  console.log(inActiveOrder);
+  
+   res.render('orders', { orders: customerOrders , active :activeOrder , inactive :inActiveOrder});
 });
 
 router.get('/actual', (req, res, next) => {
