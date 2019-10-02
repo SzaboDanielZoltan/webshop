@@ -12,14 +12,14 @@ const dbCustomer = new bllCustomer();
 const dbOrder = new bllOrder();
 const dbAdmin = new bllAdmin();
 
-router.use(async (req, res, next) => {
-  const validAdmin = await dbAdmin.adminTokenValidator(req.cookies.adminvalidator);
-  if (!validAdmin) {
-    res.redirect('/');
-  } else {
-    next();
-  }
-});
+// router.use(async (req, res, next) => {
+//   const validAdmin = await dbAdmin.adminTokenValidator(req.cookies.adminvalidator);
+//   if (!validAdmin) {
+//     res.redirect('/');
+//   } else {
+//     next();
+//   }
+// });
 
 
 /* Product admin methods */

@@ -12,12 +12,17 @@ router.get('/', async (req, res, next) => {
   const basket = JSON.parse(res.locals.loggedcustomer.basket);
   Promise.all(Object.keys(basket).map(async (productID) => {
     const product = await productsBLL.getOneProduct(parseInt(productID, 10));
-    product.orderedAmount = basket[productID];
-    return product;
+    if (product) {
+      product.orderedAmount = basket[productID];
+      return product;
+    }
+    return { id: productID, productName: 'this' };
   })).then((productsArray) => {
+    const filterProductsArray = productsArray.filter(el => el != null);
     let totalPrice = 0;
-    productsArray.forEach(product => totalPrice += product.price * product.orderedAmount);
-    res.render('basket', { order: productsArray, total: totalPrice });
+    filterProductsArray.forEach(product => (product.price && product.orderedAmount && product.active ? totalPrice += product.price * product.orderedAmount : product));
+    console.log(res.locals.loggedcustomer.basket);
+    res.render('basket', { order: filterProductsArray, total: totalPrice });
   });
 });
 
