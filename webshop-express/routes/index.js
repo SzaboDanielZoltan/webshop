@@ -5,7 +5,6 @@ const ordersBll = new OrdersBll();
 const router = express.Router();
 
 
-/* GET home page. */
 router.get('/', async (req, res, next) => {
   const allOrderedProducts = await ordersBll.getAllOrderProducts();
   let lastThreeDifferent = [];

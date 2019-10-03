@@ -2,7 +2,7 @@ const DB = require('../modules/db');
 
 const db = new DB();
 
-module.exports = class productsBusinessLogicLayer {
+module.exports = class ordersBusinessLogicLayer {
   constructor() {
 
   }
