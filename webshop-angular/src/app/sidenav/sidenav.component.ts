@@ -22,6 +22,6 @@ export class SidenavComponent implements OnInit {
   }
 
   logout() {
-    this.los.read();
+    this.los.read().forEach(data=>data);
   }
 }
