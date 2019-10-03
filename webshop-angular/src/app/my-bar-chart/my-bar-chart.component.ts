@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../service/order.service';
 
 @Component({
   selector: 'app-my-bar-chart',
@@ -6,30 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-bar-chart.component.css']
 })
 export class MyBarChartComponent implements OnInit {
-
-  showChart: boolean = false;
-
-  constructor() {
-  }
-  public barChartOptions = {
+  barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
   };
-  public barChartLabels = ['2015', '2016', '2017', '2016', '2017', '2018', '2019']
-  public barChartType = 'bar';
-  public barChartLegend = true;
-  public barChartData = [];
+  barChartLabels;
+  barChartType = 'bar';
+  barChartLegend = true;
+  barChartData = [];
+  showChart: boolean = false;
+
+  thisYear: number;
+
+  constructor(private os: OrderService) {
+    this.thisYear = new Date().getFullYear();
+    this.os.read().forEach(data => {
+      this.barChartLabels = [`${this.thisYear} Jan`, `${this.thisYear} Feb`, `${this.thisYear} Mar`, `${this.thisYear} Apr`, `${this.thisYear} May`, `${this.thisYear} Jun`, `${this.thisYear} Jul`, `${this.thisYear} Aug`, `${this.thisYear} Sep`, `${this.thisYear} Oct`, `${this.thisYear} Nov`, `${this.thisYear} Dec`]
+      this.barChartData = [
+        { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: "Total income" }
+      ];
+      data.forEach(el =>
+        new Date(el.orderDate).getFullYear() === this.thisYear ? this.barChartData[0].data[new Date(el.orderDate).getMonth()] += el.totalPrice : el);
+      this.showChart = true;
+    });
+  }
 
   ngOnInit() {
-    setTimeout(()=>{
-
-      this.barChartData = [
-        {data: [80, 59, 70, 81, 56, 70, 40], label: 'Income from Human'},
-        {data: [28, 48, 40, 19, 86, 60, 87], label: 'Income from Alien'}
-      ];
-
-
-      this.showChart = true;
-    },3000)
-  }
+  }   
 }

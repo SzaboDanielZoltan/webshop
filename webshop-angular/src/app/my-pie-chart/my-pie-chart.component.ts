@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../service/order.service';
 
 @Component({
   selector: 'app-my-pie-chart',
@@ -6,11 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-pie-chart.component.css']
 })
 export class MyPieChartComponent implements OnInit {
-  public pieChartLabels = ['Human', 'Alien'];
-  public pieChartData = [2345, 3456];
-  public pieChartType = 'pie';
-  constructor() { }
+  pieChartLabels = ['Processing', 'Delivered'];
+  pieChartData = [10, 19];
+  pieChartType = 'pie';
+  constructor(private os: OrderService) {
+    
+       
+  }
 
   ngOnInit() {
+    // this.os.read().forEach(allOrders => {
+    //   const now = new Date();
+    //   allOrders.forEach(order => {
+    //     const orderDate = new Date(order.orderDate);
+    //     console.log(now, orderDate);
+    //     if (now.getFullYear() === orderDate.getFullYear() 
+    //     // && now.getMonth() === orderDate.getMonth() 
+    //     // && now.getDate() === orderDate.getDate()
+    //     ) {
+    //       order.status === 1 ? this.pieChartData[0] += 1 : this.pieChartData[1] += 1
+    //     }
+    //   });
+    //   console.log(this.pieChartData[0], this.pieChartData[1]);
+    // });
   }
 }
