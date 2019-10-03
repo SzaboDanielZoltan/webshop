@@ -62,6 +62,7 @@ export class ProductEditComponent implements OnInit {
       let index = this.productList.findIndex(product => product.id == id);
       this.productList.splice(index, 1);
       this.changeCounter++;
+      this.router.navigateByUrl('/products');
     });
   }
 
