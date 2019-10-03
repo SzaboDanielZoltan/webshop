@@ -33,5 +33,5 @@ export class MyBarChartComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
+  }   
 }

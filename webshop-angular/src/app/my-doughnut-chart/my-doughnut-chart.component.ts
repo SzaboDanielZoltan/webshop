@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-doughnut-chart.component.css']
 })
 export class MyDoughnutChartComponent implements OnInit {
-  public doughnutChartLabels = ['Human Orders','Alien Orders', 'Drinks'];
+  public doughnutChartLabels = ['Human Orders', 'Alien Orders', 'Drinks'];
   public doughnutChartData = [1011, 700, 1800];
   public doughnutChartType = 'doughnut';
   constructor() { }

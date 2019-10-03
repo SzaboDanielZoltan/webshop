@@ -8,22 +8,27 @@ import { OrderService } from '../service/order.service';
 })
 export class MyPieChartComponent implements OnInit {
   pieChartLabels = ['Processing', 'Delivered'];
-  pieChartData = [0, 0];
+  pieChartData = [10, 19];
   pieChartType = 'pie';
   constructor(private os: OrderService) {
-    this.os.read().forEach(allOrders => {
-      const now = new Date();
-      allOrders.forEach(order => {
-        const orderDate = new Date(order.orderDate);
-        if (now.getFullYear() === orderDate.getFullYear() &&
-          now.getMonth() === orderDate.getMonth() &&
-          now.getDate() === orderDate.getDate()) {
-          order.status === 1 ? this.pieChartData[0] += 1 : this.pieChartData[1] += 1
-        }
-      });
-    });
+    
+       
   }
 
   ngOnInit() {
+    // this.os.read().forEach(allOrders => {
+    //   const now = new Date();
+    //   allOrders.forEach(order => {
+    //     const orderDate = new Date(order.orderDate);
+    //     console.log(now, orderDate);
+    //     if (now.getFullYear() === orderDate.getFullYear() 
+    //     // && now.getMonth() === orderDate.getMonth() 
+    //     // && now.getDate() === orderDate.getDate()
+    //     ) {
+    //       order.status === 1 ? this.pieChartData[0] += 1 : this.pieChartData[1] += 1
+    //     }
+    //   });
+    //   console.log(this.pieChartData[0], this.pieChartData[1]);
+    // });
   }
 }
