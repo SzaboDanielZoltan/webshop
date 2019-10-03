@@ -47,7 +47,7 @@ block content
           nav(aria-label='Page navigation')
             ul.pagination.justify-content-center.m-3
               - let x = 1;
-              - let y = Math.round(numberOfproducts/limitNumber) 
+              - let y = Math.round(numberOfproducts/limitNumber)+1
               - let all = "all"
                 li.page-item
                   a.page-link(href=`/products?filter=${filterItem || all }&page=${prevPage || 1 }&limit=${limitNumber}` aria-label='Previous')
