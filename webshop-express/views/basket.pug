@@ -20,19 +20,26 @@ block content
                 th #
             each product in order
               tbody
-                tr
-                  td
-                    img(src=`/images/productImages/${product.urlPostfix}.jpg` width="65%")
-                  td #{product.productName}
-                  td
-                    a#productDetailsLink(href=`/products/${product.urlPostfix}`) Product details
-                  td
-                    i.fa.fa-chevron-left(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'minusOne')`)
-                    input(name='orderedAmount' type='number' value=`${product.orderedAmount}` readonly)
-                    i.fa.fa-chevron-right(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'plusOne')`)
-                  td $#{product.price}
-                  td
-                    a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
+                if product.active == 1
+                  tr
+                    td
+                      img(src=`/images/productImages/${product.urlPostfix}.jpg` width="65%")
+                    td #{product.productName}
+                    td
+                      a#productDetailsLink(href=`/products/${product.urlPostfix}`) Product details
+                    td
+                      i.fa.fa-chevron-left(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'minusOne')`)
+                      input(name='orderedAmount' type='number' value=`${product.orderedAmount}` readonly)
+                      i.fa.fa-chevron-right(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'plusOne')`)
+                    td $#{product.price}
+                    td
+                      a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
+                else
+                  tr
+                    td(colspan=5)
+                      p Sorry but #{product.productName} is not available at this moment!
+                    td
+                      a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
             tfoot
               tr#totalPriceText
                 th

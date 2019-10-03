@@ -22,15 +22,10 @@ a:focus {
   min-width: 250px;
   max-width: 250px;
   min-height: 200%;
-  background: #0a898d;
+  background: #096b6e;
   color: white;
   transition: all 0.3s;
   position: fixed;
-
-  
-  
- 
-
 }
 
 #sidebar.active {
@@ -39,14 +34,6 @@ a:focus {
 
 #sidebar .sidebar-header {
   padding: 20px;
-  
-  
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
- 
 }
 
 #sidebar ul p {
@@ -61,8 +48,8 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-  color: #03338e;
-  background: #dddddd;
+  color: #fff;
+  background: #10989c;
 }
 
 p {
@@ -94,7 +81,31 @@ ul ul a {
 }
 
 .wrapper {
-  
+
   width: 100%;
   align-items: stretch;
+}
+
+.bar-chart {
+  width: 30px;
+    height: 30px;
+}
+
+.pie-chart {
+  width: 30px;
+    height: 30px;
+}
+
+.dashboard-icon {
+  width: 40px;
+    height: 40px;
+}
+.product-icon {
+  width: 35px;
+    height: 35px;
+}
+
+.orders-icon {
+  width: 30px;
+    height: 30px;
 }
