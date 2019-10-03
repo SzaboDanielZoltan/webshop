@@ -8,18 +8,17 @@
     min-width: 100%;
 }
 .toggle-button-aside{
-    /* padding-left: 10px;
-    position: fixed; */
-    /* transform: translateX(17%); */
     z-index: 20000;
     font-size: 20px;
     color: #000;
-
-    
 }
 
 #sidebarCollapse {
-    
-    
+background-color: #10989c;
+color: #fff;
+}
+
+#sandwich {
+background-color: #fff;
 }
 
