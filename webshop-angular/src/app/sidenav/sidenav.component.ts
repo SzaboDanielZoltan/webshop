@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoutService } from '../service/logout.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,7 +11,7 @@ export class SidenavComponent implements OnInit {
   collapsed: boolean = false;
   collapsing: boolean = false;
 
-  constructor() { }
+  constructor(private los: LogoutService) { }
 
   ngOnInit() {
   }
@@ -20,5 +21,7 @@ export class SidenavComponent implements OnInit {
     this.collapsed = !this.collapsed;
   }
 
-
+  logout() {
+    this.los.read();
+  }
 }

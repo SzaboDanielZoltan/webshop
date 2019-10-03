@@ -1,12 +1,25 @@
 const express = require('express');
+
 const router = express.Router();
+const sha1 = require('js-sha1');
 const bll = require('./../bll/products');
 const bllCustomer = require('./../bll/customers');
 const bllOrder = require('./../bll/orders');
-const sha1 = require('js-sha1');
+const bllAdmin = require('./../bll/admins');
+
 const db = new bll();
 const dbCustomer = new bllCustomer();
 const dbOrder = new bllOrder();
+const dbAdmin = new bllAdmin();
+
+// router.use(async (req, res, next) => {
+//   const validAdmin = await dbAdmin.adminTokenValidator(req.cookies.adminvalidator);
+//   if (!validAdmin) {
+//     res.redirect('/');
+//   } else {
+//     next();
+//   }
+// });
 
 
 /* Product admin methods */
@@ -57,16 +70,16 @@ router.get('/orders', async (req, res, next) => {
 router.delete('/orders/:id', async (req, res, next) => {
   const result = await dbOrder.deleteOrder(req.params.id);
   res.json(result);
-})
+});
 // router.post('/orders', async (req, res, next) => {
 //   const result = await dbOrder.createOrder(req.body);
 //   res.json(result);
 // })
 router.put('/orders', async (req, res, next) => {
-  req.body.products = JSON.stringify(req.body.products)
+  req.body.products = JSON.stringify(req.body.products);
   const result = await dbOrder.updateOrder(req.body);
   res.json(result);
-})
+});
 
 
 module.exports = router;

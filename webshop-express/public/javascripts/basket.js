@@ -27,6 +27,6 @@ function changingAmountOfProduct(userID, productID, direction) {
 function recalculate() {
   const orderAmountInputs = Array.from(document.querySelectorAll('input[name="orderedAmount"]'));
   let totalPrice = 0;
-  orderAmountInputs.forEach(input => totalPrice += parseInt(input.parentElement.nextElementSibling.innerHTML, 10) * input.value);
-  document.querySelector('#totalPrice').innerHTML = totalPrice;
+  orderAmountInputs.forEach(input => totalPrice += parseInt(input.parentElement.nextElementSibling.innerHTML.substr(1), 10) * input.value);
+  document.querySelector('#totalPrice').innerHTML = `$${totalPrice}`;
 }

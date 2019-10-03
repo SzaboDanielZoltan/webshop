@@ -1,78 +1,81 @@
-<nav id="sidebar">
-  <div id="sidebar-content">
-    <div class="sidebar-header">
-      <br>
-      <br>
-      <h3>Admin site</h3>
-    </div>
-    <div>
-      <ul class="list-unstyled components">
-        <li>
+<nav id="sidebar" class="p-4">
+    <div id="sidebar-content">
+      <div class="sidebar-header mt-5">
+        <h3>Admin site</h3>
+      </div>
+      <div>
+        <ul class="list-unstyled components">
+          <li>
 
-          <a routerLink="/dashboard"
-             data-toggle="collapse"
-             aria-expanded="false">
-            <img class="dashboard-icon"
-                 src="https://img.icons8.com/plasticine/100/000000/speed.png">Dashboard</a>
-        </li>
-        <li>
 
-          <a routerLink="/products">
-            <img class="product-icon"
-                 src="https://img.icons8.com/dusk/64/000000/salami-pizza.png">
-            Products</a>
-        </li>
-        <li>
-
-          <a routerLink="/customers"
-             data-toggle="collapse"
-             aria-expanded="false"> <img
-                 src="https://img.icons8.com/office/30/000000/user-group-man-woman.png">
-            Customers</a>
-        </li>
-        <li>
-          <a routerLink="/orders"
-             data-toggle="collapse"
-             aria-expanded="false">
-             <img class="orders-icon" src="https://img.icons8.com/dusk/64/000000/purchase-order.png">
-            Orders</a>
-        </li>
-
-        <div class="wrapper">
-          <li class="active">
-            <a (click)="toggleShow($event)"
-               href="#homeSubmenu"
+            <a routerLink="/dashboard"
                data-toggle="collapse"
-               aria-expanded="false"
-               class="dropdown-toggle">Charts</a>
-            <ul [ngClass]="{'collapse': collapsed, 'collapsing': collapsing}"
-                class="list-unstyled"
-                id="homeSubmenu">
-              <li>
-                <a routerLink="/bar-chart"> <img class="bar-chart"
-                       src="https://img.icons8.com/flat_round/64/000000/bar-chart--v3.png ">
-                  Bar Chart</a>
-              </li>
-              <li>
-                <a routerLink="/doughnut-chart"><img
-                       src="https://img.icons8.com/officel/30/000000/doughnut-chart.png">
-                  Doughnut Chart</a>
-              </li>
-
-              <li>
-                <a routerLink="/pie-chart"><img class="pie-chart"
-                       src="https://img.icons8.com/officel/64/000000/pie-chart.png">
-                  Pie Chart</a>
-              </li>
-            </ul>
+               aria-expanded="false">
+              <img class="dashboard-icon"
+                   src="https://img.icons8.com/plasticine/100/000000/speed.png">Dashboard</a>
           </li>
-        </div>
+          <li>
 
+            <a routerLink="/products">
+              <img class="product-icon"
+                   src="https://img.icons8.com/dusk/64/000000/salami-pizza.png">
+              Products</a>
+          </li>
+          <li>
 
+            <a routerLink="/customers"
+               data-toggle="collapse"
+               aria-expanded="false"> <img
+                   src="https://img.icons8.com/office/30/000000/user-group-man-woman.png">
+              Customers</a>
+          </li>
+          <li>
+            <a routerLink="/orders"
+               data-toggle="collapse"
+               aria-expanded="false">
+               <img class="orders-icon" src="https://img.icons8.com/dusk/64/000000/purchase-order.png">
+              Orders</a>
+          </li>
 
+          <div class="wrapper">
+            <li class="active">
+              <a (click)="toggleShow($event)"
+                 href="#homeSubmenu"
+                 data-toggle="collapse"
+                 aria-expanded="false"
+                 class="dropdown-toggle">Charts</a>
+              <ul [ngClass]="{'collapse': collapsed, 'collapsing': collapsing}"
+                  class="list-unstyled"
+                  id="homeSubmenu">
+                <li>
+                  <a routerLink="/bar-chart"> <img class="bar-chart"
+                         src="https://img.icons8.com/flat_round/64/000000/bar-chart--v3.png ">
+                    Bar Chart</a>
+                </li>
+                <li>
+                  <a routerLink="/doughnut-chart"><img
+                         src="https://img.icons8.com/officel/30/000000/doughnut-chart.png">
+                    Doughnut Chart</a>
+                </li>
 
-
-      </ul>
+                <li>
+                  <a routerLink="/pie-chart"><img class="pie-chart"
+                         src="https://img.icons8.com/officel/64/000000/pie-chart.png">
+                    Pie Chart</a>
+                </li>
+              </ul>
+            </li>
+          </div>
+                  <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <li class="align-self-end">
+          <a (click)="logout()">Logout</a>
+        </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>

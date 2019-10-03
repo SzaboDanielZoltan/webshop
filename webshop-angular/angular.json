@@ -28,7 +28,11 @@
               "node_modules/bootswatch/dist/cyborg/bootstrap.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -86,7 +90,6 @@
               "src/assets"
             ],
             "styles": [
-
               "src/styles.css"
             ],
             "scripts": []

@@ -2,22 +2,44 @@
     margin: 0 .25rem;
     min-width: 125px;
     border: 1px solid #eee;
-    border-left: 3px solid;
+    border-left: 5px solid;
     border-radius: 5px;
     transition: border-color .5s ease-out;
   }
 
+
   .simple-form input:optional {
-    border-left-color: #999;
+    border-left-color: rgb(234, 238, 4);
   }
 
   .simple-form input:required {
-    border-left-color: palegreen;
+    border-left-color: rgb(18, 221, 18);
   }
 
   .simple-form input.ng-invalid {
-    border-left-color: salmon;
+    border-left-color: rgb(235, 49, 29);
   }
-  h2 {
-    color: #0a898d;
+
+
+.heading {
+  text-align: center;
+  position: relative;
+  font-size: 3.3rem;
+  font-weight: bold;
+  margin: 3rem 0;
+  margin-top: -60px;
+  color: #fff;
+}
+
+#baseContainer {
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 40px;
+  border-collapse: collapse;
+  overflow-x:auto;
+}
+
+label {
+  font-size: 17px;
 }

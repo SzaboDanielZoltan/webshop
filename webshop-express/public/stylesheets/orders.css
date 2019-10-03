@@ -48,7 +48,8 @@ ul {
 }
 
 
-a {
+a,
+h3 {
   color: #0a898d;
   font-weight: bold;
 }
