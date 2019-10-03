@@ -34,18 +34,18 @@ module.exports = class productsBusinessLogicLayer {
 
   async createPostFix(productId) {
     const getProduct = await db.read('products', parseInt(productId));
-    const productName=getProduct.productName;
-    const prefixName= productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g,'-').replace(/---|--/g,'-');
-    const updatedProduct = {id:productId, urlPostfix:prefixName};
-    const result= await db.update('products', updatedProduct);
+    const productName = getProduct.productName;
+    const prefixName = productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g, '-').replace(/---|--/g, '-');
+    const updatedProduct = { id: productId, urlPostfix: prefixName };
+    const result = await db.update('products', updatedProduct);
     return result;
   }
 
-  async getOneProductByPostfix(postfixName){
-    let result={};
-    const getAllProducts=await db.read('products');
-    for(let i=0;i<getAllProducts.length; i++){
-      if(getAllProducts[i].urlPostfix===postfixName){
+  async getOneProductByPostfix(postfixName) {
+    let result = {};
+    const getAllProducts = await db.read('products');
+    for (let i = 0; i < getAllProducts.length; i++) {
+      if (getAllProducts[i].urlPostfix === postfixName) {
         result = getAllProducts[i];
         break;
       }
@@ -53,29 +53,24 @@ module.exports = class productsBusinessLogicLayer {
     return result;
   }
 
-  async getProductsInOrder(){
+  async getProductsInOrder() {
     const result = await this.getProducts();
     const activeProducts = [];
-    result.forEach(product => {
-      if(product.active == 1){
-        activeProducts.push(product)
+    result.forEach((product) => {
+      if (product.active == 1) {
+        activeProducts.push(product);
       }
     });
-     // comparison function
-     const compare = (x, y) => {
-      return x > y ? 1 : x < y ? -1 : 0; 
-      };
+    // comparison function
+    const compare = (x, y) => x > y ? 1 : x < y ? -1 : 0;
 
-      //sort by productName ascending then type ascending
-      // if you want descending write - before the compare
-      const sortedProduts = activeProducts.sort((a, b) => {
-        return compare( 
-            [compare(a.productName, b.productName), compare(a.type, b.type)], 
-            [compare(b.productName, a.productName), compare(b.type, a.type)]
-        );
-    });
-    
+    // sort by productName ascending then type ascending
+    // if you want descending write - before the compare
+    const sortedProduts = activeProducts.sort((a, b) => compare(
+        [compare(a.productName.toLowerCase(), b.productName.toLowerCase()), compare(a.type, b.type)],
+        [compare(b.productName.toLowerCase(), a.productName.toLowerCase()), compare(b.type, a.type)]
+      ));
+
     return sortedProduts;
   }
- 
 };
