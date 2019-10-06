@@ -32,6 +32,21 @@ module.exports = class productsBusinessLogicLayer {
     return result;
   }
 
+  /**
+   * Method to make a basket array from an object
+   * @param {Object} basket Customer basket with product ids and ordered amounts
+   */
+  makeBasketWithDetails(basket) {
+    return Promise.all(Object.keys(basket).map(async (productID) => {
+      const product = await this.getOneProduct(parseInt(productID, 10));
+      if (product) {
+        product.orderedAmount = basket[productID];
+        return product;
+      }
+      return { id: productID };
+    }));
+  }
+
   async createPostFix(productId) {
     const getProduct = await db.read('products', parseInt(productId));
     const productName = getProduct.productName;
@@ -62,13 +77,13 @@ module.exports = class productsBusinessLogicLayer {
       }
     });
     // comparison function
-    const compare = (x, y) => x > y ? 1 : x < y ? -1 : 0;
+    const compare = (x, y) => (x > y ? 1 : x < y ? -1 : 0);
 
     // sort by productName ascending then type ascending
     const sortedProduts = activeProducts.sort((a, b) => compare(
-        [compare(a.productName.toLowerCase(), b.productName.toLowerCase()), compare(a.type, b.type)],
-        [compare(b.productName.toLowerCase(), a.productName.toLowerCase()), compare(b.type, a.type)]
-      ));
+      [compare(a.productName.toLowerCase(), b.productName.toLowerCase()), compare(a.type, b.type)],
+      [compare(b.productName.toLowerCase(), a.productName.toLowerCase()), compare(b.type, a.type)],
+    ));
 
     return sortedProduts;
   }

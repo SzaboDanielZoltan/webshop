@@ -18,8 +18,8 @@ block content
                 th Ordered amount
                 th Price per unit
                 th #
-            each product in order
-              tbody
+            tbody
+              each product in order
                 if product.active == 1
                   tr
                     td
@@ -28,16 +28,21 @@ block content
                     td
                       a#productDetailsLink(href=`/products/${product.urlPostfix}`) Product details
                     td
-                      i.fa.fa-chevron-left(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'minusOne')`)
+                      i.fa.fa-chevron-left(onclick=`Basket.changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'minusOne')`)
                       input(name='orderedAmount' type='number' value=`${product.orderedAmount}` readonly)
-                      i.fa.fa-chevron-right(onclick=`changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'plusOne')`)
+                      i.fa.fa-chevron-right(onclick=`Basket.changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'plusOne')`)
                     td $#{product.price}
                     td
                       a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
                 else
                   tr
                     td(colspan=5)
-                      p Sorry but #{product.productName} is not available at this moment!
+                      if product.productName
+                        p Sorry but&nbsp;
+                          a(href=`/products/${product.urlPostfix}`) #{product.productName}
+                          span &nbsp;is not available at this moment!
+                      else
+                        p Sorry but this is not available in our shop anymore!
                     td
                       a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
             tfoot

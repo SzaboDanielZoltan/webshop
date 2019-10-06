@@ -6,26 +6,31 @@ const customersBLL = new CustomersBLL();
 const productsBLL = new ProductsBLL();
 const router = express.Router();
 
+router.use(async (req, res, next) => {
+  if (!res.locals.loggedcustomer) {
+    res.redirect('/');
+  } else {
+    next();
+  }
+});
 
-// basket page, making the basket ui
-router.get('/', async (req, res, next) => {
+// Basket page rendering from basket object
+router.get('/', (req, res, next) => {
   const basket = JSON.parse(res.locals.loggedcustomer.basket);
-  Promise.all(Object.keys(basket).map(async (productID) => {
-    const product = await productsBLL.getOneProduct(parseInt(productID, 10));
-    if (product) {
-      product.orderedAmount = basket[productID];
-      return product;
-    }
-    return { id: productID, productName: 'this' };
-  })).then((productsArray) => {
-    const filterProductsArray = productsArray.filter(el => el != null);
+  productsBLL.makeBasketWithDetails(basket).then((productsArray) => {
+    // Calculating total price for rendering
     let totalPrice = 0;
-    filterProductsArray.forEach(product => (product.price && product.orderedAmount && product.active ? totalPrice += product.price * product.orderedAmount : product));
-    res.render('basket', { order: filterProductsArray, total: totalPrice });
+    productsArray.forEach(product => (product.price && product.orderedAmount && product.active
+      ? totalPrice += product.price * product.orderedAmount
+      : totalPrice += 0));
+    res.render('basket', { order: productsArray, total: totalPrice });
+  }).catch((err) => {
+    res.status(404);
+    res.render('general404');
   });
 });
 
-// adding products to customer basket
+// Adding products to customer basket
 router.post('/add/:productID', async (req, res, next) => {
   const basket = JSON.parse(res.locals.loggedcustomer.basket);
   const productID = req.params.productID;
