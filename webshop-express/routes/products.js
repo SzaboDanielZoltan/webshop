@@ -69,7 +69,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  res.cookie('viewSize', req.body.limit, { maxAge: 31536000 });
+  res.cookie('viewSize', req.body.limit, { maxAge: 31556952000});
   res.redirect('/products');
 });
 
