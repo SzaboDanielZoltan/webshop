@@ -31,7 +31,7 @@ router.post('/', async (req, res, next) => {
       res.cookie('adminvalidator', token, { maxAge: 31556952000 });
       res.redirect('/admin');
     }
-    const message = 'You did not sign correctly, please try again!';
+    const message = 'You did not sign in correctly, please try again!';
     res.render('login', { notRegistered: message });
   }
 });

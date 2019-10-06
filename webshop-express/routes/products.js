@@ -15,7 +15,6 @@ router.get('/', async (req, res, next) => {
 
   /*setting filter data and filter length*/
   if (req.query.filter != undefined && req.query.filter != 'all') {
-    console.log(req.query.filter);
     result.forEach((data) => {
       if (req.query.filter == data.type) {
         filterData.push(data);

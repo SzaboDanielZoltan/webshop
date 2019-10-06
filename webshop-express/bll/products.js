@@ -65,7 +65,6 @@ module.exports = class productsBusinessLogicLayer {
     const compare = (x, y) => x > y ? 1 : x < y ? -1 : 0;
 
     // sort by productName ascending then type ascending
-    // if you want descending write - before the compare
     const sortedProduts = activeProducts.sort((a, b) => compare(
         [compare(a.productName.toLowerCase(), b.productName.toLowerCase()), compare(a.type, b.type)],
         [compare(b.productName.toLowerCase(), a.productName.toLowerCase()), compare(b.type, a.type)]
