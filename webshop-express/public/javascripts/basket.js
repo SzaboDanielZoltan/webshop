@@ -1,5 +1,5 @@
 const Basket = {
-  basketRoute: 'http://localhost:3000/basket/customer',
+  basketRoute: 'http://localhost:3123/basket/customer',
 
   changingAmountOfProduct(userID, productID, direction) {
     let newAmount;
