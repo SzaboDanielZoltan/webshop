@@ -1,0 +1,124 @@
+      
+@font-face {
+    font-family: basic-sans-sherif;
+    src: url(./../fonts/basic_sans_serif_7.ttf);
+  }
+  
+  body {
+     background: url("./../images/background/earth_green.jpg");
+     /* background: url("./../images/background/dotsEarthMap.png"); */
+     background-color: #000c14;
+     background-attachment: fixed;
+     background-repeat: no-repeat;
+     background-size: cover;
+     font-family: basic-sans-sherif;
+ }
+
+ .product_content {
+     font-family: sans-serif;
+     color: #fff;
+ }
+
+ .single_product_text {
+     display: inline-block;
+     padding: 0;
+     position: relative;
+     overflow: hidden;
+     background-color: #000c14;
+     font-family: basic-sans-sherif;
+ }
+
+ .single_product_text:hover .product_images_overlay {
+     top: 5%;
+     left: 5%;
+ }
+
+ .product_images_overlay {
+     width: 90%;
+     height: 90%;
+     background-color: #000c14;
+     opacity: 0.9;
+     top: -100%;
+     left: 5%;
+     position: absolute;
+     transition: 0.5s;
+     font-family: basic-sans-sherif;
+ }
+
+ .product_images_overlay h4 {
+     text-transform: uppercase;
+     color: #0a898d;
+     font-weight: bold;
+ }
+
+ .foodName{
+    color: #0a898d;
+ }
+
+ .btn-primary {
+     background-color: #0a898d;
+     color: #000c14;
+     font-weight: bold;
+ }
+ .btn-primary:hover {
+    background-color: #000c14;;
+    color: #0a898d;
+    font-weight: bold;
+    border: 2px solid #0a898d;
+}
+
+ .page-link,
+ .pageLimitSelector{
+     color: #0a898d;
+     border-color: #0a898d;
+     font-weight: bold;
+     background-color: transparent;
+     margin: auto;
+ }
+
+ .page-link:hover,
+ .pageLimitSelector:hover {
+     color: #000c14;
+     border-color: #0a898d;
+     font-weight: bold;
+     background-color: #0a898d;
+     margin: auto;
+ }
+
+ .filter-container {
+     background-image: linear-gradient(to right, #000c14,  #000c14,#01383e);
+ }
+
+ .fa-caret-down {
+     color: #0a898d
+ }
+
+ @media (min-width:769px) and (max-width:991px) {
+     .product_images_overlay {
+         padding: 0px;
+     }
+ }
+
+ @media (max-width:768px) {
+     .product_images_overlay {
+         padding: 170px 20px;
+     }
+ }
+
+ @media (max-width:580px) {
+     .product_images_overlay {
+         padding: 100px 20px;
+     }
+ }
+
+ @media (max-width:480px) {
+     .product_images_overlay {
+         padding: 40px 20px;
+     }
+ }
+
+ @media (max-width:320px) {
+     .product_images_overlay {
+         padding: 20px;
+     }
+ }

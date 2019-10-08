@@ -1,0 +1,220 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Szerver verzió:               10.4.7-MariaDB - mariadb.org binary distribution
+-- Szerver OS:                   Win64
+-- HeidiSQL Verzió:              10.2.0.5599
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- Adatbázis struktúra mentése a webshop.
+CREATE DATABASE IF NOT EXISTS `webshop` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `webshop`;
+
+-- Struktúra mentése tábla webshop. admins
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL DEFAULT sha('pass'),
+  `token` varchar(50) NOT NULL DEFAULT '',
+  `status` varchar(50) NOT NULL DEFAULT '2',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- Tábla adatainak mentése webshop.admins: ~5 rows (hozzávetőleg)
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT IGNORE INTO `admins` (`id`, `firstName`, `lastName`, `email`, `password`, `token`, `status`) VALUES
+	(1, 'Dániel', 'Szabó', 'szabo.daniel.zoltan@gmail.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '', '1'),
+	(2, 'András Viktor', 'Szentiványi', 'kisszenty@gmail.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', 'jBaVlquvhVVTHpJwRyJpeeHWaESutpeDzqUkySqYrorXVNolcp', '2'),
+	(3, 'Napsugár', 'Makó', 'jnmako@gmail.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '', '2'),
+	(4, 'Tímea', 'Neslanovic', 'timy1901@gmail.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', 'GrbQnsRVDYsKnSKhopqZHyZbSjopsVTbVFwGfFfleyzWxkhebP', '2'),
+	(5, 'Szilvia', 'Horváth', 'horvath.szilvia.ildiko@gmail.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', 'MevvilKfDIYJbTyqymdGmFUejLgxrcQJuueKOUbBouuhemEwNp', '2');
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
+
+-- Struktúra mentése tábla webshop. customers
+CREATE TABLE IF NOT EXISTS `customers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL DEFAULT sha('pass'),
+  `address` varchar(50) DEFAULT NULL,
+  `basket` varchar(10000) NOT NULL DEFAULT '{}',
+  `token` varchar(50) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+
+-- Tábla adatainak mentése webshop.customers: ~10 rows (hozzávetőleg)
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT IGNORE INTO `customers` (`id`, `firstName`, `lastName`, `email`, `password`, `address`, `basket`, `token`) VALUES
+	(1, 'Maria', 'Smith', 'pass@state.gov', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '7214 5th Street', '{"2":7,"13":3,"36":1,"37":1}', 'pmBIuyArklojjpmcwXwHHynGdsGxVFBrjruphJMLMSbXKODnBH'),
+	(2, 'Sunshine', 'Rodman', 'sroddan1@multiply.com', '300ac668c782c666a9de0f2ccb59cea082255b5d', '88 Valley Edge Park', '{}', ''),
+	(3, 'Drusi', 'Bosomworth', 'ajnjfksnakfnkjasndjk@gmsil.com', 'df8f1fc423a6e3fcc9e1e1c3d2e3ae4b8e4c8d6d', '790 Judy Junction', '{}', ''),
+	(4, 'Patience', 'Barus', 'pbarus3@google.co.uk', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '2 Dottie Street', '{}', 'tNvCHyHqihRbXgsRHoEEgFpfifRubzohLMZBCHVhQneVszYiso'),
+	(5, 'Rory', 'Naile', 'rnaile4@google.de', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '13574 Iowa Plaza', '{}', ''),
+	(6, 'Selie', 'Mulmuray', 'smulmuray5@vk.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '61 Towne Court', '{}', ''),
+	(7, 'Francois', 'Humbee', 'fhumbee6@dropbox.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '090 Burning Wood Point', '{}', ''),
+	(8, 'Nancie', 'Maplethorpe', 'nmaplethorpe7@spotify.com', '9d4e1e23bd5b727046a9e3b4b7db57bd8d6ee684', '89600 American Pass', '{}', ''),
+	(64, 'Neslanovic', 'Timi', 'timy1901@citromail.hu', 'f72ccdecdeb8525b5f1c5d4faf24960cc45c010b', 'Budapest Budafoki út 3.', '{"2":1,"70":34}', 'rCsQYzLwjYtVsrHmhmENSQPmSQIhGbEjEMSBBXeacugWcHPquX'),
+	(65, 'asd', 'qwe', 'as@gmail.com', 'd00b87d33fb46af303feb7b985042fef502e0ad6', 'Törökbálint pető', '{}', 'ybPNPpxeBVthRjDVQblggKplvpOlLWBXJQWXStYBWWJgetdOBJ');
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+
+-- Struktúra mentése tábla webshop. orders
+CREATE TABLE IF NOT EXISTS `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customerID` int(11) DEFAULT NULL,
+  `shippingAddress` varchar(200) NOT NULL,
+  `products` varchar(10000) NOT NULL,
+  `totalPrice` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `orderDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+-- Tábla adatainak mentése webshop.orders: ~10 rows (hozzávetőleg)
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT IGNORE INTO `orders` (`id`, `customerID`, `shippingAddress`, `products`, `totalPrice`, `status`, `orderDate`) VALUES
+	(1, 1, '7214 5th Street', '[{"id":13,"productName":"Apples - Sliced / Wedge","url":"/products/apples-sliced-wedge","price":343,"amount":3},{"id":49,"productName":"Bandage - Fexible 1x3","url":"/products/bandage-fexible-1x3","price":13104,"amount":1099}]', 100000, 0, '2019-01-25 16:23:13'),
+	(2, 1, '7214 5th Street', '[{"id":49,"productName":"Bandage - Fexible 1x3","url":"/products/bandage-fexible-1x3","price":13104,"amount":100}]', 115102, 0, '2019-02-25 16:23:28'),
+	(3, 1, '7214 5th Street', '[{"id":13,"productName":"Apples - Sliced / Wedge","url":"/products/apples-sliced-wedge","price":343,"amount":10},{"id":24,"productName":"Apple - Delicious, Red","url":"/products/apple-delicious-red","price":4,"amount":1}]', 3434, 1, '2019-03-25 16:23:49'),
+	(4, 1, '7214 5th Street', '[{"id":24,"productName":"Apple - Delicious, Red","url":"/products/apple-delicious-red","price":4,"amount":1}]', 16155, 1, '2019-04-26 14:37:08'),
+	(5, 51, 'Törökbálint', '[{"id":1,"productName":"Belgian waffles with banana","url":"/products/belgian-waffles-with-banana","price":364,"amount":1}]', 364, 1, '2019-05-30 14:12:50'),
+	(6, 61, 'Dani út 1', '[{"id":36,"productName":"Arconians favourite","url":"/products/arconians-favourite","price":33678,"amount":1}]', 33678, 1, '2019-06-30 15:24:58'),
+	(7, 64, 'Budapest Budafoki út 3.', '[{"id":37,"productName":"Best of Bobba Fett","url":"/products/best-of-bobba-fett","price":69362,"amount":1},{"id":38,"productName":"Binding This","url":"/products/binding-this","price":79370,"amount":1},{"id":97,"productName":"Area 51 beer","url":"/products/area-51-beer","price":24000,"amount":1}]', 172732, 1, '2019-07-01 06:15:30'),
+	(8, 65, 'Törökbálint pető', '[{"id":50,"productName":"Plutonian banana","url":"/products/plutonian-banana","price":13000,"amount":1}]', 130000, 0, '2019-08-01 14:19:48'),
+	(9, 64, 'Budapest Budafoki út 3.', '[{"id":36,"productName":"Arconians favourite","url":"/products/arconians-favourite","price":33678,"amount":8},{"id":42,"productName":"Finger food","url":"/products/finger-food","price":36779,"amount":3},{"id":66,"productName":"Amanin balls","url":"/products/amanin-balls","price":42000,"amount":7},{"id":96,"productName":"Adaptoid ","url":"/products/adaptoid","price":12000,"amount":1}]', 12000, 0, '2019-09-01 17:11:59'),
+	(10, 64, 'Budapest Budafoki út 3.', '[{"id":88,"productName":"Asian grilled salmon","url":"/products/asian-grilled-salmon","price":4199,"amount":1}]', 4199, 0, '2019-10-02 16:17:24');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+
+-- Struktúra mentése tábla webshop. products
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `productName` varchar(50) NOT NULL,
+  `urlPostfix` varchar(200) NOT NULL DEFAULT '',
+  `type` varchar(50) DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  `active` tinyint(4) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
+
+-- Tábla adatainak mentése webshop.products: ~106 rows (hozzávetőleg)
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+INSERT IGNORE INTO `products` (`id`, `productName`, `urlPostfix`, `type`, `price`, `active`) VALUES
+	(1, 'Belgian waffles with banana', 'belgian-waffles-with-banana', 'human', 364, 0),
+	(2, 'Blue macarons', 'blue-macarons', 'human meal', 522, 1),
+	(3, 'Bombay stew', 'bombay-stew', 'human', 1562, 1),
+	(4, 'Charcoal donought', 'charcoal-donought', 'human', 1624, 1),
+	(5, 'Chickpea curry with rice', 'chickpea-curry-with-rice', 'human', 2443, 1),
+	(6, 'Chinese meatball soup', 'chinese-meatball-soup', 'human', 466, 1),
+	(7, 'Choco bar with pretzels', 'choco-bar-with-pretzels', 'human', 722, 1),
+	(8, 'Ciabatta bread with cheese', 'ciabatta-bread-with-cheese', 'human', 873, 1),
+	(9, 'Date night pizza', 'date-night-pizza', 'human', 4229, 1),
+	(10, 'French garlic bread', 'french-garlic-bread', 'human', 379, 1),
+	(11, 'Fresh oysters', 'fresh-oysters', 'human', 3999, 1),
+	(12, 'Fried seafood', 'fried-seafood', 'human', 2986, 1),
+	(13, 'Greek chicken souvlaki', 'greek-chicken-souvlaki', 'human', 1673, 1),
+	(14, 'Green thai salad', 'green-thai-salad', 'human', 1989, 1),
+	(15, 'Hamburger menu', 'hamburger-menu', 'human', 2100, 1),
+	(16, 'IKEA meatball deluxe', 'ikea-meatball-deluxe', 'human', 1599, 0),
+	(17, 'Italian meatballs', 'italian-meatballs', 'human', 2299, 1),
+	(18, 'Lasagne', 'lasagne', 'human', 3100, 1),
+	(19, 'Muffins with cherry frosting', 'muffins-with-cherry-frosting', 'human', 1799, 1),
+	(20, 'Noodles with shrimps', 'noodles-with-shrimps', 'human', 2650, 1),
+	(21, 'Nyum bai soup', 'nyum-bai-soup', 'human', 1599, 1),
+	(22, 'Pepperoni and mushrooms pizza', 'pepperoni-and-mushrooms-pizza', 'human', 1680, 1),
+	(23, 'Poached egg with quinoa', 'poached-egg-with-quinoa', 'human', 2689, 1),
+	(24, 'Pumpkin soup', 'pumpkin-soup', 'human', 999, 1),
+	(25, 'Roasted red pepper soup', 'roasted-red-pepper-soup', 'human', 999, 1),
+	(26, 'Russian olive pie', 'russian-olive-pie', 'human', 1520, 1),
+	(27, 'Sausage and cheese pasta', 'sausage-and-cheese-pasta', 'human', 1870, 1),
+	(28, 'Spaghetti milanese with broccoli', 'spaghetti-milanese-with-broccoli', 'human', 1790, 1),
+	(29, 'Spring cake', 'spring-cake', 'human', 1190, 1),
+	(30, 'Taco shells', 'taco-shells', 'human', 1699, 1),
+	(31, 'Tofu salad', 'tofu-salad', 'human', 1099, 1),
+	(32, 'Tomato pie', 'tomato-pie', 'human', 899, 1),
+	(33, 'Vanilla Javascript ice cream', 'vanilla-javascript-ice-cream', 'human', 2999, 1),
+	(34, 'Vegan French onion stew', 'vegan-french-onion-stew', 'human', 2799, 1),
+	(35, 'Wiener snack', 'wiener-snack', 'human', 1199, 1),
+	(36, 'Arconians favourite', 'arconians-favourite', 'alien', 33678, 0),
+	(37, 'Best of Bobba Fett', 'best-of-bobba-fett', 'alien', 69362, 1),
+	(38, 'Binding This', 'binding-this', 'alien', 79370, 1),
+	(39, 'Boiled humfhupp eggs', 'boiled-humfhupp-eggs', 'alien', 54999, 1),
+	(40, 'Dried yuzzum', 'dried-yuzzum', 'alien', 9822, 1),
+	(41, 'Edible soap plate', 'edible-soap-plate', 'alien', 55798, 1),
+	(42, 'Finger food', 'finger-food', 'alien', 36779, 1),
+	(43, 'Freshly harvested bruhhrrrma', 'freshly-harvested-bruhhrrrma', 'alien', 62999, 1),
+	(44, 'Happy meal', 'happy-meal', 'alien', 19999, 1),
+	(45, 'Intergalactic vegan salad', 'intergalactic-vegan-salad', 'alien', 23999, 1),
+	(46, 'Jelly Hingur eggs', 'jelly-hingur-eggs', 'alien', 21999, 1),
+	(47, 'Martian Yappoww brain for two', 'martian-yappoww-brain-for-two', 'alien', 70999, 1),
+	(48, 'Milky Way soup with banana', 'milky-way-soup-with-banana', 'alien', 22999, 1),
+	(49, 'Neptune plant selection', 'neptune-plant-selection', 'alien', 35999, 1),
+	(50, 'Plutonian banana', 'plutonian-banana', 'alien', 13000, 1),
+	(51, 'Saturnian chapchap', 'saturnian-chapchap', 'alien', 30500, 1),
+	(52, 'Saturnian chicken foot', 'saturnian-chicken-foot', 'alien', 23700, 1),
+	(53, 'Solar soup', 'solar-soup', 'alien', 19900, 1),
+	(54, 'Space menu 1', 'space-menu-1', 'alien', 99000, 1),
+	(55, 'Space menu 2', 'space-menu-2', 'alien', 99000, 1),
+	(56, 'Spaghetti whatever', 'spaghetti-whatever', 'alien', 30600, 1),
+	(57, 'Spicy kitonak', 'spicy-kitonak', 'alien', 27000, 1),
+	(58, 'Star plate', 'star-plate', 'alien', 46000, 1),
+	(59, 'Starfish plate', 'starfish-plate', 'alien', 75999, 1),
+	(60, 'Sweet melaweoum', 'sweet-melaweoum', 'alien', 46000, 1),
+	(61, 'The vegan Plutonean', 'the-vegan-plutonean', 'alien', 39999, 1),
+	(62, 'Uranus mousse', 'uranus-mousse', 'alien', 25700, 1),
+	(63, 'Yodaburger', 'yodaburger', 'alien', 58900, 1),
+	(64, 'Pancakes from Braggo', 'pancakes-from-braggo', 'alien', 37900, 1),
+	(65, 'Grilled kubaz strings', 'grilled-kubaz-strings', 'alien', 55999, 1),
+	(66, 'Amanin balls', 'amanin-balls', 'alien', 42000, 0),
+	(67, 'Dish from Ishi Tib', 'dish-from-ishi-tib', 'alien', 68000, 1),
+	(68, 'Smelly frifoa', 'smelly-frifoa', 'alien', 24000, 1),
+	(69, 'Ruluf hair with igoy', 'ruluf-hair-with-igoy', 'alien', 35000, 1),
+	(70, 'Meteor rolls', 'meteor-rolls', 'alien', 28000, 1),
+	(71, 'Debugged fruit salad', 'debugged-fruit-salad', 'alien', 31000, 1),
+	(72, 'Sour tronties', 'sour-tronties', 'alien', 12999, 1),
+	(73, 'Frendeck cube selection', 'frendeck-cube-selection', 'alien', 43000, 1),
+	(74, 'Predator pizza', 'predator-pizza', 'alien', 29000, 1),
+	(75, 'Nuts from Venus', 'nuts-from-venus', 'alien', 18000, 1),
+	(76, 'Filtered Solar Sirum', 'filtered-solar-sirum', 'alien', 37000, 1),
+	(77, 'Malef from the dark side of the Moon', 'malef-from-the-dark-side-of-the-moon', 'alien', 50000, 1),
+	(78, 'Trodea bites', 'trodea-bites', 'alien', 46000, 1),
+	(79, 'Melted hadron in its own cover', 'melted-hadron-in-its-own-cover', 'alien', 57500, 1),
+	(80, 'Yoromea for two', 'yoromea-for-two', 'alien', 49500, 1),
+	(81, 'Spongy invader slices', 'spongy-invader-slices', 'alien', 26000, 1),
+	(82, 'Nodemon pie', 'nodemon-pie', 'alien', 22000, 1),
+	(83, 'Hyperion steaks', 'hyperion-steaks', 'alien', 51400, 1),
+	(84, 'Filled frogfox from Unua', 'filled-frogfox-from-unua', 'alien', 47600, 1),
+	(85, 'Quazar salad', 'quazar-salad', 'alien', 25000, 1),
+	(86, 'Penne arrabiata', 'penne-arrabiata', 'human', 2300, 1),
+	(87, 'Tuna with brie salad', 'tuna-with-brie-salad', 'human', 3100, 1),
+	(88, 'Asian grilled salmon', 'asian-grilled-salmon', 'human', 4199, 1),
+	(89, 'Coca-Cola Black', 'coca-cola-black', 'drinks', 499, 1),
+	(90, 'Coca-Cola Purple', 'coca-cola-purple', 'drinks', 499, 1),
+	(91, 'Coca-Cola Red', 'coca-cola-red', 'drinks', 499, 1),
+	(92, 'Fanta Orange', 'fanta-orange', 'drinks', 499, 1),
+	(93, 'Fanta Raspberry', 'fanta-raspberry', 'drinks', 499, 1),
+	(94, 'Ewap Drops', 'ewap-drops', 'drinks', 12000, 1),
+	(95, 'Darth Water', 'darth-water', 'drinks', 12000, 1),
+	(96, 'Adaptoid ', 'adaptoid', 'drinks', 12000, 0),
+	(97, 'Area 51 beer', 'area-51-beer', 'drinks', 24000, 1),
+	(98, 'Kryp Tonight', 'kryp-tonight', 'drinks', 12000, 1),
+	(99, 'Spocktail', 'spocktail', 'drinks', 12000, 1),
+	(100, 'VogOn energy drink', 'vogon-energy-drink', 'drinks', 12000, 1),
+	(101, 'Schweppes Ginger', 'schweppes-ginger', 'drinks', 499, 1),
+	(102, 'Schweppes Tonic', 'schweppes-tonic', 'drinks', 499, 1),
+	(103, 'How long I land ice tea', 'how-long-i-land-ice-tea', 'drinks', 24000, 1),
+	(104, 'Schweppes Citrus', 'schweppes-citrus', 'drinks', 499, 1),
+	(109, 'Goat Leg', 'goat-leg', 'drink', 2000, 1),
+	(110, 'Goat Lega', 'goat-lega', 'human meal', 2000, 1);
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

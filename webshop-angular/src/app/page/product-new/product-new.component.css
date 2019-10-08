@@ -1,0 +1,61 @@
+.newInputs {
+    width: 30vw;
+}
+#urlPostfix{
+    border: none;
+    background-color: white;
+    color: #000000
+}
+
+.simple-form input {
+  margin: 0 .25rem;
+  min-width: 125px;
+  border: 1px solid #eee;
+  border-left: 5px solid;
+  border-radius: 5px;
+  transition: border-color .5s ease-out;
+}
+
+
+.simple-form input:optional {
+  border-left-color: rgb(234, 238, 4);
+}
+
+.simple-form input:required {
+  border-left-color: rgb(18, 221, 18);
+}
+
+.simple-form input.ng-invalid {
+  border-left-color: rgb(235, 49, 29);
+}
+
+
+  .heading {
+    text-align: center;
+    position: relative;
+    font-size: 3.3rem;
+    font-weight: bold;
+    margin: 3rem 0;
+    margin-top: -60px;
+    color: #fff;
+  }
+
+
+  #baseContainer {
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 40px;
+    border-collapse: collapse;
+  }
+
+  .greenBtn {
+    background-color: #0a898d;
+    color: #fff;
+  }
+
+
+  .blackBtn{
+    color: #0a898d;
+    background-color: #000c14;
+  }

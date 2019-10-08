@@ -1,8 +1,139 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+input[name="orderedAmount"] {
+  width: 55px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border: 1px solid #dfdfdf !important;
+  background-color: #dfdfdf !important;
+  border-radius: 10px;
 }
 
-a {
-  color: #00B7FF;
+@font-face {
+  font-family: spacebar;
+  src: url(./../fonts/SPACEBAR.ttf);
+}
+
+@font-face {
+  font-family: spacetext-bold;
+  src: url(./../fonts/A-Space\ Bold\ Demo.otf);
+}
+
+@font-face {
+  font-family: spacetext;
+  src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+}
+
+@font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
+}
+
+.contentContainer{
+  min-height: 80vh;
+}
+
+/* Navbar styling */
+
+.navbar {
+  background-color: #000c14;
+  font-family: spacetext;
+  /* opacity: 0.85; */
+}
+
+#loginNavLink {
+  color:#0a898d;
+  border : 2px solid#0a898d;
+  animation: pulse 3s ease infinite
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#loginNavLink:hover {
+  color:#000c14;
+  border : 2px solid #0a898d;
+  background-color: #0a898d;
+}
+
+.menu-icon:hover{
+  border-bottom: 2px solid #0a898d;
+  margin-left:2px;
+}
+
+.menu-icon{
+  border-bottom: 2px solid #000c14;
+  margin-left:2px;
+}
+
+nav.scrolled-nav {
+  opacity:0;
+  transition: opacity 0.3s linear 
+}
+
+nav.scrolled-nav:hover {
+  opacity:1
+}
+
+.basketIcon{
+  box-sizing: border-box;
+  width:5vw;
+  height: auto;
+}
+
+.basketNumber{
+  color:#0a898d;
+ font-size: 1rem;
+}
+
+.dropdown-menu {
+ background-color:#0a898d;
+}
+
+.dropdown-item {
+ color: #000;
+font-weight: bold;
+}
+
+.dropdown-item:hover {
+  background-color:#096b6e;
+  color: #fff;
+ }
+ 
+
+/* Footer elements */
+
+footer{
+  background-color: #000c14;
+  position: relative;
+  bottom: 0;
+  left:0;
+  font-family: basic-sans-sherif;
+}
+
+footer a,
+footer p {
+  text-decoration: none;
+  color: rgba(255,255,255,.5);
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: #0a898d;
+}
+
+footer h3,
+footer h6 {
+  color: #fff
 }

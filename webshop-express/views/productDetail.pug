@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  link(href='/stylesheets/productDetails.css', rel='stylesheet')
+  .container
+    .row.m-5
+      .col-12
+        .card
+          .card-body
+            .row
+              .col-lg-6.col-sm-12.text-center
+                img.card-img-top.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`)
+              .col-lg-6.col-sm-12.pl-5          
+                h1#productName.pt-3 #{product.productName}
+                h4#productPrice.mb-3 Now only for $#{product.price}          
+                #addToBasketWithIcon
+                  if product.active == 1
+                    if loggedcustomer
+                      form(action=`/basket/add/${product.id}` method='post')
+                        .form-group
+                          label Quantity: 
+                            input.form-control.d-inline-block(type='number', name='orderQuantity', value=1 , min=1, style="width:100px") 
+                          br
+                          button.btn.mt-5 Add to basket 
+                            img.m-1(src="/images/icons/shopping-cart.png", width="30px", height="auto")
+                    else
+                      p.text-danger Please log in to order !
+                  else
+                    p.text-danger Sorry but #{product.productName} is not available at this moment!
+                  
+                

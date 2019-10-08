@@ -1,0 +1,72 @@
+extends layout
+
+block content
+  link(href='/stylesheets/basket.css', rel='stylesheet')
+  .container
+    .row
+      .col-12.text-center.mt-4.mb-4
+        h1#headingText Please check your basket!
+    .row
+      .col#basketDiv
+        if loggedcustomer.basket!=='{}'
+          table.table.text-center
+            thead
+              tr
+                th Product image
+                th Product name
+                th Details
+                th Ordered amount
+                th Price per unit
+                th #
+            tbody
+              each product in order
+                if product.active == 1
+                  tr
+                    td
+                      img(src=`/images/productImages/${product.urlPostfix}.jpg` width="65%")
+                    td #{product.productName}
+                    td
+                      a#productDetailsLink(href=`/products/${product.urlPostfix}`) Product details
+                    td
+                      i.fa.fa-chevron-left(onclick=`Basket.changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'minusOne')`)
+                      input(name='orderedAmount' type='number' value=`${product.orderedAmount}` readonly)
+                      i.fa.fa-chevron-right(onclick=`Basket.changingAmountOfProduct(${loggedcustomer.id}, ${product.id}, 'plusOne')`)
+                    td $#{product.price}
+                    td
+                      a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
+                else
+                  tr
+                    td(colspan=5)
+                      if product.productName
+                        p Sorry but&nbsp;
+                          a(href=`/products/${product.urlPostfix}`) #{product.productName}
+                          span &nbsp;is not available at this moment!
+                      else
+                        p Sorry but this is not available in our shop anymore!
+                    td
+                      a.btn#removeBtn(href=`/basket/remove/${product.id}`) Remove
+            tfoot
+              tr#totalPriceText
+                th
+                th
+                th Total price:
+                th#totalPrice $#{total}
+                th
+          .row.text-center
+            .col-sm-12.col-md-4
+              a.btn#addMoreBtn.btn.btn-block(href='/products') Add more
+            .col-sm-12.col-md-4
+              a#orderBtn.btn.btn-block(href='/orders/actual') Order
+            .col-sm-12.col-md-4
+              a#emptyBasketBtn.btn.btn-block(href='/basket/empty') Empty basket
+           
+            
+
+        else
+          .col#emptyBasketText.text-center.p-4
+            h3 Your basket is empty.
+            h5 Please check out our&nbsp;
+             a(href='/products') food variety
+             span !
+
+  script(src="/javascripts/basket.js")

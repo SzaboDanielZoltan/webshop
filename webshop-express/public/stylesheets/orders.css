@@ -1,0 +1,55 @@
+@font-face {
+  font-family: spacetext;
+  src: url(./../fonts/A-Space\ Regular\ Demo.otf);
+}
+
+@font-face {
+   font-family: basic-sans-sherif;
+   src: url(./../fonts/basic_sans_serif_7.ttf);
+ }
+ 
+ body {
+    padding: 0;
+    background-image: url("./../images/background/basketcover.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+ 
+  
+#ordersDiv {
+  margin: 20px;
+  background-color: rgba(255, 255, 255);
+  padding: 20px;
+  border-collapse: collapse;
+  font-size: 17px;
+  font-family: basic-sans-sherif;
+  overflow-x:auto;
+}
+
+
+#ordersDiv tr, th {
+  color: #000c14;
+}
+
+ 
+#headingText {
+  color: #fff;
+  font-family: spacetext;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+
+a,
+h3 {
+  color: #0a898d;
+  font-weight: bold;
+}

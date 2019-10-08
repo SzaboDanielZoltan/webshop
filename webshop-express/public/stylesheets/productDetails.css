@@ -1,0 +1,59 @@
+@font-face {
+  font-family: basic-sans-sherif;
+  src: url(./../fonts/basic_sans_serif_7.ttf);
+}
+
+body {
+    background: url("./../images/background/indexBG_green.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#addToBasketWithIcon p{
+    font-weight: bold;
+}
+
+#addToBasketWithIcon button{
+    background-color:  #000c14;
+    color: #fff;
+    animation: pulse 3s ease infinite;
+}
+
+.card {
+  border-radius: 1%;
+  font-family: basic-sans-sherif;
+  }
+
+
+.card-img-top {
+  padding: 0;
+  margin: 0;
+  border-radius: 2%;
+  width: 100%;
+  height: 100%;
+}
+
+#productName {
+  color: #0a898d;
+
+}
+
+.form-group {
+  font-size: 120%;
+
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1, 1);
+    }
+  
+    50% {
+      opacity: 0.9;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

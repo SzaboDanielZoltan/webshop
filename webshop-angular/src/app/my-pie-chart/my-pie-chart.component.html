@@ -1,0 +1,13 @@
+<div class="container">
+        <div class="row">
+                <div class="col text-center">
+                        <h1>Today's active/delivered orders</h1>
+                        <div class="backgrounding" style="display: block">
+                                <canvas baseChart
+                                        [data]="pieChartData"
+                                        [labels]="pieChartLabels"
+                                        [chartType]="pieChartType"></canvas>
+                        </div>
+                </div>
+        </div>
+</div>
