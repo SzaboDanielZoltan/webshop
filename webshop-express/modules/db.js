@@ -3,7 +3,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
   user: 'root',
   password: 'root',
-  database: 'webshop',
+  database: 'gastronaut',
 });
 
 module.exports = class DB {
@@ -49,10 +49,10 @@ module.exports = class DB {
   }
 
   /**
-  * Update method for database (one record)
-  * @param {string} table The name of the table where you would like to update a record
-  * @param {object} record Object with the same keys as the table columns
-  */
+   * Update method for database (one record)
+   * @param {string} table The name of the table where you would like to update a record
+   * @param {object} record Object with the same keys as the table columns
+   */
   async update(table, record) {
     const query = `
     UPDATE ${table}
