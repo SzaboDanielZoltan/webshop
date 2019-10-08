@@ -20,10 +20,14 @@ router.get('/', (req, res, next) => {
   productsBLL.makeBasketWithDetails(basket).then((productsArray) => {
     // Calculating total price for rendering
     let totalPrice = 0;
-    productsArray.forEach(product => (product.price && product.orderedAmount && product.active
-      ? totalPrice += product.price * product.orderedAmount
-      : totalPrice += 0));
-    res.render('basket', { order: productsArray, total: totalPrice });
+    productsArray.forEach(product => (
+      product.price && product.orderedAmount && product.active ?
+      totalPrice += product.price * product.orderedAmount :
+      totalPrice += 0));
+    res.render('basket', {
+      order: productsArray,
+      total: totalPrice
+    });
   }).catch((err) => {
     res.status(404);
     res.render('general404');

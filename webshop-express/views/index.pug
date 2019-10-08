@@ -22,17 +22,32 @@ block content
           .carousel-inner.p-2
             .carousel-item.active
               a(href=`/products/${lastThreeProd[0]}`)
-                img.image-fluid(src=`/images/productImages/${lastThreeProd[0]}.jpg`, alt='Image', style='width: 400px; height: 300px;')
+                img.image-fluid(
+                  src=`/images/productImages/${lastThreeProd[0]}.jpg`,
+                  alt='Image',
+                  style='width: 400px; height: 300px;')
             .carousel-item
               a(href=`/products/${lastThreeProd[1]}`)
-                img.image-fluid(src=`/images/productImages/${lastThreeProd[1]}.jpg`, alt='Image', style='width: 400px; height: 300px;')
+                img.image-fluid(
+                  src=`/images/productImages/${lastThreeProd[1]}.jpg`,
+                  alt='Image',
+                  style='width: 400px; height: 300px;')
             .carousel-item
               a(href=`/products/${lastThreeProd[2]}`)
-                img.image-fluid(src=`/images/productImages/${lastThreeProd[2]}.jpg`, alt='Image', style='width: 400px; height: 300px;')
-          a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+                img.image-fluid(
+                  src=`/images/productImages/${lastThreeProd[2]}.jpg`,
+                  alt='Image',
+                  style='width: 400px; height: 300px;')
+          a.carousel-control-prev(
+            href='#carouselExampleIndicators',
+            role='button',
+            data-slide='prev')
             span.carousel-control-prev-icon(aria-hidden='true')
             span.sr-only Previous
-          a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+          a.carousel-control-next(
+            href='#carouselExampleIndicators',
+            role='button',
+            data-slide='next')
             span.carousel-control-next-icon(aria-hidden='true')
             span.sr-only Next
 

@@ -6,7 +6,9 @@ block content
       .row.filter-container.justify-content-md-center.text-center.m-0
         .col-2.p-0
           - let limitNumber = displaySize || 12
-          form.form-inline.mt-3.mb-3(method="POST" action="/products").text-center
+          form.form-inline.mt-3.mb-3.text-center(
+            method="POST",
+            action="/products")
             .form-group
               select.form-control.pageLimitSelector(name="limit")
                 -let viewArray = [12,15,20,25,50];
@@ -33,13 +35,16 @@ block content
             .single_product_text.m-3
               p.text-center.foodName.mt-1.mb-1
                 strong #{product.productName}
-              img.img-fluid(src=`/images/productImages/${product.urlPostfix}.jpg`, style="width:400px;height:300px;")
+              img.img-fluid(
+                src=`/images/productImages/${product.urlPostfix}.jpg`,
+                style="width:400px;height:300px;")
               .product_images_overlay.text-center
                 .col.mt-5.mb-5
                   h4.mt-3.mb-1 #{product.productName}
                   p.product_price #{product.type}
                   h6.product_price.mb-3 #{product.price} Galaxy $
-                  a.btn.btn-primary.mt-3(href=`/products/${product.urlPostfix}`) Show more
+                  a.btn.btn-primary.mt-3(
+                    href=`/products/${product.urlPostfix}`) Show more
   .container-fluid.p-0                       
     .row.filter-container.m-0  
       .col-12                      
@@ -50,13 +55,18 @@ block content
               - let y = Math.round(numberOfproducts/limitNumber)+1
               - let all = "all"
                 li.page-item
-                  a.page-link(href=`/products?filter=${filterItem || all }&page=${prevPage || 1 }&limit=${limitNumber}` aria-label='Previous')
+                  a.page-link(
+                    href=`/products?filter=${filterItem || all }&page=${prevPage || 1 }&limit=${limitNumber}`,
+                    aria-label='Previous')
                     span(aria-hidden='true') &laquo;
                     span.sr-only Previous
                 while x <= y
                   li.page-item
-                    a.page-link(href=`/products?filter=${filterItem || all }&page=${x}&limit=${limitNumber}`) #{x++}    
+                    a.page-link(
+                      href=`/products?filter=${filterItem || all }&page=${x}&limit=${limitNumber}`) #{x++}    
                 li.page-item
-                  a.page-link(href=`/products?filter=${filterItem || all }&page=${nextPage || 1 }&limit=${limitNumber}` aria-label='Next')
+                  a.page-link(
+                    href=`/products?filter=${filterItem || all }&page=${nextPage || 1 }&limit=${limitNumber}`,
+                    aria-label='Next')
                     span(aria-hidden='true') &raquo;
                     span.sr-only Next

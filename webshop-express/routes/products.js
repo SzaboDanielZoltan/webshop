@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
     result.forEach((data) => {
       if (req.query.filter == data.type) {
         filterData.push(data);
-      } 
+      }
     });
     products = filterData;
     resultSize = filterData.length
@@ -33,15 +33,14 @@ router.get('/', async (req, res, next) => {
           getData.push(data);
         }
       });
-    }
-    else if (req.query.filter != 'all') {
+    } else if (req.query.filter != 'all') {
       filterData.forEach((data, index) => {
         if (index < (req.query.page * req.query.limit)) {
           getData.push(data);
         }
-      });     
+      });
     }
- 
+
     let previosPage;
     let nextOnePage;
     if (req.query.page <= 1) {
@@ -65,11 +64,18 @@ router.get('/', async (req, res, next) => {
     });
   }
 
-  res.render('products', { products: products, numberOfproducts: resultSize, displaySize: viewSize, filterItem: req.query.filter });
+  res.render('products', {
+    products: products,
+    numberOfproducts: resultSize,
+    displaySize: viewSize,
+    filterItem: req.query.filter
+  });
 });
 
 router.post('/', (req, res, next) => {
-  res.cookie('viewSize', req.body.limit, { maxAge: 31556952000});
+  res.cookie('viewSize', req.body.limit, {
+    maxAge: 31556952000
+  });
   res.redirect('/products');
 });
 
@@ -79,7 +85,9 @@ router.get('/:address', async (req, res, next) => {
   if (Object.entries(result).length === 0) {
     res.render('productName404');
   } else {
-    res.render('productDetail', { product: result });
+    res.render('productDetail', {
+      product: result
+    });
   }
 });
 

@@ -5,7 +5,9 @@ const Basket = {
     let newAmount;
     if (direction === 'minusOne') {
       const amountElement = event.target.nextElementSibling;
-      amountElement.value = (parseInt(amountElement.value, 10) - 1) < 1 ? 1 : parseInt(amountElement.value, 10) - 1;
+      amountElement.value = (parseInt(amountElement.value, 10) - 1) < 1 ?
+        1 :
+        parseInt(amountElement.value, 10) - 1;
       newAmount = parseInt(amountElement.value, 10);
     } else {
       const amountElement = event.target.previousElementSibling;
@@ -19,7 +21,9 @@ const Basket = {
   recalculate() {
     const orderAmountInputs = Array.from(document.querySelectorAll('input[name="orderedAmount"]'));
     let totalPrice = 0;
-    orderAmountInputs.forEach(input => totalPrice += parseInt(input.parentElement.nextElementSibling.innerHTML.substr(1), 10) * input.value);
+    orderAmountInputs.forEach(input =>
+      totalPrice +=
+      parseInt(input.parentElement.nextElementSibling.innerHTML.substr(1), 10) * input.value);
     document.querySelector('#totalPrice').innerHTML = `$${totalPrice}`;
   },
 
