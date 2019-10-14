@@ -21,10 +21,13 @@ module.exports = class adminsBusinessLogicLayer {
 
   async loginAdminVerification(emailAndPasswordObject) {
     const admins = await this.getAdmins();
-    const validAdmin = { valid: false, adminID: 'Not admin!' };
+    const validAdmin = {
+      valid: false,
+      adminID: 'Not admin!'
+    };
     for (let i = 0; i < admins.length; i++) {
-      if (admins[i].email === emailAndPasswordObject.email
-        && admins[i].password === sha1(emailAndPasswordObject.password)) {
+      if (admins[i].email === emailAndPasswordObject.email &&
+        admins[i].password === sha1(emailAndPasswordObject.password)) {
         validAdmin.valid = true;
         validAdmin.adminID = admins[i].id;
         break;
