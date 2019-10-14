@@ -32,10 +32,13 @@ module.exports = class customersBusinessLogicLayer {
 
   async loginCustomerVerification(emailAndPasswordObject) {
     const customers = await this.getCustomers();
-    const validCustomer = { valid: false, customerID: 'Not registered' };
+    const validCustomer = {
+      valid: false,
+      customerID: 'Not registered'
+    };
     for (let i = 0; i < customers.length; i++) {
-      if (customers[i].email === emailAndPasswordObject.email
-        && customers[i].password === sha1(emailAndPasswordObject.password)) {
+      if (customers[i].email === emailAndPasswordObject.email &&
+        customers[i].password === sha1(emailAndPasswordObject.password)) {
         validCustomer.valid = true;
         validCustomer.customerID = customers[i].id;
         break;
@@ -63,7 +66,10 @@ module.exports = class customersBusinessLogicLayer {
 
   async tokenValidator(token) {
     const customers = await this.getCustomers();
-    const validToken = { valid: false, customer: 'Not logged in' };
+    const validToken = {
+      valid: false,
+      customer: 'Not logged in'
+    };
     for (let i = 0; i < customers.length; i++) {
       if (customers[i].token === token) {
         validToken.valid = true;
@@ -91,7 +97,11 @@ module.exports = class customersBusinessLogicLayer {
     let total = 0;
     order.forEach(prod => total += prod.price * prod.amount);
     await db.create('orders', {
-      customerID: custID, shippingAddress: customerAddress, products: JSON.stringify(order), totalPrice: total, status: 1,
+      customerID: custID,
+      shippingAddress: customerAddress,
+      products: JSON.stringify(order),
+      totalPrice: total,
+      status: 1,
     });
   }
 
