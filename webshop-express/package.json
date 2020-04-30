@@ -13,7 +13,7 @@
     "font-awesome": "^4.7.0",
     "fontawesome": "^5.6.3",
     "http-errors": "~1.6.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "js-sha1": "^0.6.0",
     "mariadb": "^2.1.1",
     "morgan": "~1.9.1",
